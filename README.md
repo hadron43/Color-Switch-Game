@@ -6,5 +6,5 @@ Monsoon 2020 - Group Project
 
 ## Meet the Team
 
-- Varun Khurrana (2019124) @kvarun07
+- Varun Khurana (2019124) @kvarun07
 - Harsh Kumar (2019043) @hadron43
