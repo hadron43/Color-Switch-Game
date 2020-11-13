@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.jetbrains.annotations.NotNull;
 
 public class Main extends Application {
 
@@ -11,10 +12,14 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(@NotNull Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("screens/sample.fxml"));
+        // Adding stylesheet to the root
+        root.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
+
         primaryStage.setTitle("Color Switch");
-        primaryStage.setScene(new Scene(root, 500, 500));
+        Scene scene = new Scene(root, 500, 500);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }

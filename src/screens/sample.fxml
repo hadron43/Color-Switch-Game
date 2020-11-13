@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" vgap="10"
-          xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Controller">
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Controller">
    <columnConstraints>
-      <ColumnConstraints/>
+      <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints/>
+      <RowConstraints />
    </rowConstraints>
    <Pane mouseTransparent="true" opacity="0.59" prefHeight="363.0" prefWidth="363.0">
-      <Circle fill="WHITE" layoutX="183.0" layoutY="183.0" radius="169.0" stroke="BLACK" strokeType="INSIDE"/>
-      <Arc blendMode="DARKEN" fill="#f5ea18" focusTraversable="true" layoutX="208.0" layoutY="205.0" length="88.52"
-           mouseTransparent="true" radiusX="169.0" radiusY="169.0" rotate="20.6" startAngle="21.8" stroke="WHITE"
-           strokeLineCap="ROUND" strokeType="INSIDE" type="ROUND"/>
-      <Circle fill="WHITE" layoutX="182.0" layoutY="183.0" radius="139.0" stroke="BLACK" strokeType="INSIDE"/>
+      <Circle fill="WHITE" layoutX="183.0" layoutY="183.0" radius="169.0" stroke="BLACK" strokeType="INSIDE" />
+      <Arc focusTraversable="true" layoutX="183.0" layoutY="183.0" length="88.52" mouseTransparent="true" radiusX="169.0" radiusY="169.0" stroke="WHITE" strokeLineCap="ROUND" strokeType="INSIDE" styleClass="fill-yellow" type="ROUND" />
+      <Circle fill="WHITE" layoutX="182.0" layoutY="183.0" radius="139.0" stroke="BLACK" strokeType="INSIDE" />
    </Pane>
+   <stylesheets>
+      <URL value="@../style/style.css" />
+   </stylesheets>
 </GridPane>
