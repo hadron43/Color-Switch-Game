@@ -33,23 +33,22 @@
       <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="30" vgap="75">
          <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
 
-         <ImageView fitHeight="75.0" fitWidth="75.0" styleClass="settings-icon" GridPane.columnIndex="1" GridPane.rowIndex="0">
+         <ImageView fitHeight="75.0" fitWidth="75.0" styleClass="settings-icon" GridPane.columnIndex="0" GridPane.rowIndex="0">
             <Image url="@../assets/settings/diskette.png" />
          </ImageView>
-         <ToggleButton styleClass="settings-button" text="ENABLE AUTO SAVE" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+         <ToggleButton styleClass="settings-button" text="ENABLE AUTO SAVE" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-         <ImageView fitHeight="75.0" fitWidth="75.0" styleClass="settings-icon" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <ImageView fitHeight="75.0" fitWidth="75.0" styleClass="settings-icon" GridPane.columnIndex="0" GridPane.rowIndex="1">
             <Image url="@../assets/settings/music.png" />
          </ImageView>
-         <ToggleButton styleClass="settings-button" text="PLAY MUSIC" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         <ToggleButton styleClass="settings-button" text="PLAY MUSIC" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-         <ImageView fitHeight="75.0" fitWidth="75.0" styleClass="settings-icon" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <ImageView fitHeight="75.0" fitWidth="75.0" styleClass="settings-icon" GridPane.columnIndex="0" GridPane.rowIndex="2">
             <Image url="@../assets/settings/volume.png" />
          </ImageView>
-         <ToggleButton styleClass="settings-button" text="PLAY SOUNDS" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         <ToggleButton styleClass="settings-button" text="PLAY SOUNDS" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
          <columnConstraints>
-            <ColumnConstraints />
             <ColumnConstraints />
             <ColumnConstraints />
          </columnConstraints>

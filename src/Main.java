@@ -40,12 +40,21 @@ public class Main extends Application {
         return new Scene(root);
     }
 
+    private Scene loadProducedBy() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("scenes/produced.fxml"));
+        return new Scene(root);
+    }
+
     @Override
     public void start(@NotNull Stage primaryStage) throws Exception{
         primaryStage.setTitle("Color Switch");
-        Scene scene = loadSettings();
+
+        Scene scene = loadProducedBy();
         scene.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
+
         primaryStage.setScene(scene);
+        primaryStage.setHeight(1024);
+        primaryStage.setWidth(768);
         primaryStage.show();
     }
 }

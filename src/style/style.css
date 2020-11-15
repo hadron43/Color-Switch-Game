@@ -1,16 +1,18 @@
 /* theme variables */
 * {
-    -soft-black: rgb(51, 48, 48);
+    -soft-black: #292929;
     -yellow: #eed80e;
     -blue: #33dbea;
     -pink: #f7007c;
     -purple: #8714f5;
-    -grey: #6d79a3;
+    -grey: #585858;
 }
 
 .root {
     -fx-background-color: -soft-black;
     -fx-font-family: "Dyuthi";
+    -fx-font-size: 40;
+    -fx-font-weight: "lighter";
 }
 
 .heading-text {
@@ -29,10 +31,9 @@
 
 .settings-button {
     -fx-background-radius: 15;
-    -fx-padding: 0 25 0 25;
+    -fx-padding: 5 25 5 25;
     -fx-font-size: 35;
-    -fx-pref-width: 350;
-    -fx-text-fill: -soft-black;
+    -fx-pref-width: 400;
 }
 
 .settings-icon {
@@ -41,3 +42,20 @@
 }
 
 /* End of Settings Scene */
+
+/* Produced By Scene */
+.names {
+    -fx-font-size: 50;
+}
+
+.feedback-button {
+    -fx-background-radius: 20;
+    -fx-padding: 0 25 0 25;
+    -fx-background-color: -grey;
+    -fx-text-fill: white;
+}
+
+.feedback-button:hover {
+    -fx-background-color: #4d4c4c;
+}
+/* End of Produced By Scene */
