@@ -1,13 +1,10 @@
-import javafx.animation.Interpolator;
-import javafx.animation.RotateTransition;
+import javafx.animation.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Cursor;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.transform.Rotate;
-import javafx.stage.Stage;
+import javafx.scene.*;
+import javafx.scene.layout.*;
+import javafx.scene.transform.*;
+import javafx.stage.*;
 import javafx.util.Duration;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,12 +14,10 @@ public class Main extends Application {
         launch(args);
     }
 
-    @Override
-    public void start(@NotNull Stage primaryStage) throws Exception{
+    private Scene loadSampleObstacle() throws Exception {
         Node obstacle = FXMLLoader.load(getClass().getResource("scenes/sample.fxml"));
         BorderPane box = new BorderPane();
         box.setCenter(obstacle);
-        primaryStage.setTitle("Color Switch");
         Scene scene = new Scene(box, 500, 500);
 
         scene.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
@@ -37,6 +32,19 @@ public class Main extends Application {
         rotateTransition.play();
 
         scene.setCursor(Cursor.DEFAULT);
+        return scene;
+    }
+
+    private Scene loadSettings() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("scenes/settings.fxml"));
+        return new Scene(root);
+    }
+
+    @Override
+    public void start(@NotNull Stage primaryStage) throws Exception{
+        primaryStage.setTitle("Color Switch");
+        Scene scene = loadSettings();
+        scene.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }

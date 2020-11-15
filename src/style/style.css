@@ -8,8 +8,13 @@
 }
 
 .root {
-    -fx-font-family: Arial, Helvetica, sans-serif;
     -fx-background-color: -soft-black;
+    -fx-font-family: "Dyuthi";
+}
+
+.heading-text {
+    -fx-font-size: 75px;
+    -fx-fill: white;
 }
 
 .fill-yellow { -fx-fill: -yellow; }
