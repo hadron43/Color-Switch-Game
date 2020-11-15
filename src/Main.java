@@ -18,8 +18,10 @@ public class Main extends Application {
     @Override
     public void start(@NotNull Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("scenes/sample.fxml"));
-        // Adding stylesheet to the root
-        root.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
+        primaryStage.setTitle("Color Switch");
+        Scene scene = new Scene(root, 500, 500);
+
+        scene.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
 
         RotateTransition rotateTransition = new RotateTransition();
         rotateTransition.setAxis(Rotate.Z_AXIS);
@@ -27,11 +29,10 @@ public class Main extends Application {
         rotateTransition.setCycleCount(1000);
         rotateTransition.setDuration(Duration.millis(2000));
         rotateTransition.setInterpolator(Interpolator.LINEAR);
-        rotateTransition.setNode(root);
+        rotateTransition.setNode(scene.getRoot());
         rotateTransition.play();
 
-        primaryStage.setTitle("Color Switch");
-        Scene scene = new Scene(root, 500, 500);
+
         primaryStage.setScene(scene);
         primaryStage.show();
     }
