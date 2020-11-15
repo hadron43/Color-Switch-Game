@@ -1,29 +1,18 @@
 /* theme variables */
 * {
-    -bg-dark: rgb(51, 48, 48);
+    -soft-black: rgb(51, 48, 48);
     -yellow: #eed80e;
     -blue: #33dbea;
     -pink: #f7007c;
     -purple: #8714f5;
 }
 
-
 .root {
     -fx-font-family: Arial, Helvetica, sans-serif;
+    -fx-background-color: -soft-black;
 }
 
-.fill-yellow {
-    -fx-fill: -yellow;
-}
-
-.fill-blue {
-    -fx-fill: -blue;
-}
-
-.fill-pink {
-    -fx-fill: -pink;
-}
-
-.fill-purple {
-    -fx-fill: -pink;
-}
+.fill-yellow { -fx-fill: -yellow; }
+.fill-blue { -fx-fill: -blue; }
+.fill-pink { -fx-fill: -pink; }
+.fill-purple { -fx-fill: -purple; }
