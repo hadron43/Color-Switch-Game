@@ -5,6 +5,7 @@
     -blue: #33dbea;
     -pink: #f7007c;
     -purple: #8714f5;
+    -grey: #6d79a3;
 }
 
 .root {
@@ -13,7 +14,7 @@
 }
 
 .heading-text {
-    -fx-font-size: 75px;
+    -fx-font-size: 75;
     -fx-fill: white;
 }
 
@@ -22,3 +23,21 @@
 .fill-pink { -fx-fill: -pink; }
 .fill-purple { -fx-fill: -purple; }
 .fill-soft-black { -fx-fill: -soft-black }
+.fill-grey { -fx-fill: -grey }
+
+/* Setting Scene */
+
+.settings-button {
+    -fx-background-radius: 15;
+    -fx-padding: 0 25 0 25;
+    -fx-font-size: 35;
+    -fx-pref-width: 350;
+    -fx-text-fill: -soft-black;
+}
+
+.settings-icon {
+    -fx-pref-height: 50;
+    -fx-pref-width: 50;
+}
+
+/* End of Settings Scene */
