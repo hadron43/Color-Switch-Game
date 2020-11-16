@@ -31,6 +31,25 @@
 .fill-soft-black { -fx-fill: -soft-black }
 .fill-grey { -fx-fill: -grey }
 
+/* Home Scene */
+
+.scale-80 {
+    -fx-scale-x: 0.78;
+    -fx-scale-y: 0.78;
+}
+
+.scale-60 {
+    -fx-scale-x: 0.60;
+    -fx-scale-y: 0.60;
+}
+
+.play-button:hover {
+    -fx-scale-x: 0.90;
+    -fx-scale-y: 0.90;
+}
+
+/* End of Home Scene */
+
 /* Setting Scene */
 
 .settings-button {

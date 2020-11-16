@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1024" prefWidth="768" xmlns="http://javafx.com/javafx/15.0.1">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1024" prefWidth="768" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Controller">
     <top>
         <BorderPane>
             <left>
@@ -38,7 +38,7 @@
         <VBox alignment="CENTER" spacing="40">
             <Text fill="white" styleClass="names" text="Harsh Kumar" />
             <Text fill="white" styleClass="names" text="Varun Khurana" />
-            <Button styleClass="feedback-button" text=" Send Feedback">
+            <Button id="feedbackButton" onAction="#handleFeedback" styleClass="feedback-button" text=" Send Feedback">
                 <graphic>
                     <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
                         <Image url="@../assets/love.png" />

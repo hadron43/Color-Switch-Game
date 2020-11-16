@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<Pane xmlns:fx="http://javafx.com/fxml/1" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Controller">
+    <Pane id="ring_1" fx:id="ring_1" prefHeight="300" prefWidth="300">
+        <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-blue" type="ROUND" />
+        <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-pink" type="ROUND" />
+        <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-purple" type="ROUND" />
+        <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-yellow" type="ROUND" />
+        <Circle layoutX="150.0" layoutY="150.0" radius="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
+    </Pane>
+    <Pane id="ring_2" fx:id="ring_2" prefHeight="300" prefWidth="300" styleClass="scale-80">
+        <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-blue" type="ROUND" />
+        <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-pink" type="ROUND" />
+        <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-purple" type="ROUND" />
+        <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-yellow" type="ROUND" />
+        <Circle layoutX="150.0" layoutY="150.0" radius="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
+    </Pane>
+    <Pane id="ring_3" fx:id="ring_3" prefHeight="300" prefWidth="300" styleClass="scale-60">
+        <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-blue" type="ROUND" />
+        <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-pink" type="ROUND" />
+        <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-purple" type="ROUND" />
+        <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-yellow" type="ROUND" />
+        <Circle layoutX="150.0" layoutY="150.0" radius="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
+    </Pane>
+    <Pane layoutX="84.0" layoutY="86.0" prefHeight="129.0" prefWidth="133.0" styleClass="play-button">
+        <Circle layoutX="66.0" layoutY="64.0" radius="67.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Circle>
+        <ImageView fitHeight="80.0" fitWidth="78.0" layoutX="36.0" layoutY="27.0">
+            <Image url="@../assets/play-button-arrowhead.png" />
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </ImageView>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+    </Pane>
+    <stylesheets>
+        <URL value="@../style/style.css" />
+    </stylesheets>
+</Pane>

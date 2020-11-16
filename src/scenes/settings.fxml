@@ -13,11 +13,14 @@
       <BorderPane>
          <left>
             <Pane prefHeight="91.0" prefWidth="110.0" BorderPane.alignment="CENTER">
-               <Circle fill="white" layoutX="55.0" layoutY="46.0" radius="36.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="back-button" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
+               <Circle fill="white" layoutX="55.0" layoutY="46.0" radius="36.0" stroke="BLACK" strokeType="INSIDE"
+                       strokeWidth="0.0" styleClass="back-button" AnchorPane.leftAnchor="19.0"
+                       AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
                   <cursor>
                      <Cursor fx:constant="HAND" />
                   </cursor></Circle>
-               <ImageView fx:id="backButton" fitHeight="44.0" fitWidth="48.0" layoutX="33.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
+               <ImageView fx:id="backButton" fitHeight="44.0" fitWidth="48.0" layoutX="33.0" layoutY="24.0"
+                          pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
                   <Image url="@../assets/back.png" />
                   <cursor>
                      <Cursor fx:constant="HAND" />
@@ -26,7 +29,8 @@
             </Pane>
          </left>
          <center>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="heading-text" text="SETTINGS" BorderPane.alignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="heading-text" text="SETTINGS"
+                  BorderPane.alignment="CENTER" />
          </center>
          <BorderPane.margin>
             <Insets />

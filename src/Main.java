@@ -44,11 +44,16 @@ public class Main extends Application {
         return new Scene(root);
     }
 
+    public Scene getHome() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("scenes/Logo.fxml"));
+        return new Scene(root);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle("Color Switch");
 
-        Scene scene = loadSettings();
+        Scene scene = getHome();
 
         primaryStage.setScene(scene);
         primaryStage.setHeight(1024);
