@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.*?>
-
+<?import java.net.URL?>
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <columnConstraints>
       <ColumnConstraints />
@@ -18,4 +21,7 @@
       <Arc focusTraversable="true" layoutX="169.0" layoutY="171.0" length="88.52" mouseTransparent="true" radiusX="169.0" radiusY="169.0" startAngle="270.0" stroke="#e3e857" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" styleClass="fill-purple" type="ROUND" />
       <Circle fill="WHITE" layoutX="170.0" layoutY="169.0" radius="139.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
    </Pane>
+   <stylesheets>
+      <URL value="@../style/style.css" />
+   </stylesheets>
 </GridPane>

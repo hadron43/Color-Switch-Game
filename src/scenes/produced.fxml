@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1000" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1024" prefWidth="768" xmlns="http://javafx.com/javafx/11.0.1">
     <top>
         <BorderPane>
             <left>
                 <Pane prefHeight="91.0" prefWidth="110.0" BorderPane.alignment="CENTER">
-                    <Circle fill="white" layoutX="55.0" layoutY="46.0" radius="36.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER" />
+                    <Circle fill="white" layoutX="55.0" layoutY="46.0" radius="36.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="back-button" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor></Circle>
                     <ImageView fx:id="backButton" fitHeight="44.0" fitWidth="48.0" layoutX="33.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
                         <Image url="@../assets/back.png" />
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
                     </ImageView>
                 </Pane>
             </left>
@@ -28,15 +36,21 @@
     </top>
     <center>
         <VBox alignment="CENTER" spacing="40">
-            <Text fill="white" text="Harsh Kumar" styleClass="names" />
-            <Text fill="white" text="Varun Khurana" styleClass="names" />
-            <Button text=" Send Feedback" styleClass="feedback-button">
+            <Text fill="white" styleClass="names" text="Harsh Kumar" />
+            <Text fill="white" styleClass="names" text="Varun Khurana" />
+            <Button styleClass="feedback-button" text=" Send Feedback">
                 <graphic>
-                    <ImageView preserveRatio="true" fitHeight="50" fitWidth="50">
-                        <Image url="@../assets/love.png"/>
+                    <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
+                        <Image url="@../assets/love.png" />
                     </ImageView>
                 </graphic>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
             </Button>
         </VBox>
     </center>
+    <stylesheets>
+        <URL value="@../style/style.css" />
+    </stylesheets>
 </BorderPane>

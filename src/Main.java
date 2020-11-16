@@ -50,7 +50,6 @@ public class Main extends Application {
         primaryStage.setTitle("Color Switch");
 
         Scene scene = loadProducedBy();
-        scene.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
 
         primaryStage.setScene(scene);
         primaryStage.setHeight(1024);

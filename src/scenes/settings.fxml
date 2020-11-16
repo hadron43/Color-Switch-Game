@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1000" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1">
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+<?import java.net.URL?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1024" prefWidth="768" xmlns="http://javafx.com/javafx/11.0.1">
    <top>
       <BorderPane>
          <left>
             <Pane prefHeight="91.0" prefWidth="110.0" BorderPane.alignment="CENTER">
-               <Circle fill="white" layoutX="55.0" layoutY="46.0" radius="36.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER" />
+               <Circle fill="white" layoutX="55.0" layoutY="46.0" radius="36.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="back-button" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor></Circle>
                <ImageView fx:id="backButton" fitHeight="44.0" fitWidth="48.0" layoutX="33.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
                   <Image url="@../assets/back.png" />
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
                </ImageView>
             </Pane>
          </left>
@@ -59,4 +66,7 @@
          </rowConstraints>
       </GridPane>
    </center>
+   <stylesheets>
+      <URL value="@../style/style.css" />
+   </stylesheets>
 </BorderPane>
