@@ -8,11 +8,15 @@
     -grey: #585858;
 }
 
+@font-face {
+    src: url("../fonts/Dyuthi-Regular.ttf")
+}
+
 .root {
     -fx-background-color: -soft-black;
     -fx-font-family: "Dyuthi";
     -fx-font-size: 40;
-    -fx-font-weight: "lighter";
+    -fx-font-weight: lighter;
 }
 
 .heading-text {

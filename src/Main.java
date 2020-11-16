@@ -6,7 +6,6 @@ import javafx.scene.layout.*;
 import javafx.scene.transform.*;
 import javafx.stage.*;
 import javafx.util.Duration;
-import org.jetbrains.annotations.NotNull;
 
 public class Main extends Application {
 
@@ -46,10 +45,10 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(@NotNull Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle("Color Switch");
 
-        Scene scene = loadProducedBy();
+        Scene scene = loadSettings();
 
         primaryStage.setScene(scene);
         primaryStage.setHeight(1024);

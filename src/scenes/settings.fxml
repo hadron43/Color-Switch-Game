@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 <?import java.net.URL?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1024" prefWidth="768" xmlns="http://javafx.com/javafx/11.0.1">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1024" prefWidth="768" xmlns="http://javafx.com/javafx/15.0.1">
    <top>
       <BorderPane>
          <left>
