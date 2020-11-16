@@ -2,6 +2,7 @@ import javafx.animation.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.transform.*;
 import javafx.stage.*;
@@ -51,6 +52,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        primaryStage.getIcons().add(new Image("/assets/color-switch-icon.png"));
         primaryStage.setTitle("Color Switch");
 
         Scene scene = getHome();
