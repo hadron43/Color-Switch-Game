@@ -46,7 +46,7 @@ public class Main extends Application {
     }
 
     public Scene getHome() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("scenes/Logo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("scenes/home.fxml"));
         return new Scene(root);
     }
 
