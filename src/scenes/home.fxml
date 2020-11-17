@@ -114,7 +114,7 @@
                     </cursor>
                 </Circle>
                 <ImageView fitHeight="80.0" fitWidth="78.0" layoutX="36.0" layoutY="27.0">
-                    <Image url="@../assets/play-button-arrowhead.png" />
+                    <Image url="@../assets/home/play-button-arrowhead.png" />
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
