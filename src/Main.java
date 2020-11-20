@@ -7,6 +7,7 @@ import javafx.scene.layout.*;
 import javafx.scene.transform.*;
 import javafx.stage.*;
 import javafx.util.Duration;
+import javafx.scene.text.Font;
 
 public class Main extends Application {
 
@@ -52,6 +53,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        Font.loadFont("/fonts/Dyuthi.ttf", 45);
         primaryStage.getIcons().add(new Image("/assets/color-switch-icon.png"));
         primaryStage.setTitle("Color Switch");
 
