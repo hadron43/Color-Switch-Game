@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1024" prefWidth="768" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Controller">
+<BorderPane prefHeight="1024" prefWidth="768" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <top>
         <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
              <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
                  <padding>
-                     <Insets bottom="50.0" right="50.0"/>
+                     <Insets bottom="50.0" right="50.0" />
                  </padding>
                  <Pane prefHeight="101.0" prefWidth="100.0" styleClass="small-on-hover">
                      <cursor>
-                         <Cursor fx:constant="HAND"/>
+                         <Cursor fx:constant="HAND" />
                      </cursor>
-                     <Circle layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE"
-                             styleClass="fill-grey"/>
+                     <Circle fx:id="settings_btn" layoutX="50.0" layoutY="50.0" onMouseClicked="#home_to_settings" radius="50.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey" />
                      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="18.0" layoutY="17.0">
-                         <Image url="@../assets/home/gear.png"/>
+                         <Image url="@../assets/home/gear.png" />
                      </ImageView>
                  </Pane>
              </VBox>
@@ -33,12 +40,11 @@
              <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
                  <Pane prefHeight="101.0" prefWidth="100.0" styleClass="small-on-hover">
                      <cursor>
-                         <Cursor fx:constant="HAND"/>
+                         <Cursor fx:constant="HAND" />
                      </cursor>
-                     <Circle layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE"
-                             styleClass="fill-grey"/>
+                     <Circle layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey" />
                      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="17.0" layoutY="18.0">
-                         <Image url="@../assets/home/question-sign.png"/>
+                         <Image url="@../assets/home/question-sign.png" />
                      </ImageView>
                  </Pane>
              </VBox>
@@ -133,39 +139,37 @@
             <left>
                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
                     <padding>
-                        <Insets bottom="50.0" top="100.0"/>
+                        <Insets bottom="50.0" top="100.0" />
                     </padding>
                     <Pane fx:id="icon_1" prefHeight="101.0" prefWidth="90.0" styleClass="small-on-hover">
                         <cursor>
-                            <Cursor fx:constant="HAND"/>
+                            <Cursor fx:constant="HAND" />
                         </cursor>
-                        <Circle fill="mediumvioletred" layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK"
-                                strokeType="INSIDE"/>
+                        <Circle fill="mediumvioletred" layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
                         <ImageView fitHeight="55.0" fitWidth="58.0" layoutX="20.0" layoutY="24.0">
                             <image>
-                                <Image url="@../assets/home/trophy.png"/>
+                                <Image url="@../assets/home/trophy.png" />
                             </image>
                         </ImageView>
                     </Pane>
                 </VBox>
             </left>
             <center>
-                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                      prefHeight="266.0" prefWidth="359.0">
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="359.0">
                     <Button maxWidth="Infinity" styleClass="feedback-button" text="Resume Game">
                         <cursor>
-                            <Cursor fx:constant="HAND"/>
+                            <Cursor fx:constant="HAND" />
                         </cursor>
                         <VBox.margin>
-                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </VBox.margin>
                     </Button>
                     <Button maxWidth="Infinity" styleClass="feedback-button" text="Start New Game">
                         <cursor>
-                            <Cursor fx:constant="HAND"/>
+                            <Cursor fx:constant="HAND" />
                         </cursor>
                         <VBox.margin>
-                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </VBox.margin>
                     </Button>
                 </VBox>
@@ -173,16 +177,15 @@
             <right>
                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
                     <padding>
-                        <Insets bottom="50.0" top="100.0"/>
+                        <Insets bottom="50.0" top="100.0" />
                     </padding>
                     <Pane fx:id="icon_2" prefHeight="101.0" prefWidth="100.0" styleClass="small-on-hover">
                         <cursor>
-                            <Cursor fx:constant="HAND"/>
+                            <Cursor fx:constant="HAND" />
                         </cursor>
-                        <Circle fill="dodgerblue" layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK"
-                                strokeType="INSIDE"/>
+                        <Circle fx:id="produced_btn" fill="dodgerblue" layoutX="50.0" layoutY="50.0" onMouseClicked="#home_to_produced_by" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
                         <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="23.0" layoutY="22.0">
-                            <Image url="@../assets/home/instagram.png"/>
+                            <Image url="@../assets/home/instagram.png" />
                         </ImageView>
                     </Pane>
                 </VBox>

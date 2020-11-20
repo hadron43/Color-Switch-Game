@@ -35,18 +35,18 @@ public class Main extends Application {
         return scene;
     }
 
-    private Scene loadSettings() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("scenes/settings.fxml"));
+    protected static Scene loadSettings() throws Exception {
+        Parent root = FXMLLoader.load(Main.class.getResource("scenes/settings.fxml"));
         return new Scene(root);
     }
 
-    private Scene loadProducedBy() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("scenes/produced.fxml"));
+    protected static Scene loadProducedBy() throws Exception {
+        Parent root = FXMLLoader.load(Main.class.getResource("scenes/produced.fxml"));
         return new Scene(root);
     }
 
-    public Scene getHome() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("scenes/home.fxml"));
+    protected static Scene getHome() throws Exception {
+        Parent root = FXMLLoader.load(Main.class.getResource("scenes/home.fxml"));
         return new Scene(root);
     }
 
@@ -55,8 +55,9 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("/assets/color-switch-icon.png"));
         primaryStage.setTitle("Color Switch");
 
-        Scene scene = getHome();
-
+//        Scene scene = getHome();
+//        Scene scene = loadSettings();
+        Scene scene = loadProducedBy();
         primaryStage.setScene(scene);
         primaryStage.setHeight(1024);
         primaryStage.setWidth(768);
