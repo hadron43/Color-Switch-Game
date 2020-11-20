@@ -1,0 +1,5 @@
+# This file contains environment dependencies.
+
+JDK: "15.0.1"
+JavaFX SDK: "15.0.1"
+SceneBuilder: "11.0.0"
