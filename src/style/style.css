@@ -9,13 +9,12 @@
 }
 
 @font-face {
-    font-family: 'Dyuthi';
-    src: url("../fonts/Dyuthi.ttf");
+    src: url("../fonts/Dyuthi-Regular.ttf")
 }
 
 .root {
     -fx-background-color: -soft-black;
-    -fx-font-family: 'Dyuthi';
+    -fx-font-family: "Dyuthi";
     -fx-font-size: 40;
     -fx-font-weight: lighter;
 }
