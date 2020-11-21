@@ -1,32 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Text?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane prefHeight="1024" prefWidth="768" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <top>
         <BorderPane>
             <left>
-                <Pane prefHeight="91.0" prefWidth="110.0" BorderPane.alignment="CENTER">
-                    <Circle fx:id="back_btn" fill="white" layoutX="55.0" layoutY="46.0" onMouseClicked="#produced_to_home" radius="36.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="back-button" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor></Circle>
-                    <ImageView fx:id="backButton" fitHeight="44.0" fitWidth="48.0" layoutX="33.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
+                <Pane styleClass="small-on-hover" onMouseClicked="#backToHome" prefHeight="101.0" prefWidth="94.0" BorderPane.alignment="CENTER">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <Circle fill="white" layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="back-button" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER" />
+                    <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="18.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
                         <Image url="@../assets/back.png" />
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor>
                     </ImageView>
                 </Pane>
             </left>

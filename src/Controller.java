@@ -1,12 +1,9 @@
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -18,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    @FXML private Pane ring_1, ring_2, ring_3, icon_1, icon_2;
+    @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn;
     @FXML private ImageView ring_4, ring_5;
 
     @FXML private ImageView backButton;
@@ -52,23 +49,14 @@ public class Controller implements Initializable {
         r[3].setNode(ring_4);
         r[4].setNode(ring_5);
         r[5].setNode(icon_1);
-        r[6].setNode(icon_2);
+        r[6].setNode(produced_btn);
 
         for(int i=0; i<items; ++i)
             r[i].play();
     }
 
     @FXML
-    private void settings_to_home(MouseEvent me) throws Exception {
-        Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
-        game_stage.hide();
-        Scene scene = Main.getHome();
-        game_stage.setScene(scene);
-        game_stage.show();
-    }
-
-    @FXML
-    private void home_to_settings(MouseEvent me) throws Exception {
+    private void loadSettings(MouseEvent me) throws Exception {
         Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
         game_stage.hide();
         Scene scene = Main.loadSettings();
@@ -76,14 +64,14 @@ public class Controller implements Initializable {
         game_stage.show();
     }
     @FXML
-    private void home_to_produced_by(MouseEvent me) throws Exception {
+    private void loadProducedBy(MouseEvent me) throws Exception {
         Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
         game_stage.hide();
         Scene scene = Main.loadProducedBy();
         game_stage.setScene(scene);
         game_stage.show();
     }
-    private void home_to_about(MouseEvent me) throws Exception {
+    private void loadAbout(MouseEvent me) throws Exception {
         Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
         game_stage.hide();
 //        Scene scene = Main.load_about_game();
@@ -91,7 +79,7 @@ public class Controller implements Initializable {
         game_stage.show();
     }
 
-    private void home_to_stats(MouseEvent me) throws Exception {
+    private void loadStats(MouseEvent me) throws Exception {
         Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
         game_stage.hide();
 //        Scene scene = Main.load_stats();
@@ -100,7 +88,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void produced_to_home(MouseEvent me) throws Exception {
+    private void backToHome(MouseEvent me) throws Exception {
         Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
         game_stage.hide();
         Scene scene = Main.getHome();
