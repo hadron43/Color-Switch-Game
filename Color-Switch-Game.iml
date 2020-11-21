@@ -16,7 +16,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="lib1" level="project" />
     <orderEntry type="library" name="org.jetbrains:annotations:16.0.2" level="project" />
+    <orderEntry type="library" name="java-fx-lib" level="project" />
   </component>
 </module>

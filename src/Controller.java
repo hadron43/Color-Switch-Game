@@ -58,15 +58,15 @@ public class Controller implements Initializable {
             r[i].play();
 
         // For loading sample obstacles for testing purposes
-        Pane newPane;
-        try {
-            newPane = FXMLLoader.load(getClass().getResource("/obstacles/circle.fxml"));
-            List<Node> parentChildren = ((Pane)box.getParent()).getChildren();
-            parentChildren.set(parentChildren.indexOf(box), newPane);
-            box = newPane;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        Pane newPane;
+//        try {
+//            newPane = FXMLLoader.load(getClass().getResource("/obstacles/circle.fxml"));
+//            List<Node> parentChildren = ((Pane)box.getParent()).getChildren();
+//            parentChildren.set(parentChildren.indexOf(box), newPane);
+//            box = newPane;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @FXML
@@ -85,11 +85,12 @@ public class Controller implements Initializable {
         game_stage.setScene(scene);
         game_stage.show();
     }
+    @FXML
     private void loadAbout(MouseEvent me) throws Exception {
         Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
         game_stage.hide();
-//        Scene scene = Main.load_about_game();
-//        game_stage.setScene(scene);
+        Scene scene = Main.loadAboutGame();
+        game_stage.setScene(scene);
         game_stage.show();
     }
 

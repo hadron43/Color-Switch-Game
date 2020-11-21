@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="1024.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <top>
+        <BorderPane>
+            <left>
+                <Pane onMouseClicked="#backToHome" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" BorderPane.alignment="CENTER">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <Circle fill="white" layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="back-button" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER" />
+                    <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="18.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
+                        <Image url="@../assets/back.png" />
+                    </ImageView>
+                </Pane>
+            </left>
+            <center>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="heading-text" text="About Game" BorderPane.alignment="CENTER" />
+            </center>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+            <padding>
+                <Insets left="50.0" right="50.0" top="50.0" />
+            </padding>
+        </BorderPane>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="40">
+            <Text fill="white" styleClass="about_game_subhead" text="Aim" textAlignment="CENTER" />
+            <Text fill="white" styleClass="about_game_info" text="Click to make the ball jump and stay afloat. Collect as many stars as you can along the way up, avoiding obstacles. Colliding with obstacles of different colour ends the game!" textAlignment="JUSTIFY" wrappingWidth="457.36460810899734" />
+            <Text fill="white" styleClass="about_game_subhead" text="Resurrection" textAlignment="CENTER" />
+            <Text fill="white" styleClass="about_game_info" text="Fret not, we got you covered! Spend 100 stars and voila! You are resurrected. Continue your game." textAlignment="JUSTIFY" wrappingWidth="447.9896240234375" />
+        </VBox>
+    </center>
+    <stylesheets>
+        <URL value="@../style/style.css" />
+    </stylesheets>
+
+</BorderPane>

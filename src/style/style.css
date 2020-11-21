@@ -94,3 +94,14 @@
     -fx-background-color: #4d4c4c;
 }
 /* End of Produced By Scene */
+
+/* About Game Scene */
+.about_game_info {
+    -fx-font-size: 30;
+}
+
+.about_game_subhead {
+    -fx-font-size: 50;
+}
+
+/* End of About Game Scene*/

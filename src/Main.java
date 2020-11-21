@@ -26,6 +26,11 @@ public class Main extends Application {
         return new Scene(root);
     }
 
+    protected static Scene loadAboutGame() throws Exception{
+        Parent root = FXMLLoader.load(Main.class.getResource("scenes/about_game.fxml"));
+        return new Scene(root);
+    }
+
     protected static Scene getHome() throws Exception {
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/home.fxml"));
         return new Scene(root);
@@ -36,8 +41,8 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("/assets/color-switch-icon.png"));
         primaryStage.setTitle("Color Switch");
 
-        Scene scene = loadSampleObstacle();
-
+//        Scene scene = loadSampleObstacle();
+        Scene scene = loadAboutGame();
 
 
         primaryStage.setScene(scene);
