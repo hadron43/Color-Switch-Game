@@ -1,91 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Arc?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Text?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane prefHeight="1024" prefWidth="768" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <top>
         <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <left>
-             <VBox prefHeight="268.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
-                 <Pane maxWidth="101.0" minWidth="101.0" onMouseClicked="#loadSettings" prefHeight="101.0" prefWidth="101.0" styleClass="small-on-hover">
-                     <cursor>
-                         <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <Circle layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey" />
-                     <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="18.0" layoutY="17.0">
-                         <Image url="@../assets/home/gear.png" />
-                     </ImageView>
-                 </Pane>
-             </VBox>
-         </left>
-         <right>
-             <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
-                 <Pane prefHeight="101.0" prefWidth="100.0" styleClass="small-on-hover">
-                     <cursor>
-                         <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <Circle fx:id="about_btn" layoutX="50.0" layoutY="50.0" onMouseClicked="#loadAbout" radius="50.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey" />
-                     <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="17.0" layoutY="18.0">
-                         <Image url="@../assets/home/question-sign.png" />
-                     </ImageView>
-                 </Pane>
-             </VBox>
-         </right>
-         <center>
-            <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
-                <VBox alignment="CENTER">
-                    <FlowPane prefHeight="134.0" prefWidth="213.0">
-                        <Text styleClass="home-heading" text="C" />
-
-                        <ImageView fx:id="ring_4">
-                            <Image requestedHeight="65" requestedWidth="65" url="@../assets/home/circle.png" />
-                        <FlowPane.margin>
-                           <Insets bottom="25.0" left="10.0" right="10.0" />
-                        </FlowPane.margin>
+            <left>
+                <VBox prefHeight="268.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+                    <Pane maxWidth="101.0" minWidth="101.0" onMouseClicked="#loadSettings" prefHeight="101.0" prefWidth="101.0" styleClass="small-on-hover">
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
+                        <Circle layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey" />
+                        <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="18.0" layoutY="17.0">
+                            <Image url="@../assets/home/gear.png" />
                         </ImageView>
-
-                        <Text styleClass="home-heading" text="L" />
-
-                        <ImageView fx:id="ring_5">
-                            <Image requestedHeight="65" requestedWidth="65" url="@../assets/home/circle.png" />
-                        <FlowPane.margin>
-                            <Insets bottom="25.0" left="10.0" right="10.0" />
-                        </FlowPane.margin>
-                        </ImageView>
-                        
-                        <Text styleClass="home-heading" text="R" />
-                    </FlowPane>
-                    <Text styleClass="home-heading" text="SWITCH" wrappingWidth="330.56640625" />
+                    </Pane>
                 </VBox>
-               <columnConstraints>
-                  <ColumnConstraints />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints />
-               </rowConstraints>
-            </GridPane>
-         </center>
-         <padding>
-            <Insets left="50.0" right="50.0" />
-         </padding>
-         <BorderPane.margin>
-            <Insets top="50.0" />
-         </BorderPane.margin></BorderPane>
+            </left>
+            <right>
+                <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+                    <Pane onMousePressed="#loadAbout" prefHeight="101.0" prefWidth="100.0" styleClass="small-on-hover">
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
+                        <Circle layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey" />
+                        <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="17.0" layoutY="18.0">
+                            <Image url="@../assets/home/question-sign.png" />
+                        </ImageView>
+                    </Pane>
+                </VBox>
+            </right>
+            <center>
+                <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+                    <VBox alignment="CENTER">
+                        <FlowPane prefHeight="134.0" prefWidth="213.0">
+                            <Text styleClass="home-heading" text="C" />
+
+                            <ImageView fx:id="ring_4">
+                                <Image requestedHeight="65" requestedWidth="65" url="@../assets/home/circle.png" />
+                                <FlowPane.margin>
+                                    <Insets bottom="25.0" left="10.0" right="10.0" />
+                                </FlowPane.margin>
+                            </ImageView>
+
+                            <Text styleClass="home-heading" text="L" />
+
+                            <ImageView fx:id="ring_5">
+                                <Image requestedHeight="65" requestedWidth="65" url="@../assets/home/circle.png" />
+                                <FlowPane.margin>
+                                    <Insets bottom="25.0" left="10.0" right="10.0" />
+                                </FlowPane.margin>
+                            </ImageView>
+
+                            <Text styleClass="home-heading" text="R" />
+                        </FlowPane>
+                        <Text styleClass="home-heading" text="SWITCH" wrappingWidth="330.56640625" />
+                    </VBox>
+                    <columnConstraints>
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+            </center>
+            <padding>
+                <Insets left="50.0" right="50.0" />
+            </padding>
+            <BorderPane.margin>
+                <Insets top="50.0" />
+            </BorderPane.margin></BorderPane>
     </top>
     <center>
         <Pane maxHeight="300" maxWidth="300" scaleX="1.25" scaleY="1.25">
@@ -185,9 +177,9 @@
                     </Pane>
                 </VBox>
             </right>
-         <padding>
-            <Insets left="50.0" right="50.0" />
-         </padding>
+            <padding>
+                <Insets left="50.0" right="50.0" />
+            </padding>
         </BorderPane>
     </bottom>
     <stylesheets>

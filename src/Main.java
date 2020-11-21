@@ -41,8 +41,8 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("/assets/color-switch-icon.png"));
         primaryStage.setTitle("Color Switch");
 
-//        Scene scene = loadSampleObstacle();
-        Scene scene = loadAboutGame();
+        Scene scene = loadSampleObstacle();
+//        Scene scene = getHome();
 
 
         primaryStage.setScene(scene);

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+
+<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="circleFlow" prefHeight="350" prefWidth="350" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.ObstaclesController">
+
+    <stylesheets>
+        <URL value="@../style/style.css" />
+    </stylesheets>
+
+    <Circle layoutX="63.0" layoutY="59.0" radius="14.0" styleClass="fill-yellow" />
+    <Circle layoutX="92.0" layoutY="37.0" radius="14.0" styleClass="fill-yellow" />
+    <Circle layoutX="41.0" layoutY="86.0" radius="14.0" styleClass="fill-yellow" />
+    <Circle layoutX="24.0" layoutY="117.0" radius="14.0" styleClass="fill-yellow" />
+    <Circle layoutX="16.0" layoutY="151.0" radius="14.0" styleClass="fill-yellow" />
+    <Circle layoutX="126.0" layoutY="22.0" radius="14.0" styleClass="fill-yellow" />
+    <Circle layoutX="161.0" layoutY="15.0" radius="14.0" styleClass="fill-yellow" />
+
+    <Circle layoutX="116.0" layoutY="325.0" radius="14.0" styleClass="fill-blue" />
+    <Circle layoutX="85.0" layoutY="309.0" radius="14.0" styleClass="fill-blue" />
+    <Circle layoutX="58.0" layoutY="286.0" radius="14.0" styleClass="fill-blue" />
+    <Circle layoutX="37.0" layoutY="258.0" radius="14.0" styleClass="fill-blue" />
+    <Circle layoutX="22.0" layoutY="226.0" radius="14.0" styleClass="fill-blue" />
+    <Circle layoutX="150.0" layoutY="334.0" radius="14.0" styleClass="fill-blue" />
+    <Circle layoutX="15.0" layoutY="190.0" radius="14.0" styleClass="fill-blue" />
+
+    <Circle layoutX="285.0" layoutY="292.0" radius="14.0" styleClass="fill-pink" />
+    <Circle layoutX="224.0" layoutY="328.0" radius="14.0" styleClass="fill-pink" />
+    <Circle layoutX="309.0" layoutY="265.0" radius="14.0" styleClass="fill-pink" />
+    <Circle layoutX="335.0" layoutY="198.0" radius="14.0" styleClass="fill-pink" />
+    <Circle layoutX="256.0" layoutY="314.0" radius="14.0" styleClass="fill-pink" />
+    <Circle layoutX="189.0" layoutY="336.0" radius="14.0" styleClass="fill-pink" />
+    <Circle layoutX="326.0" layoutY="233.0" radius="14.0" styleClass="fill-pink" />
+
+    <Circle layoutX="328.0" layoutY="126.0" radius="14.0" styleClass="fill-purple" />
+    <Circle layoutX="235.0" layoutY="26.0" radius="14.0" styleClass="fill-purple" />
+    <Circle layoutX="198.0" layoutY="16.0" radius="14.0" styleClass="fill-purple" />
+    <Circle layoutX="292.0" layoutY="65.0" radius="14.0" styleClass="fill-purple" />
+    <Circle layoutX="335.0" layoutY="161.0" radius="14.0" styleClass="fill-purple" />
+    <Circle layoutX="266.0" layoutY="42.0" radius="14.0" styleClass="fill-purple" />
+    <Circle layoutX="314.0" layoutY="93.0" radius="14.0" styleClass="fill-purple" />
+
+</Pane>

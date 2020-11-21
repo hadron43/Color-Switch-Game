@@ -1,3 +1,4 @@
+import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
@@ -38,7 +39,7 @@ public class Controller implements Initializable {
             r[i] = new RotateTransition();
             r[i].setAxis(Rotate.Z_AXIS);
             r[i].setByAngle((Math.pow(-1, i))*360);
-            r[i].setCycleCount(1000);
+            r[i].setCycleCount(Animation.INDEFINITE);
             r[i].setInterpolator(Interpolator.LINEAR);
             if(i<3)
                 r[i].setDuration(Duration.millis(3000 - 250*i));
@@ -57,16 +58,18 @@ public class Controller implements Initializable {
         for(int i=0; i<items; ++i)
             r[i].play();
 
-        // For loading sample obstacles for testing purposes
-//        Pane newPane;
-//        try {
-//            newPane = FXMLLoader.load(getClass().getResource("/obstacles/circle.fxml"));
-//            List<Node> parentChildren = ((Pane)box.getParent()).getChildren();
-//            parentChildren.set(parentChildren.indexOf(box), newPane);
-//            box = newPane;
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+//        For loading sample obstacles for testing purposes
+        if(box != null) {
+            Pane newPane;
+            try {
+                newPane = FXMLLoader.load(getClass().getResource("/obstacles/circleFlow.fxml"));
+                List<Node> parentChildren = ((Pane) box.getParent()).getChildren();
+                parentChildren.set(parentChildren.indexOf(box), newPane);
+                box = newPane;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML
