@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: 'Dyuthi';
-    src: url("../fonts/Dyuthi.ttf");
+    src: url("../fonts/Dyuthi-Regular.ttf");
 }
 
 .root {
@@ -29,7 +29,7 @@
 .fill-grey { -fx-fill: -grey }
 
 .heading-text {
-    -fx-font-size: 60;
+    -fx-font-size: 65;
     -fx-fill: white;
 }
 
@@ -98,11 +98,11 @@
 
 /* About Game Scene */
 .about_game_info {
-    -fx-font-size: 20px;
+    -fx-font-size: 25;
 }
 
 .about_game_subhead {
-    -fx-font-size: 30px;
+    -fx-font-size: 40;
 }
 
 /* End of About Game Scene*/

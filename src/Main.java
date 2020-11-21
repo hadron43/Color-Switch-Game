@@ -47,6 +47,6 @@ public class Main extends Application {
 
     @Override
     public void init() {
-        Font font = Font.loadFont(getClass().getResourceAsStream("fonts/Dyuthi.ttf"), 32);
+        Font font = Font.loadFont(getClass().getResourceAsStream("fonts/Dyuthi-Regular.ttf"), 32);
     }
 }
