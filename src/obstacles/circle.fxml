@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="circle" prefHeight="350" prefWidth="350"
+      xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.ObstaclesController">
+
+    <stylesheets>
+        <URL value="@../style/style.css"/>
+    </stylesheets>
+    <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0"
+         startAngle="0.0" styleClass="fill-yellow" type="ROUND"/>
+    <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0"
+         startAngle="90.0" styleClass="fill-blue" type="ROUND"/>
+    <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0"
+         startAngle="180.0" styleClass="fill-pink" type="ROUND"/>
+    <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0"
+         startAngle="270.0" styleClass="fill-purple" type="ROUND"/>
+    <Circle fill="WHITE" layoutX="175.0" layoutY="175.0" radius="147.0" stroke="BLACK" strokeType="INSIDE"
+            styleClass="fill-soft-black"/>
+</Pane>

@@ -1,12 +1,9 @@
-import javafx.animation.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.*;
-import javafx.scene.transform.*;
-import javafx.stage.*;
-import javafx.util.Duration;
+import javafx.stage.Stage;
 
 public class Main extends Application {
 
@@ -15,24 +12,8 @@ public class Main extends Application {
     }
 
     private Scene loadSampleObstacle() throws Exception {
-        Node obstacle = FXMLLoader.load(getClass().getResource("scenes/sample.fxml"));
-        BorderPane box = new BorderPane();
-        box.setCenter(obstacle);
-        Scene scene = new Scene(box, 500, 500);
-
-        scene.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
-
-        RotateTransition rotateTransition = new RotateTransition();
-        rotateTransition.setAxis(Rotate.Z_AXIS);
-        rotateTransition.setByAngle(360);
-        rotateTransition.setCycleCount(1000);
-        rotateTransition.setDuration(Duration.millis(2000));
-        rotateTransition.setInterpolator(Interpolator.LINEAR);
-        rotateTransition.setNode(obstacle);
-        rotateTransition.play();
-
-        scene.setCursor(Cursor.DEFAULT);
-        return scene;
+        Parent root = FXMLLoader.load(getClass().getResource("scenes/sample.fxml"));
+        return new Scene(root, 500, 500);
     }
 
     protected static Scene loadSettings() throws Exception {
@@ -55,7 +36,10 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("/assets/color-switch-icon.png"));
         primaryStage.setTitle("Color Switch");
 
-        Scene scene = getHome();
+        Scene scene = loadSampleObstacle();
+
+
+
         primaryStage.setScene(scene);
         primaryStage.setHeight(1024);
         primaryStage.setWidth(768);

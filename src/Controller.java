@@ -1,6 +1,7 @@
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -11,11 +12,13 @@ import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn;
+    @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn, box;
     @FXML private ImageView ring_4, ring_5;
 
     @FXML private ImageView backButton;
@@ -53,6 +56,17 @@ public class Controller implements Initializable {
 
         for(int i=0; i<items; ++i)
             r[i].play();
+
+        // For loading sample obstacles for testing purposes
+        Pane newPane;
+        try {
+            newPane = FXMLLoader.load(getClass().getResource("/obstacles/circle.fxml"));
+            List<Node> parentChildren = ((Pane)box.getParent()).getChildren();
+            parentChildren.set(parentChildren.indexOf(box), newPane);
+            box = newPane;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
