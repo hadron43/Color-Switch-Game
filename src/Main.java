@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -42,5 +43,10 @@ public class Main extends Application {
         primaryStage.setHeight(680);
         primaryStage.setWidth(600);
         primaryStage.show();
+    }
+
+    @Override
+    public void init() {
+        Font font = Font.loadFont(getClass().getResourceAsStream("fonts/Dyuthi.ttf"), 32);
     }
 }
