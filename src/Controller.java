@@ -97,11 +97,12 @@ public class Controller implements Initializable {
         game_stage.show();
     }
 
+    @FXML
     private void loadStats(MouseEvent me) throws Exception {
         Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
         game_stage.hide();
-//        Scene scene = Main.load_stats();
-//        game_stage.setScene(scene);
+        Scene scene = Main.loadStats();
+        game_stage.setScene(scene);
         game_stage.show();
     }
 

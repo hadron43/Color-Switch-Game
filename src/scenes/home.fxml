@@ -130,7 +130,7 @@
                     <padding>
                         <Insets bottom="50.0" top="100.0" />
                     </padding>
-                    <Pane fx:id="icon_1" prefHeight="101.0" prefWidth="90.0" styleClass="small-on-hover">
+                    <Pane fx:id="icon_1" prefHeight="101.0" prefWidth="90.0" onMouseClicked="#loadStats" styleClass="small-on-hover">
                         <cursor>
                             <Cursor fx:constant="HAND" />
                         </cursor>

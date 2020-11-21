@@ -106,3 +106,9 @@
 }
 
 /* End of About Game Scene*/
+
+/* View Stats Scene */
+.stats_info {
+    -fx-font-size: 40
+}
+/* End of View Scene */

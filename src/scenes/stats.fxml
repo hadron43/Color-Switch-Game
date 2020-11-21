@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="680.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <top>
+        <BorderPane>
+            <left>
+                <Pane onMouseClicked="#backToHome" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" BorderPane.alignment="CENTER">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <Circle fill="white" layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="back-button" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER" />
+                    <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="21.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
+                        <Image url="@../assets/home.png" />
+                    </ImageView>
+                </Pane>
+            </left>
+            <center>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="heading-text" text="STATS" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+            </center>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+            <padding>
+                <Insets left="50.0" right="50.0" top="50.0" />
+            </padding>
+        </BorderPane>
+    </top>
+
+   <center>
+      <GridPane prefHeight="400.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <BorderPane.margin>
+            <Insets bottom="150.0" left="75.0" right="75.0" top="75.0" />
+         </BorderPane.margin>
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Text fill="white" layoutX="14.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="High Score:" wrappingWidth="214.4557113647461" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Text fill="white" layoutX="16.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="Total Stars:" />
+               </children></Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+   </center>
+
+    <stylesheets>
+        <URL value="@../style/style.css" />
+    </stylesheets>
+
+</BorderPane>

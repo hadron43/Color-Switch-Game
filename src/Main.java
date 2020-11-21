@@ -27,6 +27,11 @@ public class Main extends Application {
         return new Scene(root);
     }
 
+    protected static Scene loadStats() throws Exception{
+        Parent root = FXMLLoader.load(Main.class.getResource("scenes/stats.fxml"));
+        return new Scene(root);
+    }
+
     protected static Scene getHome() throws Exception {
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/home.fxml"));
         return new Scene(root);
@@ -38,6 +43,7 @@ public class Main extends Application {
         primaryStage.setTitle("Color Switch");
 
         Scene scene = getHome();
+//        Scene scene = loadStats();
 
         primaryStage.setScene(scene);
         primaryStage.setHeight(680);
