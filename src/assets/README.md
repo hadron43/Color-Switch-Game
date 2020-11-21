@@ -10,3 +10,4 @@ This contains the references for all the resources used.
 - `color-switch-icon.png` from <a href = "https://www.uplabs.com/posts/color-switch-ios-icon" title = "Uplabs"> Uplabs </a> from www.flaticon.com
 - `home/question-sign.png` <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from www.flaticon.com
 - `home/trophy.png` <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from www.flaticon.com
+- `home.png` <a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">bqlqn</a> from www.flaticon.com
