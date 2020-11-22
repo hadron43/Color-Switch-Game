@@ -13,7 +13,6 @@ This contains the references for all the resources used.
 - `home.png` <a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">bqlqn</a> from www.flaticon.com
 - `stars-earned.png` <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> from www.flaticon.com
 - `score-trophy.png` <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from www.flaticon.com
-<<<<<<< Updated upstream
 - `game/pause.png` <a href="https://www.flaticon.com/authors/chanut" title="Chanut">Chanut</a> from www.flaticon.com
 - `game/tap.png` <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from www.flaticon.com
 - `game/star.png` <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from www.flaticon.com

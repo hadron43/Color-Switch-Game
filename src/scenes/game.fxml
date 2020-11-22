@@ -75,7 +75,7 @@
                 </Pane>
             </left>
             <right>
-                <Pane layoutX="660.0" layoutY="14.0" onMouseClicked="#backToHome" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" BorderPane.alignment="CENTER">
+                <Pane layoutX="660.0" layoutY="14.0" onMouseClicked="#loadGameOver" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" BorderPane.alignment="CENTER">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>

@@ -137,4 +137,9 @@ public class Controller implements Initializable {
     private void loadGamePage(MouseEvent me) throws Exception {
         Main.loadGame();
     }
+
+    @FXML
+    private void loadGameOver(MouseEvent me) throws Exception {
+        Main.loadGameOver();
+    }
 }
