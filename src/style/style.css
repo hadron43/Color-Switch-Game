@@ -29,7 +29,7 @@
 .fill-grey { -fx-fill: -grey }
 
 .heading-text {
-    -fx-font-size: 65;
+    -fx-font-size: 75;
     -fx-fill: white;
 }
 
@@ -98,17 +98,17 @@
 
 /* About Game Scene */
 .about_game_info {
-    -fx-font-size: 25;
+    -fx-font-size: 35;
 }
 
 .about_game_subhead {
-    -fx-font-size: 40;
+    -fx-font-size: 50;
 }
 
 /* End of About Game Scene*/
 
 /* View Stats Scene */
 .stats_info {
-    -fx-font-size: 40
+    -fx-font-size: 45;
 }
 /* End of View Scene */
