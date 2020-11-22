@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.transform.Scale;
 import javafx.stage.Screen;
@@ -21,9 +22,9 @@ public class Main extends Application {
 
     private static void scale(Parent root) {
         Scale scale = new Scale();
-        scale.setPivotY(0);;
+        scale.setPivotY(0);
         scale.setPivotX(0);
-        scale.setY(height/1024);;
+        scale.setY(height/1024);
         scale.setX(width/768);
         root.getTransforms().addAll(scale);
     }
@@ -61,7 +62,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception{
         primaryStage = stage;
-        primaryStage.setScene(new Scene(new Pane()));
+        Scene scene = new Scene(new Pane());
+        scene.setFill(Paint.valueOf(color));
+        primaryStage.setScene(scene);
         primaryStage.getIcons().add(new Image("/assets/color-switch-icon.png"));
         primaryStage.setTitle("Color Switch");
 
