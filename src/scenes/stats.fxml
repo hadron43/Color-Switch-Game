@@ -11,10 +11,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" minWidth="768" minHeight="1024" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Controller">
+<BorderPane minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <top>
         <BorderPane>
             <left>
@@ -56,15 +57,42 @@
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Text fill="white" layoutX="14.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="High Score:" wrappingWidth="214.4557113647461" />
+                  <Text fill="white" layoutX="47.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="High Score:" wrappingWidth="214.4557113647461" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+
+                 <Pane fx:id="ring_2" prefHeight="300" prefWidth="300" styleClass="scale-60">
+                     <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-blue" type="ROUND" />
+                     <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-pink" type="ROUND" />
+                     <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-purple" type="ROUND" />
+                     <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-yellow" type="ROUND" />
+                     <Circle layoutX="150.0" layoutY="150.0" radius="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
+
+                 </Pane>
+                 <Pane layoutX="130.0" layoutY="109.0">
+                     <Text id="high_score" fx:id="high_score" fill="white" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="10" textAlignment="CENTER" />
+                 </Pane>
+
+             </Pane>
+
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <Text fill="white" layoutX="16.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="Total Stars:" />
+                  <Text fill="white" layoutX="46.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="Total Stars:" />
                </children></Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                 <Pane fx:id="ring_3" prefHeight="300" prefWidth="300" styleClass="scale-60">
+                     <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-blue" type="ROUND" />
+                     <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-pink" type="ROUND" />
+                     <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-purple" type="ROUND" />
+                     <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-yellow" type="ROUND" />
+                     <Circle layoutX="150.0" layoutY="150.0" radius="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
+
+                 </Pane>
+                 <Pane layoutX="130.0" layoutY="109.0">
+                     <Text fx:id="total_stars" fill="white" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="10" textAlignment="CENTER" />
+                 </Pane>
+             </Pane>
          </children>
       </GridPane>
    </center>

@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -21,6 +22,7 @@ public class Controller implements Initializable {
     @FXML private ImageView ring_4, ring_5;
 
     @FXML private ImageView backButton;
+    @FXML private Text high_score, total_stars;
 
     @FXML
     private void handleFeedback() {
