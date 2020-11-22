@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Controller">
+    <center>
+        <Pane fx:id="obstaclesBox" maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768">
+            <Pane layoutX="214.0" layoutY="-20.0" mouseTransparent="true" prefHeight="340.0" prefWidth="340.0">
+                <Pane fx:id="box" />
+            </Pane>
+
+            <VBox alignment="CENTER" layoutX="219.0" layoutY="393.0" opacity="0.7" scaleX="0.75" scaleY="0.75">
+                <FlowPane prefHeight="134.0" prefWidth="213.0">
+                    <Text styleClass="home-heading" text="C" />
+
+                    <ImageView fx:id="ring_4">
+                        <Image requestedHeight="65" requestedWidth="65" url="@../assets/home/circle.png" />
+                        <FlowPane.margin>
+                            <Insets bottom="25.0" left="10.0" right="10.0" />
+                        </FlowPane.margin>
+                    </ImageView>
+
+                    <Text styleClass="home-heading" text="L" />
+
+                    <ImageView fx:id="ring_5">
+                        <Image requestedHeight="65" requestedWidth="65" url="@../assets/home/circle.png" />
+                        <FlowPane.margin>
+                            <Insets bottom="25.0" left="10.0" right="10.0" />
+                        </FlowPane.margin>
+                    </ImageView>
+
+                    <Text styleClass="home-heading" text="R" />
+                </FlowPane>
+                <Text styleClass="home-heading" text="SWITCH" wrappingWidth="330.56640625" />
+            </VBox>
+
+            <Pane fx:id="ballContainer" layoutX="367.0" layoutY="733.0" prefHeight="36.0" prefWidth="36.0">
+                <Pane fx:id="ball" prefHeight="110.0" prefWidth="36.0">
+
+                </Pane>
+            </Pane>
+
+            <Pane fx:id="csContainer" layoutX="367.0" layoutY="368.0" prefHeight="28.0" prefWidth="28.0">
+                <Pane fx:id="colourSwitcher" prefHeight="110.0" prefWidth="36.0">
+
+                </Pane>
+            </Pane>
+
+            <ImageView fitHeight="189.0" fitWidth="130.0" layoutX="354.0" layoutY="780.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
+                <Image url="@../assets/game/tap.png" />
+            </ImageView>
+        </Pane>
+    </center>
+
+    <top>
+        <BorderPane>
+            <left>
+                <Pane layoutX="14.0" layoutY="14.0" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0" BorderPane.alignment="CENTER">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <Circle fill="white" layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
+                     <styleClass>
+                        <String fx:value="back-button" />
+                        <String fx:value="fill-grey" />
+                     </styleClass></Circle>
+                    <Text fx:id="score" fill="WHITE" layoutX="16.0" layoutY="66.0" text="0" textAlignment="CENTER" wrappingWidth="63.0" />
+                </Pane>
+            </left>
+            <right>
+                <Pane layoutX="660.0" layoutY="14.0" onMouseClicked="#backToHome" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" BorderPane.alignment="CENTER">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <Circle layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
+                     <styleClass>
+                        <String fx:value="back-button" />
+                        <String fx:value="fill-grey" />
+                     </styleClass></Circle>
+                    <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="21.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
+                        <Image url="@../assets/game/pause.png" />
+                    </ImageView>
+                </Pane>
+            </right>
+         <padding>
+            <Insets left="25.0" right="25.0" top="25.0" />
+         </padding>
+        </BorderPane>
+    </top>
+
+    <stylesheets>
+        <URL value="@../style/style.css" />
+    </stylesheets>
+</BorderPane>

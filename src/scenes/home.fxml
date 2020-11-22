@@ -102,7 +102,7 @@
                 <Arc layoutX="150.0" layoutY="150.0" length="90.0" radiusX="150.0" radiusY="150.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-yellow" type="ROUND" />
                 <Circle layoutX="150.0" layoutY="150.0" radius="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
             </Pane>
-            <Pane layoutX="84.0" layoutY="86.0" prefHeight="129.0" prefWidth="133.0" styleClass="small-on-hover">
+            <Pane layoutX="84.0" layoutY="86.0" onMouseClicked="#loadGamePage" prefHeight="129.0" prefWidth="133.0" styleClass="small-on-hover">
                 <Circle layoutX="66.0" layoutY="64.0" radius="67.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey">
                     <cursor>
                         <Cursor fx:constant="HAND" />
@@ -130,7 +130,7 @@
                     <padding>
                         <Insets bottom="50.0" top="100.0" />
                     </padding>
-                    <Pane fx:id="icon_1" prefHeight="101.0" prefWidth="90.0" onMouseClicked="#loadStats" styleClass="small-on-hover">
+                    <Pane fx:id="icon_1" onMouseClicked="#loadStats" prefHeight="101.0" prefWidth="90.0" styleClass="small-on-hover">
                         <cursor>
                             <Cursor fx:constant="HAND" />
                         </cursor>
@@ -143,7 +143,7 @@
             </left>
             <center>
                 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="359.0">
-                    <Button maxWidth="Infinity" styleClass="feedback-button" text="Resume Game">
+                    <Button maxWidth="Infinity" onMouseClicked="#loadGamePage" styleClass="feedback-button" text="Resume Game">
                         <cursor>
                             <Cursor fx:constant="HAND" />
                         </cursor>
@@ -151,7 +151,7 @@
                             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </VBox.margin>
                     </Button>
-                    <Button maxWidth="Infinity" styleClass="feedback-button" text="Start New Game">
+                    <Button maxWidth="Infinity" onMouseClicked="#loadGamePage" styleClass="feedback-button" text="Start New Game">
                         <cursor>
                             <Cursor fx:constant="HAND" />
                         </cursor>

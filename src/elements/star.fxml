@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="star" minHeight="75.0" maxHeight="75" minWidth="75.0" maxWidth="75" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="elements.ElementsController">
+    <ImageView fitWidth="75" fitHeight="75">
+        <Image url="@../assets/game/star.png" />
+    </ImageView>
+</Pane>
+

@@ -4,14 +4,17 @@ import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ObstaclesController implements Initializable {
@@ -19,7 +22,7 @@ public class ObstaclesController implements Initializable {
 
     ArrayList<RotateTransition> rotatingElements;
     @FXML
-    Pane circle, circleFlow;
+    Pane circle, circleFlow, star;
 
     private void addRotatingNode(Node node, int timeInMillis, boolean clockwise) {
         RotateTransition rt = new RotateTransition();
@@ -41,5 +44,18 @@ public class ObstaclesController implements Initializable {
         rotatingElements = new ArrayList<>();
         addRotatingNode(circle);
         addRotatingNode(circleFlow);
+
+        // Load star
+        if(star != null) {
+            Pane temp;
+            try {
+                temp = FXMLLoader.load(getClass().getResource("/elements/star.fxml"));
+                List<Node> parentChildren = ((Pane) star.getParent()).getChildren();
+                parentChildren.set(parentChildren.indexOf(star), temp);
+                star = temp;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

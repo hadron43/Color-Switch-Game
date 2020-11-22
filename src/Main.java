@@ -53,6 +53,12 @@ public class Main extends Application {
         primaryStage.getScene().setRoot(root);
     }
 
+    protected static void loadGame() throws Exception {
+        Parent root = FXMLLoader.load(Main.class.getResource("scenes/game.fxml"));
+        scale(root);
+        primaryStage.getScene().setRoot(root);
+    }
+
     protected static void loadHome() throws Exception {
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/home.fxml"));
         scale(root);

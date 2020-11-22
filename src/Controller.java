@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn, box;
+    @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn, box, ball, csContainer, colourSwitcher;
     @FXML private ImageView ring_4, ring_5;
 
     @FXML private ImageView backButton;
@@ -66,6 +66,7 @@ public class Controller implements Initializable {
         r[3].setNode(ring_4);
         r[4].setNode(ring_5);
         r[5].setNode(icon_1);
+        r[5].setNode(csContainer);
         r[6].setNode(produced_btn);
 
         for(int i=0; i<items; ++i)
@@ -79,6 +80,30 @@ public class Controller implements Initializable {
                 List<Node> parentChildren = ((Pane) box.getParent()).getChildren();
                 parentChildren.set(parentChildren.indexOf(box), newPane);
                 box = newPane;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(ball != null) {
+            Pane newPane;
+            try {
+                newPane = FXMLLoader.load(getClass().getResource("/elements/ball.fxml"));
+                List<Node> parentChildren = ((Pane) ball.getParent()).getChildren();
+                parentChildren.set(parentChildren.indexOf(ball), newPane);
+                box = newPane;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(colourSwitcher != null) {
+            Pane temp;
+            try {
+                temp = FXMLLoader.load(getClass().getResource("/elements/colourSwitcher.fxml"));
+                List<Node> parentChildren = ((Pane) colourSwitcher.getParent()).getChildren();
+                parentChildren.set(parentChildren.indexOf(colourSwitcher), temp);
+                colourSwitcher = temp;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -106,5 +131,10 @@ public class Controller implements Initializable {
     @FXML
     private void backToHome(MouseEvent me) throws Exception {
         Main.loadHome();
+    }
+
+    @FXML
+    private void loadGamePage(MouseEvent me) throws Exception {
+        Main.loadGame();
     }
 }

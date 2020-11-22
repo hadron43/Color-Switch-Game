@@ -42,4 +42,7 @@
     <Circle layoutX="266.0" layoutY="42.0" radius="14.0" styleClass="fill-purple" />
     <Circle layoutX="314.0" layoutY="93.0" radius="14.0" styleClass="fill-purple" />
 
+    <Pane layoutX="138.0" layoutY="138.0" prefHeight="75" prefWidth="75">
+        <Pane fx:id="star" />
+    </Pane>
 </Pane>
