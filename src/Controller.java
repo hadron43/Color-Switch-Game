@@ -45,7 +45,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        final int items = 7;
+        final int items = 8;
         RotateTransition[] r = new RotateTransition[items];
 
         for(int i=0; i<items; ++i) {
@@ -66,8 +66,8 @@ public class Controller implements Initializable {
         r[3].setNode(ring_4);
         r[4].setNode(ring_5);
         r[5].setNode(icon_1);
-        r[5].setNode(csContainer);
         r[6].setNode(produced_btn);
+        r[7].setNode(csContainer);
 
         for(int i=0; i<items; ++i)
             r[i].play();
