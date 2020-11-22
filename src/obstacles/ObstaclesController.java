@@ -22,7 +22,7 @@ public class ObstaclesController implements Initializable {
 
     ArrayList<RotateTransition> rotatingElements;
     @FXML
-    Pane circle, circleFlow, star;
+    Pane circle, circleFlow, star, circle1, circle2, square;
 
     private void addRotatingNode(Node node, int timeInMillis, boolean clockwise) {
         RotateTransition rt = new RotateTransition();
@@ -44,6 +44,10 @@ public class ObstaclesController implements Initializable {
         rotatingElements = new ArrayList<>();
         addRotatingNode(circle);
         addRotatingNode(circleFlow);
+        addRotatingNode(square);
+
+        addRotatingNode(circle1, defaultRotatingDuration, true);
+        addRotatingNode(circle2, defaultRotatingDuration, false);
 
         // Load star
         if(star != null) {

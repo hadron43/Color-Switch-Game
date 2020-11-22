@@ -1,9 +1,6 @@
 package elements;
 
-import javafx.animation.Animation;
-import javafx.animation.Interpolator;
-import javafx.animation.RotateTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -20,7 +17,7 @@ public class ElementsController implements Initializable {
 
     ArrayList<RotateTransition> rotatingElements;
     @FXML
-    Pane ball;
+    Pane ball, star;
 
     private void addRotatingNode(Node node, int timeInMillis, boolean clockwise) {
         RotateTransition rt = new RotateTransition();
@@ -47,5 +44,12 @@ public class ElementsController implements Initializable {
         tt.setAutoReverse(true);
         tt.setNode(ball);
         tt.play();
+
+        ScaleTransition st = new ScaleTransition(Duration.millis(1000), star);
+        st.setByX(0.3);
+        st.setByY(0.3);
+        st.setCycleCount(Animation.INDEFINITE);
+        st.setAutoReverse(true);
+        st.play();
     }
 }
