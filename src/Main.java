@@ -59,6 +59,13 @@ public class Main extends Application {
         primaryStage.getScene().setRoot(root);
     }
 
+    protected static void loadGameOver() throws Exception{
+        Parent root = FXMLLoader.load(Main.class.getResource("scenes/game_over.fxml"));
+
+        scale(root);
+        primaryStage.getScene().setRoot(root);
+    }
+
     protected static void loadHome() throws Exception {
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/home.fxml"));
         scale(root);
@@ -78,7 +85,8 @@ public class Main extends Application {
         height = viewPort.getHeight();
         width = 3*height/4;
 
-        loadHome();
+//        loadHome();
+        loadGameOver();
 
         primaryStage.setHeight(height);
         primaryStage.setWidth(width);
