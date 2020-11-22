@@ -12,7 +12,9 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -25,9 +27,20 @@ public class Controller implements Initializable {
     @FXML private Text high_score, total_stars;
 
     @FXML
-    private void handleFeedback() {
-        System.out.println("Button was pressed");
+    private void handleFeedback() throws Exception {
+        System.out.println("Feedback Button was pressed");
         // Open feedback form
+        URI uri = new URI("mailto:harsh19043@iiitd.ac.in?cc=varun19124@iiitd.ac.in?subject=Color%20Switch%20Game%20Feedback");
+        if (Desktop.isDesktopSupported()){
+            new Thread(() -> {
+                try {
+                    Desktop.getDesktop().browse(uri);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }).start();
+        }
+
     }
 
     @Override
