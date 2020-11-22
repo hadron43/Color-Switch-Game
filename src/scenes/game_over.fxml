@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <top>
+        <BorderPane>
+            <left>
+                <Pane onMouseClicked="#backToHome" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" BorderPane.alignment="CENTER">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <Circle fill="white" layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="back-button" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER" />
+                    <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="21.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
+                        <Image url="@../assets/home.png" />
+                    </ImageView>
+                </Pane>
+            </left>
+            <center>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="heading-text" text="GAME OVER!" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+            </center>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+            <padding>
+                <Insets left="50.0" right="50.0" top="50.0" />
+            </padding>
+        </BorderPane>
+    </top>
+
+    <stylesheets>
+        <URL value="@../style/style.css" />
+    </stylesheets>
+   <center>
+      <VBox prefHeight="826.0" prefWidth="768.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="90.0" prefWidth="668.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TOMATO" height="90.0" stroke="BLACK" strokeType="INSIDE" width="667.0" />
+                  <Text fill="white" layoutX="258.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="about_game_subhead" text="SCORE" textAlignment="CENTER" />
+               </children>
+            </Pane>
+            <Pane prefHeight="117.0" prefWidth="668.0">
+               <children>
+                  <Text fill="white" layoutX="322.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="5" />
+               </children>
+            </Pane>
+            <Pane prefHeight="90.0" prefWidth="668.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TOMATO" height="91.0" stroke="BLACK" strokeType="INSIDE" width="667.0" />
+                  <Text fill="white" layoutX="193.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="about_game_subhead" text="HIGH SCORE" textAlignment="CENTER" />
+               </children>
+            </Pane>
+            <Pane prefHeight="127.0" prefWidth="668.0">
+               <children>
+                  <Text fx:id="high_score" fill="white" layoutX="310.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="10" />
+                  <ImageView fitHeight="99.0" fitWidth="85.0" layoutX="27.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/score-trophy.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="161.0" prefWidth="668.0">
+               <children>
+                  <Text fill="white" layoutX="66.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="Love playing Color Switch? Rate it." textAlignment="CENTER" wrappingWidth="535.1234130859375" />
+               </children>
+            </Pane>
+            <Pane prefHeight="151.0" prefWidth="668.0">
+               <children>
+                  <Pane layoutX="261.0" prefHeight="139.0" prefWidth="146.0" styleClass="small-on-hover">
+                     <children>
+                        <Circle fill="DODGERBLUE" layoutX="71.0" layoutY="69.0" radius="62.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Circle>
+                        <ImageView fitHeight="121.0" fitWidth="121.0" layoutX="11.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/rating-icon.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </VBox>
+   </center>
+
+</BorderPane>
