@@ -57,7 +57,12 @@
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Text fill="white" layoutX="47.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="High Score:" wrappingWidth="214.4557113647461" />
+                  <ImageView fitHeight="80.0" fitWidth="82.0" layoutX="114.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/score-trophy.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="white" layoutX="47.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="High Score:" wrappingWidth="214.4557113647461" />
                </children>
             </Pane>
              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -78,7 +83,12 @@
 
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <Text fill="white" layoutX="46.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="Total Stars:" />
+                  <ImageView fitHeight="130.0" fitWidth="143.0" layoutX="88.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/stars-earned.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="white" layoutX="46.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="Total Stars:" />
                </children></Pane>
              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                  <Pane fx:id="ring_3" prefHeight="300" prefWidth="300" styleClass="scale-60">

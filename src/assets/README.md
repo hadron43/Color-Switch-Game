@@ -11,3 +11,5 @@ This contains the references for all the resources used.
 - `home/question-sign.png` <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from www.flaticon.com
 - `home/trophy.png` <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from www.flaticon.com
 - `home.png` <a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">bqlqn</a> from www.flaticon.com
+- `stars-earned.png` <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> from www.flaticon.com
+- `score-trophy.png` <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from www.flaticon.com
