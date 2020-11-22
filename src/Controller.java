@@ -5,12 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.transform.Rotate;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -74,44 +72,24 @@ public class Controller implements Initializable {
 
     @FXML
     private void loadSettings(MouseEvent me) throws Exception {
-        Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
-        game_stage.hide();
-        Scene scene = Main.loadSettings();
-        game_stage.setScene(scene);
-        game_stage.show();
+        Main.loadSettings();
     }
     @FXML
     private void loadProducedBy(MouseEvent me) throws Exception {
-        Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
-        game_stage.hide();
-        Scene scene = Main.loadProducedBy();
-        game_stage.setScene(scene);
-        game_stage.show();
+        Main.loadProducedBy();
     }
     @FXML
     private void loadAbout(MouseEvent me) throws Exception {
-        Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
-        game_stage.hide();
-        Scene scene = Main.loadAboutGame();
-        game_stage.setScene(scene);
-        game_stage.show();
+        Main.loadAboutGame();
     }
 
     @FXML
     private void loadStats(MouseEvent me) throws Exception {
-        Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
-        game_stage.hide();
-        Scene scene = Main.loadStats();
-        game_stage.setScene(scene);
-        game_stage.show();
+        Main.loadStats();
     }
 
     @FXML
     private void backToHome(MouseEvent me) throws Exception {
-        Stage game_stage = (Stage) ((Node) me.getSource()).getScene().getWindow();
-        game_stage.hide();
-        Scene scene = Main.getHome();
-        game_stage.setScene(scene);
-        game_stage.show();
+        Main.loadHome();
     }
 }

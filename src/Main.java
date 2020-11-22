@@ -4,14 +4,16 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
-import javafx.scene.paint.Paint;
 import javafx.scene.transform.Scale;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class Main extends Application {
     static double width, height;
+    static String color = "#292929";
+    static Stage primaryStage;
 
     public static void main(String[] args) {
         launch(args);
@@ -23,49 +25,43 @@ public class Main extends Application {
         scale.setPivotX(0);
         scale.setY(height/1024);;
         scale.setX(width/768);
-        System.out.println(root);
         root.getTransforms().addAll(scale);
     }
 
-    protected static Scene loadSettings() throws Exception {
+    protected static void loadSettings() throws Exception {
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/settings.fxml"));
         scale(root);
-        Scene scene = new Scene(root);
-        scene.setFill(Paint.valueOf("#292929"));
-        return scene;
+        primaryStage.getScene().setRoot(root);
     }
 
-    protected static Scene loadProducedBy() throws Exception {
+    protected static void loadProducedBy() throws Exception {
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/produced.fxml"));
         scale(root);
-        Scene scene = new Scene(root);
-        scene.setFill(Paint.valueOf("#292929"));
-        return scene;
+        primaryStage.getScene().setRoot(root);
     }
 
-    protected static Scene loadAboutGame() throws Exception{
+    protected static void loadAboutGame() throws Exception{
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/about_game.fxml"));
         scale(root);
-        Scene scene = new Scene(root);
-        scene.setFill(Paint.valueOf("#292929"));
-        return scene;
+        primaryStage.getScene().setRoot(root);
     }
 
-    protected static Scene loadStats() throws Exception{
+    protected static void loadStats() throws Exception{
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/stats.fxml"));
-        return new Scene(root);
+        scale(root);
+        primaryStage.getScene().setRoot(root);
     }
 
-    protected static Scene getHome() throws Exception {
+    protected static void loadHome() throws Exception {
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/home.fxml"));
         scale(root);
-        Scene scene = new Scene(root);
-        scene.setFill(Paint.valueOf("#292929"));
-        return scene;
+        primaryStage.getScene().setRoot(root);
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage stage) throws Exception{
+        primaryStage = stage;
+        primaryStage.setScene(new Scene(new Pane()));
         primaryStage.getIcons().add(new Image("/assets/color-switch-icon.png"));
         primaryStage.setTitle("Color Switch");
 
@@ -73,10 +69,8 @@ public class Main extends Application {
         height = viewPort.getHeight();
         width = 3*height/4;
 
-        Scene scene = getHome();
-//        Scene scene = loadStats();
+        loadHome();
 
-        primaryStage.setScene(scene);
         primaryStage.setHeight(height);
         primaryStage.setWidth(width);
         primaryStage.show();

@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="680.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" minWidth="768" minHeight="1024" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Controller">
     <top>
         <BorderPane>
             <left>
