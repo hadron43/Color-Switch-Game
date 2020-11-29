@@ -37,6 +37,12 @@
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
 }
+
+.curve-rect-30 {
+    -fx-arc-height: 30;
+    -fx-arc-width: 30;
+}
+
 /* End of General Styling */
 
 /* Home Scene */
