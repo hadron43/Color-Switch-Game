@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+
+<Pane fx:id="ball" minHeight="28.0" minWidth="28.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="elements.controllers.BallController">
+   <children>
+      <Circle fx:id="circle_ball" fill="DODGERBLUE" layoutX="14.0" layoutY="14.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-pink" />
+   </children>
+</Pane>

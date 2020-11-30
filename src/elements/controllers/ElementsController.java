@@ -1,4 +1,4 @@
-package elements;
+package elements.controllers;
 
 import javafx.animation.*;
 import javafx.fxml.FXML;

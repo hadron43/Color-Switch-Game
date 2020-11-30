@@ -1,5 +1,6 @@
 package obstacles;
 
+import elements.Ball;
 import interfaces.Collideable;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
