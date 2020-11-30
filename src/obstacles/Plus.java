@@ -1,6 +1,6 @@
 package obstacles;
 
-import interfaces.Collidable;
+import interfaces.Collideable;
 import obstacles.controllers.PlusController;
 
 public class Plus extends Obstacle {
@@ -16,7 +16,7 @@ public class Plus extends Obstacle {
     }
 
     @Override
-    public int hasCollided(Collidable c) {
+    public int hasCollided(Collideable c) {
         return 0;
     }
 }
