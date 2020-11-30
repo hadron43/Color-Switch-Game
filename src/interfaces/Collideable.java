@@ -5,5 +5,5 @@ import javafx.geometry.Bounds;
 
 public interface Collideable {
     Bounds getBounds();
-    int hasCollided(Ball c);
+    int hasCollided(Ball b);
 }

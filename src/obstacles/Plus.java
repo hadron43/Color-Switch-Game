@@ -16,7 +16,7 @@ public class Plus extends Obstacle {
     }
 
     @Override
-    public int hasCollided(Ball c) {
+    public int hasCollided(Ball b) {
         return 0;
     }
 }

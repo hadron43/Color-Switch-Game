@@ -78,10 +78,10 @@ abstract class Obstacle implements Collideable {
     }
 
     @Override
-    public int hasCollided(Ball c) {
-        if(pane == null || c == null || c.getBounds() == null)
+    public int hasCollided(Ball b) {
+        if(pane == null || b == null || b.getBounds() == null)
             return -1;
-        return (getBounds().intersects(c.getBounds())) ? 1 : 0;
+        return (getBounds().intersects(b.getBounds())) ? 1 : 0;
     }
 
     // Helper Functions
