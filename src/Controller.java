@@ -1,6 +1,7 @@
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -141,5 +142,10 @@ public class Controller implements Initializable {
     @FXML
     private void loadGameOver(MouseEvent me) throws Exception {
         Main.loadGameOver();
+    }
+
+    @FXML
+    public void exitGame(MouseEvent me) {
+        Platform.exit();
     }
 }

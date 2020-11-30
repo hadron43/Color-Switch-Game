@@ -151,7 +151,7 @@
                             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </VBox.margin>
                     </Button>
-                    <Button maxWidth="Infinity" onMouseClicked="#loadGamePage" styleClass="feedback-button" text="Start New Game">
+                    <Button fx:id="exitBtn" maxWidth="Infinity" onMouseClicked="#exitGame" styleClass="feedback-button" text="Exit Game">
                         <cursor>
                             <Cursor fx:constant="HAND" />
                         </cursor>
