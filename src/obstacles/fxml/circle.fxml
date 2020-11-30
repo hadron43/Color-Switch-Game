@@ -4,10 +4,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<Pane xmlns:fx="http://javafx.com/fxml/1" prefHeight="350" prefWidth="350" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.ObstaclesController">
+<Pane xmlns:fx="http://javafx.com/fxml/1" prefHeight="350" prefWidth="350" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.controllers.CircleController">
 
     <stylesheets>
-        <URL value="@../style/style.css" />
+        <URL value="@../../style/style.css" />
     </stylesheets>
     <Pane fx:id="circle" >
         <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="0.0" styleClass="fill-yellow" type="ROUND" />

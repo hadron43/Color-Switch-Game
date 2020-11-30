@@ -1,4 +1,4 @@
-package obstacles;
+package obstacles.controllers;
 
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;

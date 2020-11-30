@@ -76,7 +76,7 @@ public class Controller implements Initializable {
         if(box != null) {
             Pane newPane;
             try {
-                newPane = FXMLLoader.load(getClass().getResource("/obstacles/circleFlow.fxml"));
+                newPane = FXMLLoader.load(getClass().getResource("/obstacles/fxml/circleFlow.fxml"));
                 List<Node> parentChildren = ((Pane) box.getParent()).getChildren();
                 parentChildren.set(parentChildren.indexOf(box), newPane);
                 box = newPane;

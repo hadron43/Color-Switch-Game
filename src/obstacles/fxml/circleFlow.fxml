@@ -4,10 +4,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
-<Pane xmlns:fx="http://javafx.com/fxml/1"  prefHeight="350" prefWidth="350" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.ObstaclesController">
+<Pane xmlns:fx="http://javafx.com/fxml/1"  prefHeight="350" prefWidth="350" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.controllers.ObstaclesController">
 
     <stylesheets>
-        <URL value="@../style/style.css" />
+        <URL value="@../../style/style.css" />
     </stylesheets>
     <Pane fx:id="circleFlow">
         <Circle layoutX="63.0" layoutY="59.0" radius="14.0" styleClass="fill-yellow" />
