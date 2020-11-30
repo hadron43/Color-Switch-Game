@@ -2,19 +2,13 @@ package obstacles;
 
 import elements.Ball;
 import interfaces.Collideable;
-import javafx.animation.Animation;
-import javafx.animation.Interpolator;
-import javafx.animation.RotateTransition;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.transform.Rotate;
-import javafx.util.Duration;
 import obstacles.controllers.SuperController;
 
 import java.io.IOException;
@@ -93,7 +87,7 @@ abstract class Obstacle implements Collideable {
         parent.add(pane, i, j);
     }
 
-    public void loadObstaclePane(String FXMLPath) {
+    protected void loadObstaclePane(String FXMLPath) {
         Pane temp = null;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPath));
@@ -103,21 +97,5 @@ abstract class Obstacle implements Collideable {
             e.printStackTrace();
         }
         pane = temp;
-    }
-
-    public void addRotation(Node node, int timeInMillis, boolean clockwise) {
-        RotateTransition rt = new RotateTransition();
-        rt.setAxis(Rotate.Z_AXIS);
-        rt.setByAngle((clockwise) ? 360 : -360);
-        rt.setCycleCount(Animation.INDEFINITE);
-        rt.setInterpolator(Interpolator.LINEAR);
-        rt.setDuration(Duration.millis(timeInMillis));
-        rt.setNode(node);
-        transitions.add(rt);
-        rt.play();
-    }
-
-    public void addRotation(Node node) {
-        addRotation(node, defaultRotatingDuration, true);
     }
 }
