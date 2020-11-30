@@ -1,6 +1,6 @@
 package obstacles;
 
-import interfaces.Collidable;
+import interfaces.Collideable;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class Obstacle implements Collidable {
+abstract class Obstacle implements Collideable {
     public static int defaultRotatingDuration = 4000;
     // To store all transition objects
     private final List<Transition> transitions;
@@ -77,7 +77,7 @@ abstract class Obstacle implements Collidable {
     };
 
     @Override
-    public int hasCollided(Collidable c) {
+    public int hasCollided(Collideable c) {
         if(pane == null || c == null || c.getBounds() == null)
             return -1;
         return (getBounds().intersects(c.getBounds())) ? 1 : 0;

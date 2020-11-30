@@ -2,7 +2,7 @@ package interfaces;
 
 import javafx.geometry.Bounds;
 
-public interface Collidable {
+public interface Collideable {
     Bounds getBounds();
-    int hasCollided(Collidable c);
+    int hasCollided(Collideable c);
 }
