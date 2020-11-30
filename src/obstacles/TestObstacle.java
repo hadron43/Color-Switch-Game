@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 public class TestObstacle extends Application {
     private Scene loadSampleObstacle() throws Exception {
-        Node root = FXMLLoader.load(getClass().getResource("/obstacles/square.fxml"));
+        Node root = FXMLLoader.load(getClass().getResource("/obstacles/fxml/square.fxml"));
         GridPane pane = new GridPane();
         pane.setAlignment(Pos.CENTER);
         pane.add(root, 0, 0);
