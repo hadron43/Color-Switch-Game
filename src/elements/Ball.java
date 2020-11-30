@@ -10,6 +10,7 @@ public class Ball {
     private BallController ballController;
     private int colour;
     private double speed;
+    private double posY;
 
     public Bounds getBounds() {
         if(ballController == null || ballController.circle_ball == null)
@@ -52,5 +53,13 @@ public class Ball {
 
     public void setSpeed(int speed_level){
         speed *= speed_level;
+    }
+
+    public double getPosY() {
+        return posY;
+    }
+
+    public void setPosY(double posY) {
+        this.posY = posY;
     }
 }
