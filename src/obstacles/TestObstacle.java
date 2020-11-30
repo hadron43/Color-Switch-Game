@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class TestObstacle extends Application {
     private Scene loadSampleObstacle() {
         GridPane pane = new GridPane();
-        Obstacle obstacle = new DoubleCircle(0);
+        Obstacle obstacle = new CircleFlow(0);
         obstacle.attachToGrid(pane, 0, 0);
         return new Scene(pane, 500, 500);
     }

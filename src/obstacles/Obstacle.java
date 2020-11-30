@@ -75,14 +75,14 @@ abstract class Obstacle implements Collideable {
         if(pane == null)
             return null;
         return pane.getBoundsInParent();
-    };
+    }
 
     @Override
-    public int hasCollided(Collideable c) {
+    public int hasCollided(Ball c) {
         if(pane == null || c == null || c.getBounds() == null)
             return -1;
         return (getBounds().intersects(c.getBounds())) ? 1 : 0;
-    };
+    }
 
     // Helper Functions
 

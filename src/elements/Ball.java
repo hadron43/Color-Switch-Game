@@ -1,24 +1,20 @@
 package elements;
 
 import elements.controllers.BallController;
-import interfaces.Collideable;
 import javafx.geometry.Bounds;
+
 import java.util.Random;
 
-public class Ball implements Collideable {
+public class Ball {
 
     private BallController ballController;
     private int colour;
     private double speed;
 
-    @Override
     public Bounds getBounds() {
-        return null;
-    }
-
-    @Override
-    public int hasCollided(Collideable c) {
-        return 0;
+        if(ballController == null || ballController.circle_ball == null)
+            return null;
+        return ballController.circle_ball.getBoundsInParent();
     }
 
     public int getColour(){

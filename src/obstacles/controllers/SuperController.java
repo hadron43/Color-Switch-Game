@@ -31,7 +31,7 @@ public abstract class SuperController implements Initializable {
         if(star != null) {
             Pane temp;
             try {
-                temp = FXMLLoader.load(getClass().getResource("/elements/star.fxml"));
+                temp = FXMLLoader.load(getClass().getResource("/elements/fxml/star.fxml"));
                 List<Node> parentChildren = ((Pane) star.getParent()).getChildren();
                 parentChildren.set(parentChildren.indexOf(star), temp);
                 star = temp;

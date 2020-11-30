@@ -88,7 +88,7 @@ public class Controller implements Initializable {
         if(ball != null) {
             Pane newPane;
             try {
-                newPane = FXMLLoader.load(getClass().getResource("/elements/ball.fxml"));
+                newPane = FXMLLoader.load(getClass().getResource("/elements/fxml/ball.fxml"));
                 List<Node> parentChildren = ((Pane) ball.getParent()).getChildren();
                 parentChildren.set(parentChildren.indexOf(ball), newPane);
                 box = newPane;
@@ -100,7 +100,7 @@ public class Controller implements Initializable {
         if(colourSwitcher != null) {
             Pane temp;
             try {
-                temp = FXMLLoader.load(getClass().getResource("/elements/colourSwitcher.fxml"));
+                temp = FXMLLoader.load(getClass().getResource("/elements/fxml/colourSwitcher.fxml"));
                 List<Node> parentChildren = ((Pane) colourSwitcher.getParent()).getChildren();
                 parentChildren.set(parentChildren.indexOf(colourSwitcher), temp);
                 colourSwitcher = temp;

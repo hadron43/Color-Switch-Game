@@ -3,11 +3,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="colourSwitcher" minHeight="28.0" minWidth="28.0" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="elements.ElementsController">
-   <children>
-       <Arc layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-yellow" type="ROUND" />
-       <Arc layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-pink" type="ROUND" />
-       <Arc layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-blue" type="ROUND" />
-       <Arc layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-purple" type="ROUND" />
-   </children>
+<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="colourSwitcher" minHeight="28.0" minWidth="28.0"
+      xmlns="http://javafx.com/javafx/11.0.1">
+    <Arc layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE"
+         styleClass="fill-yellow" type="ROUND"/>
+    <Arc layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" startAngle="90.0" stroke="BLACK"
+         strokeType="INSIDE" styleClass="fill-pink" type="ROUND"/>
+    <Arc layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" startAngle="180.0" stroke="BLACK"
+         strokeType="INSIDE" styleClass="fill-blue" type="ROUND"/>
+    <Arc layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" startAngle="270.0" stroke="BLACK"
+         strokeType="INSIDE" styleClass="fill-purple" type="ROUND"/>
 </Pane>

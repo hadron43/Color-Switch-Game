@@ -1,6 +1,6 @@
 package obstacles;
 
-import interfaces.Collideable;
+import elements.Ball;
 import obstacles.controllers.CircleFlowController;
 
 public class CircleFlow extends Obstacle{
@@ -16,7 +16,7 @@ public class CircleFlow extends Obstacle{
     }
 
     @Override
-    public int hasCollided(Collideable c) {
+    public int hasCollided(Ball c) {
         return 0;
     }
 }
