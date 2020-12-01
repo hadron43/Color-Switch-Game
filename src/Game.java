@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Game implements Serializable {
     private static List<Class> map = Arrays.asList(
-            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, CircleFlow.class
+            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class
     );
     private final Ball ball;
     private final long id;
@@ -53,14 +53,12 @@ public class Game implements Serializable {
         for(int i=0; i<3; ++i){
             Obstacle ob = null;
             try {
-                ob = (Obstacle) (map.get((int)(Math.random()*map.size()))).newInstance();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
+                ob = (Obstacle) (map.get((int)(Math.random()*map.size()))).getDeclaredConstructor().newInstance();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             if(ob == null)
-                return;
+                continue;
             ob.attachToPane(obstaclesBox, x,pos);
             gameObjects.add(ob);
             pos -= ob.getHeight();
