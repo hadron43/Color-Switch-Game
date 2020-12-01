@@ -11,10 +11,14 @@ import javafx.scene.transform.Scale;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main extends Application {
     static double width, height;
     static String color = "#292929";
     static Stage primaryStage;
+    private static ArrayList<Player> playerList = new ArrayList<Player>();
 
     public static void main(String[] args) {
         launch(args);
@@ -65,6 +69,12 @@ public class Main extends Application {
         primaryStage.getScene().setRoot(root);
     }
 
+    protected static void loadUserLogin() throws Exception{
+        Parent root = FXMLLoader.load(Main.class.getResource("scenes/user_login.fxml"));
+        scale(root);
+        primaryStage.getScene().setRoot(root);
+    }
+
     protected static void loadHome() throws Exception {
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/home.fxml"));
         scale(root);
@@ -84,7 +94,8 @@ public class Main extends Application {
         height = viewPort.getHeight();
         width = 3*height/4;
 
-        loadHome();
+//        loadHome();
+        loadUserLogin();
 
         primaryStage.setHeight(height);
         primaryStage.setWidth(width);
@@ -94,5 +105,9 @@ public class Main extends Application {
     @Override
     public void init() {
         Font font = Font.loadFont(getClass().getResourceAsStream("fonts/Dyuthi-Regular.ttf"), 32);
+    }
+
+    public static ArrayList<Player> getPlayerList(){
+        return playerList;
     }
 }

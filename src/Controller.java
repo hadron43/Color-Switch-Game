@@ -6,6 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -26,6 +29,12 @@ public class Controller implements Initializable {
 
     @FXML private ImageView backButton;
     @FXML private Text high_score, total_stars;
+
+    @FXML private TextField usernameTxt;
+    @FXML private PasswordField passwordTxt;
+    @FXML private Button loginBtn;
+    @FXML private Button createAccBtn;
+    @FXML private Text login_status_label;
 
     @FXML
     private void handleFeedback() throws Exception {
@@ -147,5 +156,64 @@ public class Controller implements Initializable {
     @FXML
     public void exitGame(MouseEvent me) {
         Platform.exit();
+    }
+
+    @FXML
+    private void loadHome(MouseEvent me) throws Exception {
+        Main.loadHome();
+    }
+
+    @FXML
+    public void loginValidate(MouseEvent me) {
+        try {
+            if (usernameTxt.getText() == null || passwordTxt.getText() == null ||
+                    usernameTxt.getText().trim().isEmpty() || passwordTxt.getText().trim().isEmpty()) {
+                throw new NullPointerException();
+            }
+            String user_name = usernameTxt.getText();
+            String password = passwordTxt.getText();
+            /*
+            Validate
+            */
+            login_status_label.setText("Logged in successfully!");
+            Main.loadHome();
+
+        } catch(NullPointerException e){
+            login_status_label.setText("Invalid details. Try again!");
+        }
+        catch (NumberFormatException e){
+            login_status_label.setText("Invalid details. Try again!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void createNewAccount(MouseEvent me) {
+        try{
+            if (usernameTxt.getText() == null || passwordTxt.getText() == null ||
+                    usernameTxt.getText().trim().isEmpty() || passwordTxt.getText().trim().isEmpty()) {
+                throw new NullPointerException();
+            }
+            String user_name = usernameTxt.getText();
+            String password = passwordTxt.getText();
+            /*
+            Check playerList for duplicacy
+            */
+            Player new_player = new Player(user_name, password);
+            Main.getPlayerList().add(new_player);
+            login_status_label.setText("Account created successfully!");
+            Main.loadHome();
+        }
+        catch(NullPointerException e){
+            login_status_label.setText("Invalid details. Try again!");
+        }
+        catch (NumberFormatException e){
+            login_status_label.setText("Invalid details. Try again!");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -118,3 +118,23 @@
     -fx-font-size: 45;
 }
 /* End of View Scene */
+
+/* User Login Scene */
+.login_details {
+    -fx-fill: white;
+    -fx-font-size: 30;
+}
+.login_text_prompts{
+    -fx-font-size: 20;
+}
+.login_subhead{
+    -fx-fill: #00FA9A;
+    -fx-font-size: 40;
+}
+.login_page_button {
+    -fx-background-radius: 15;
+    -fx-font-size: 30;
+    -fx-background-color: grey;
+    -fx-text-fill: white;
+}
+/* End of Login Scene */
