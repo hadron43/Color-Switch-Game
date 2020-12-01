@@ -19,6 +19,7 @@ public class Game implements Serializable {
         id = assignID();
         gameObjects = new ArrayList<>();
         ball = new Ball();
+        score = 0;
     }
 
     public static void main(String[] args) {
