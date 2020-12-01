@@ -4,10 +4,8 @@ import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -19,10 +17,6 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn;
-    @FXML private ImageView ring_4, ring_5;
-
-    @FXML private ImageView backButton;
-    @FXML private Text high_score, total_stars;
 
     @FXML
     private void handleFeedback() throws Exception {
@@ -43,7 +37,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        final int items = 8;
+        final int items = 5;
         RotateTransition[] r = new RotateTransition[items];
 
         for(int i=0; i<items; ++i) {
@@ -61,10 +55,8 @@ public class Controller implements Initializable {
         r[0].setNode(ring_1);
         r[1].setNode(ring_2);
         r[2].setNode(ring_3);
-        r[3].setNode(ring_4);
-        r[4].setNode(ring_5);
-        r[5].setNode(icon_1);
-        r[6].setNode(produced_btn);
+        r[3].setNode(icon_1);
+        r[4].setNode(produced_btn);
 
         for(int i=0; i<items; ++i)
             r[i].play();

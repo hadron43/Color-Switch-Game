@@ -8,7 +8,7 @@ import javafx.scene.layout.Pane;
 
 public abstract class GameObjects {
     @FXML
-    protected Pane pane;
+    private Pane pane;
     private DoubleProperty posY;
 
     public DoubleProperty getPosY() {
@@ -41,9 +41,9 @@ public abstract class GameObjects {
         parent.add(pane, i, j);
     }
 
-    public void attachToPane(Pane parent, int i, int j) {
+    public void attachToPane(Pane node, double i, double j) {
         pane.setLayoutX(i);
         pane.setLayoutY(j);
-        parent.getChildren().add(pane);
+        node.getChildren().add(pane);
     }
 }

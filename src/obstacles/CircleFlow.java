@@ -6,7 +6,7 @@ import obstacles.controllers.CircleFlowController;
 public class CircleFlow extends Obstacle{
     private CircleFlowController circleFlowController;
 
-    CircleFlow() {
+    public CircleFlow() {
 
         // Load the FXML and set 'pane' in Parent
         loadObstaclePane("/obstacles/fxml/circleFlow.fxml");

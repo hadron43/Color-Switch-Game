@@ -9,10 +9,10 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="GameController">
-    <Pane fx:id="obstaclesBox" maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768">
+<Pane xmlns:fx="http://javafx.com/fxml/1" minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="GameController">
+    <VBox fx:id="obstaclesBox" maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768">
 
-    </Pane>
+    </VBox>
 
     <BorderPane maxWidth="Infinity" minWidth="768">
         <left>
@@ -51,4 +51,4 @@
     <stylesheets>
         <URL value="@../style/style.css" />
     </stylesheets>
-</AnchorPane>
+</Pane>

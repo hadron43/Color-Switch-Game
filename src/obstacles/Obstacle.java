@@ -10,7 +10,7 @@ import obstacles.controllers.SuperController;
 
 import java.io.IOException;
 
-abstract class Obstacle extends GameObjects implements Collideable {
+public abstract class Obstacle extends GameObjects implements Collideable {
     protected SuperController controller;
     // We will center the pane
     // Movement open only in Y axis
@@ -28,14 +28,14 @@ abstract class Obstacle extends GameObjects implements Collideable {
     // To be verified, which type of bound is required
     @Override
     public Bounds getBounds() {
-        if(pane == null)
+        if(getPane() == null)
             return null;
-        return pane.getBoundsInParent();
+        return getPane().getBoundsInParent();
     }
 
     @Override
     public int hasCollided(Ball b) {
-        if(pane == null || b == null || b.getBounds() == null)
+        if(getPane() == null || b == null || b.getBounds() == null)
             return -1;
         return (getBounds().intersects(b.getBounds())) ? 1 : 0;
     }
@@ -51,7 +51,6 @@ abstract class Obstacle extends GameObjects implements Collideable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        pane = temp;
         setPane(temp);
     }
 }
