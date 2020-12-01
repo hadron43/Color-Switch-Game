@@ -6,9 +6,7 @@ import obstacles.controllers.SquareController;
 public class Square extends Obstacle {
     private SquareController squareController;
 
-    Square(double posY) {
-        super(posY);
-
+    Square() {
         // Load the FXML and set 'pane' in Parent
         loadObstaclePane("/obstacles/fxml/square.fxml");
 

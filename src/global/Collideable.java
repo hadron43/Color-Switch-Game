@@ -1,4 +1,4 @@
-package interfaces;
+package global;
 
 import elements.Ball;
 import javafx.geometry.Bounds;

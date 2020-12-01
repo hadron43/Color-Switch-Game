@@ -6,9 +6,7 @@ import obstacles.controllers.PlusController;
 public class Plus extends Obstacle {
     private PlusController plusController;
 
-    Plus(double posY) {
-        super(posY);
-
+    Plus() {
         // Load the FXML and set 'pane' in Parent
         loadObstaclePane("/obstacles/fxml/plus.fxml");
 
