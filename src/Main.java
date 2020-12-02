@@ -19,6 +19,8 @@ public class Main extends Application {
     static String color = "#292929";
     static Stage primaryStage;
     private static ArrayList<Player> playerList = new ArrayList<Player>();
+    private static Player currentPlayer;
+
 
     public static void main(String[] args) {
         launch(args);
@@ -81,6 +83,38 @@ public class Main extends Application {
         primaryStage.getScene().setRoot(root);
     }
 
+    protected static boolean checkDuplicateUsername(Player p1) {
+        for (Player player: playerList){
+            if (p1.equals(player)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    protected static boolean validateLoginDetails(Player p1) {
+        for (Player player: playerList){
+            if (p1.equals(player)){
+                if (p1.getPassword().equals(player.getPassword())){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    protected static Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    protected static void setCurrentPlayer(Player currentPlayer) {
+        Main.currentPlayer = currentPlayer;
+    }
+
+    private static void addSamplePlayer(){
+        playerList.add(new Player("smarty", "1234"));
+    }
+
     @Override
     public void start(Stage stage) throws Exception{
         primaryStage = stage;
@@ -95,6 +129,7 @@ public class Main extends Application {
         width = 3*height/4;
 
 //        loadHome();
+        addSamplePlayer();
         loadUserLogin();
 
         primaryStage.setHeight(height);

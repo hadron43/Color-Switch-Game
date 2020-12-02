@@ -23,8 +23,8 @@ public class Game implements Serializable {
 
     public static void main(String[] args) {
         // Only for testing purposes
-        Game game = new Game(new Player());
-        System.out.println(game.getId());
+//        Game game = new Game(new Player());
+//        System.out.println(game.getId());
     }
 
     private long assignID() {

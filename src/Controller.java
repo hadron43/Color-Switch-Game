@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
@@ -172,18 +173,28 @@ public class Controller implements Initializable {
             }
             String user_name = usernameTxt.getText();
             String password = passwordTxt.getText();
-            /*
-            Validate
-            */
-            login_status_label.setText("Logged in successfully!");
-            Main.loadHome();
+            Player new_player = new Player(user_name, password);
 
-        } catch(NullPointerException e){
+            // Validate player credentials
+            if (Main.validateLoginDetails(new_player)){
+                login_status_label.setText("Logged in successfully!");
+                login_status_label.setFill(Color.GREEN);
+                Main.setCurrentPlayer(new_player);
+                Main.loadHome();
+            }
+            else {
+                throw new InvalidCredentialsException("Wrong credentials entered!");
+            }
+        }
+        catch(NullPointerException | NumberFormatException e){
+            login_status_label.setFill(Color.RED);
             login_status_label.setText("Invalid details. Try again!");
         }
-        catch (NumberFormatException e){
-            login_status_label.setText("Invalid details. Try again!");
-        } catch (Exception e) {
+        catch(InvalidCredentialsException e){
+            login_status_label.setFill(Color.RED);
+            login_status_label.setText("Wrong credentials entered!");
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -197,22 +208,31 @@ public class Controller implements Initializable {
             }
             String user_name = usernameTxt.getText();
             String password = passwordTxt.getText();
-            /*
-            Check playerList for duplicacy
-            */
+
+            // Checking for duplicate username
             Player new_player = new Player(user_name, password);
-            Main.getPlayerList().add(new_player);
-            login_status_label.setText("Account created successfully!");
-            Main.loadHome();
+            if (Main.checkDuplicateUsername(new_player)){
+                throw new DuplicateUsernameException("Username already exists!");
+            }
+            else{
+                Main.getPlayerList().add(new_player);
+                login_status_label.setText("Account created successfully!");
+                login_status_label.setFill(Color.GREEN);
+                Main.loadHome();
+            }
         }
-        catch(NullPointerException e){
+        catch (NullPointerException | NumberFormatException e){
+            login_status_label.setFill(Color.RED);
             login_status_label.setText("Invalid details. Try again!");
         }
-        catch (NumberFormatException e){
-            login_status_label.setText("Invalid details. Try again!");
-        } catch (InterruptedException e) {
+        catch (DuplicateUsernameException e){
+            login_status_label.setFill(Color.RED);
+            login_status_label.setText("Username already exists!");
+        }
+        catch (InterruptedException e) {
             e.printStackTrace();
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
