@@ -28,7 +28,7 @@
                 <FlowPane prefHeight="134.0" prefWidth="213.0">
                     <Text styleClass="home-heading" text="C" />
 
-                    <ImageView fx:id="ring_4">
+                    <ImageView fx:id="login_ring_1">
                         <Image requestedHeight="65" requestedWidth="65" url="@../assets/home/circle.png" />
                         <FlowPane.margin>
                             <Insets bottom="25.0" left="10.0" right="10.0" />
@@ -37,7 +37,7 @@
 
                     <Text styleClass="home-heading" text="L" />
 
-                    <ImageView fx:id="ring_5">
+                    <ImageView fx:id="login_ring_2">
                         <Image requestedHeight="65" requestedWidth="65" url="@../assets/home/circle.png" />
                         <FlowPane.margin>
                             <Insets bottom="25.0" left="10.0" right="10.0" />
@@ -216,7 +216,7 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <Text fx:id="login_status_label" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login_details" text="T" textAlignment="CENTER" wrappingWidth="645.1223449707031" />
+                  <Text fx:id="login_status_label" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login_details" text=" " textAlignment="CENTER" wrappingWidth="645.1223449707031" />
                </children>
             </Pane>
          </children>

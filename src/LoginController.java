@@ -31,30 +31,52 @@ public class LoginController implements Initializable {
     @FXML private Button createAccBtn;
     @FXML private Text login_status_label;
     @FXML private Pane login_plus_1, login_plus_2;
+    @FXML private ImageView login_ring_1, login_ring_2;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        // clockwise rotation for plus_1 (left)
-        RotateTransition rt_plus_1 = new RotateTransition();
-        rt_plus_1.setAxis((Rotate.Z_AXIS));
-        rt_plus_1.setByAngle(360);
-        rt_plus_1.setCycleCount(Animation.INDEFINITE);
-        rt_plus_1.setInterpolator(Interpolator.LINEAR);
-        rt_plus_1.setDuration(Duration.millis(3000));
-        rt_plus_1.setNode(login_plus_1);
+        final int items = 4;
+        RotateTransition[] r = new RotateTransition[items];
 
-        // anti-clockwise rotation for plus_2 (right)
-        RotateTransition rt_plus_2 = new RotateTransition();
-        rt_plus_2.setAxis((Rotate.Z_AXIS));
-        rt_plus_2.setByAngle(-360);
-        rt_plus_2.setCycleCount(Animation.INDEFINITE);
-        rt_plus_2.setInterpolator(Interpolator.LINEAR);
-        rt_plus_2.setDuration(Duration.millis(3000));
-        rt_plus_2.setNode(login_plus_2);
+        for(int i=0; i<items; ++i) {
+            r[i] = new RotateTransition();
+            r[i].setAxis(Rotate.Z_AXIS);
+            r[i].setByAngle((Math.pow(-1, i))*360);
+            r[i].setCycleCount(Animation.INDEFINITE);
+            r[i].setInterpolator(Interpolator.LINEAR);
+            if (i<2) r[i].setDuration(Duration.millis(1000));
+            else r[i].setDuration(Duration.millis(3000));
+        }
 
-        rt_plus_1.play();
-        rt_plus_2.play();
+        r[0].setNode(login_ring_1);
+        r[1].setNode(login_ring_2);
+        r[2].setNode(login_plus_1);
+        r[3].setNode(login_plus_2);
+
+        for(int i=0; i<items; i++)
+            r[i].play();
+
+//        // clockwise rotation for plus_1 (left)
+//        RotateTransition rt_plus_1 = new RotateTransition();
+//        rt_plus_1.setAxis((Rotate.Z_AXIS));
+//        rt_plus_1.setByAngle(360);
+//        rt_plus_1.setCycleCount(Animation.INDEFINITE);
+//        rt_plus_1.setInterpolator(Interpolator.LINEAR);
+//        rt_plus_1.setDuration(Duration.millis(3000));
+//        rt_plus_1.setNode(login_plus_1);
+//
+//        // anti-clockwise rotation for plus_2 (right)
+//        RotateTransition rt_plus_2 = new RotateTransition();
+//        rt_plus_2.setAxis((Rotate.Z_AXIS));
+//        rt_plus_2.setByAngle(-360);
+//        rt_plus_2.setCycleCount(Animation.INDEFINITE);
+//        rt_plus_2.setInterpolator(Interpolator.LINEAR);
+//        rt_plus_2.setDuration(Duration.millis(3000));
+//        rt_plus_2.setNode(login_plus_2);
+//
+//        rt_plus_1.play();
+//        rt_plus_2.play();
     }
 
 
