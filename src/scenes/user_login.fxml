@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -12,12 +13,14 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<BorderPane minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
 
     <top>
         <GridPane alignment="CENTER" prefHeight="253.0" prefWidth="868.0" BorderPane.alignment="CENTER">
@@ -109,30 +112,105 @@
                   </Pane>
                </children>
             </GridPane>
-            <Pane prefHeight="88.0" prefWidth="718.0">
+            <HBox prefHeight="171.0" prefWidth="718.0">
                <children>
-                  <Pane layoutX="192.0" layoutY="8.0" prefHeight="72.0" prefWidth="262.0" styleClass="small-on-hover">
-                     <children>
-                        <Button fx:id="loginBtn" layoutX="10.0" layoutY="6.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loginValidate" prefHeight="60.0" prefWidth="245.0" styleClass="login_page_button" text="Login" textAlignment="CENTER" />
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Pane>
-               </children>
-            </Pane>
-             <Pane prefHeight="89.0" prefWidth="718.0">
-                 <children>
-                     <Pane layoutX="192.0" layoutY="8.0" prefHeight="72.0" prefWidth="272.0" styleClass="small-on-hover">
-                         <children>
-                             <Button fx:id="createAccBtn" layoutX="10.0" layoutY="6.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#createNewAccount" prefHeight="60.0" prefWidth="245.0" styleClass="login_page_button" text="Create Account" textAlignment="CENTER" />
-                         </children>
-                         <cursor>
-                             <Cursor fx:constant="HAND" />
-                         </cursor>
+                   
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <Pane fx:id="login_plus_1" layoutY="14.0" prefHeight="119.0" prefWidth="116.0">
+                         <Rectangle height="60.0" layoutX="50.0" width="15.0">
+                             <styleClass>
+                                 <String fx:value="fill-blue" />
+                                 <String fx:value="curve-rect-30" />
+                             </styleClass>
+                         </Rectangle>
+
+                         <Rectangle height="60.0" layoutX="23.0" layoutY="32.0" rotate="90" width="15.0">
+                             <styleClass>
+                                 <String fx:value="fill-yellow" />
+                                 <String fx:value="curve-rect-30" />
+                             </styleClass>
+                         </Rectangle>
+
+                         <Rectangle height="60.0" layoutX="50.0" layoutY="62.0" width="15.0">
+                             <styleClass>
+                                 <String fx:value="fill-purple" />
+                                 <String fx:value="curve-rect-30" />
+                             </styleClass>
+                         </Rectangle>
+
+                         <Rectangle height="60.0" layoutX="80.0" layoutY="32.0" rotate="90" width="15.0">
+                             <styleClass>
+                                 <String fx:value="fill-pink" />
+                                 <String fx:value="curve-rect-30" />
+                             </styleClass>
+                         </Rectangle>
                      </Pane>
-                 </children>
-             </Pane>
+                  </Pane>
+
+                  <VBox prefHeight="252.0" prefWidth="243.0">
+                     <children>
+                        <Pane prefHeight="72.0" prefWidth="243.0" styleClass="small-on-hover">
+                           <children>
+                              <Button fx:id="loginBtn" layoutX="-1.0" layoutY="6.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loginValidate" prefHeight="60.0" prefWidth="245.0" styleClass="login_page_button" text="Login" textAlignment="CENTER" />
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Pane>
+                           <Pane prefHeight="72.0" prefWidth="272.0" styleClass="small-on-hover">
+                               <children>
+                                   <Button fx:id="createAccBtn" layoutX="-1.0" layoutY="6.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#createNewAccount" prefHeight="60.0" prefWidth="245.0" styleClass="login_page_button" text="Create Account" textAlignment="CENTER" />
+                               </children>
+                               <cursor>
+                                   <Cursor fx:constant="HAND" />
+                               </cursor>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           </Pane>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+
+                  <Pane minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0">
+                     <Pane fx:id="login_plus_2" layoutX="82.0" layoutY="14.0" prefHeight="116.0" prefWidth="129.0">
+                         <Rectangle height="60.0" layoutX="52.0" width="15.0">
+                             <styleClass>
+                                 <String fx:value="fill-blue" />
+                                 <String fx:value="curve-rect-30" />
+                             </styleClass>
+                         </Rectangle>
+
+                         <Rectangle height="60.0" layoutX="82.0" layoutY="28.0" rotate="90" width="15.0">
+                             <styleClass>
+                                 <String fx:value="fill-yellow" />
+                                 <String fx:value="curve-rect-30" />
+                             </styleClass>
+                         </Rectangle>
+
+                         <Rectangle height="60.0" layoutX="52.0" layoutY="58.0" width="15.0">
+                             <styleClass>
+                                 <String fx:value="fill-purple" />
+                                 <String fx:value="curve-rect-30" />
+                             </styleClass>
+                         </Rectangle>
+
+                         <Rectangle height="60.0" layoutX="23.0" layoutY="28.0" rotate="90" width="15.0">
+                             <styleClass>
+                                 <String fx:value="fill-pink" />
+                                 <String fx:value="curve-rect-30" />
+                             </styleClass>
+                         </Rectangle>
+                     </Pane>
+                  </Pane>
+
+               </children>
+            </HBox>
             <Pane prefHeight="107.0" prefWidth="708.0">
                <VBox.margin>
                   <Insets />

@@ -31,12 +31,6 @@ public class Controller implements Initializable {
     @FXML private ImageView backButton;
     @FXML private Text high_score, total_stars;
 
-    @FXML private TextField usernameTxt;
-    @FXML private PasswordField passwordTxt;
-    @FXML private Button loginBtn;
-    @FXML private Button createAccBtn;
-    @FXML private Text login_status_label;
-
     @FXML
     private void handleFeedback() throws Exception {
         System.out.println("Feedback Button was pressed");
@@ -162,78 +156,5 @@ public class Controller implements Initializable {
     @FXML
     private void loadHome(MouseEvent me) throws Exception {
         Main.loadHome();
-    }
-
-    @FXML
-    public void loginValidate(MouseEvent me) {
-        try {
-            if (usernameTxt.getText() == null || passwordTxt.getText() == null ||
-                    usernameTxt.getText().trim().isEmpty() || passwordTxt.getText().trim().isEmpty()) {
-                throw new NullPointerException();
-            }
-            String user_name = usernameTxt.getText();
-            String password = passwordTxt.getText();
-            Player new_player = new Player(user_name, password);
-
-            // Validate player credentials
-            if (Main.validateLoginDetails(new_player)){
-                login_status_label.setText("Logged in successfully!");
-                login_status_label.setFill(Color.GREEN);
-                Main.setCurrentPlayer(new_player);
-                Main.loadHome();
-            }
-            else {
-                throw new InvalidCredentialsException("Wrong credentials entered!");
-            }
-        }
-        catch(NullPointerException | NumberFormatException e){
-            login_status_label.setFill(Color.RED);
-            login_status_label.setText("Invalid details. Try again!");
-        }
-        catch(InvalidCredentialsException e){
-            login_status_label.setFill(Color.RED);
-            login_status_label.setText("Wrong credentials entered!");
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void createNewAccount(MouseEvent me) {
-        try{
-            if (usernameTxt.getText() == null || passwordTxt.getText() == null ||
-                    usernameTxt.getText().trim().isEmpty() || passwordTxt.getText().trim().isEmpty()) {
-                throw new NullPointerException();
-            }
-            String user_name = usernameTxt.getText();
-            String password = passwordTxt.getText();
-
-            // Checking for duplicate username
-            Player new_player = new Player(user_name, password);
-            if (Main.checkDuplicateUsername(new_player)){
-                throw new DuplicateUsernameException("Username already exists!");
-            }
-            else{
-                Main.getPlayerList().add(new_player);
-                login_status_label.setText("Account created successfully!");
-                login_status_label.setFill(Color.GREEN);
-                Main.loadHome();
-            }
-        }
-        catch (NullPointerException | NumberFormatException e){
-            login_status_label.setFill(Color.RED);
-            login_status_label.setText("Invalid details. Try again!");
-        }
-        catch (DuplicateUsernameException e){
-            login_status_label.setFill(Color.RED);
-            login_status_label.setText("Username already exists!");
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
