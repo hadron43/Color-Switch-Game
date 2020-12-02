@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ColourSwitcherController implements Initializable {
-    @FXML private Pane colourSwitcher;
+    @FXML public Pane colourSwitcher;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
