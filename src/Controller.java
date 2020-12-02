@@ -35,7 +35,7 @@ public class Controller implements Initializable {
     private void handleFeedback() throws Exception {
         System.out.println("Feedback Button was pressed");
         // Open feedback form
-        URI uri = new URI("mailto:harsh19043@iiitd.ac.in?cc=varun19124@iiitd.ac.in?subject=Color%20Switch%20Game%20Feedback");
+        URI uri = new URI("mailto:harsh19043@iiitd.ac.in;varun19124@iiitd.ac.in?subject=Color%20Switch%20Game%20Feedback");
         if (Desktop.isDesktopSupported()){
             new Thread(() -> {
                 try {
