@@ -5,36 +5,38 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="plus" maxHeight="300.0" maxWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.controllers.PlusController">
-    <Rectangle height="150.0" layoutX="135.0" width="30.0">
-      <styleClass>
-         <String fx:value="fill-blue" />
-         <String fx:value="curve-rect-30" />
-      </styleClass>
-    </Rectangle>
+<Pane xmlns:fx="http://javafx.com/fxml/1" minHeight="300.0" minWidth="300.0" maxHeight="300.0" maxWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.controllers.PlusController">
+    <Pane minHeight="300.0" minWidth="300.0"  fx:id="plus">
+        <Rectangle height="150.0" layoutX="135.0" width="30.0">
+          <styleClass>
+             <String fx:value="fill-blue" />
+             <String fx:value="curve-rect-30" />
+          </styleClass>
+        </Rectangle>
 
-    <Rectangle height="150.0" layoutX="60.0" layoutY="75.0" rotate="90" width="30.0">
-        <styleClass>
-            <String fx:value="fill-yellow" />
-            <String fx:value="curve-rect-30" />
-        </styleClass>
-    </Rectangle>
+        <Rectangle height="150.0" layoutX="60.0" layoutY="75.0" rotate="90" width="30.0">
+            <styleClass>
+                <String fx:value="fill-yellow" />
+                <String fx:value="curve-rect-30" />
+            </styleClass>
+        </Rectangle>
 
-    <Rectangle height="150.0" layoutX="135.0" layoutY="150.0" width="30.0">
-        <styleClass>
-            <String fx:value="fill-purple" />
-            <String fx:value="curve-rect-30" />
-        </styleClass>
-    </Rectangle>
+        <Rectangle height="150.0" layoutX="135.0" layoutY="150.0" width="30.0">
+            <styleClass>
+                <String fx:value="fill-purple" />
+                <String fx:value="curve-rect-30" />
+            </styleClass>
+        </Rectangle>
 
-    <Rectangle height="150.0" layoutX="210.0" layoutY="75.0" rotate="90" width="30.0">
-        <styleClass>
-            <String fx:value="fill-pink" />
-            <String fx:value="curve-rect-30" />
-        </styleClass>
-    </Rectangle>
+        <Rectangle height="150.0" layoutX="210.0" layoutY="75.0" rotate="90" width="30.0">
+            <styleClass>
+                <String fx:value="fill-pink" />
+                <String fx:value="curve-rect-30" />
+            </styleClass>
+        </Rectangle>
 
-    <stylesheets>
-        <URL value="@../../style/style.css" />
-    </stylesheets>
+        <stylesheets>
+            <URL value="@../../style/style.css" />
+        </stylesheets>
+    </Pane>
 </Pane>

@@ -22,10 +22,15 @@ public class Game implements Serializable {
     private final List<GameObjects> gameObjects;
 //     For storing the score
     int score;
+
     @FXML
     Pane obstaclesBox;
+
 //     Controller With this Class
     private GameController gameController;
+
+//    Constatnts Requried
+    private static final int margin = 75;
 
     public Game(Player player, Scene scene) {
         this.player = player;
@@ -48,8 +53,8 @@ public class Game implements Serializable {
     }
 
     private void initializeGame() {
-        int pos = 1024;
-        int x = 250;
+        double pos = 1024 - margin;
+        double x = 768;
         for(int i=0; i<3; ++i){
             Obstacle ob = null;
             try {
@@ -59,9 +64,9 @@ public class Game implements Serializable {
             }
             if(ob == null)
                 continue;
-            ob.attachToPane(obstaclesBox, x,pos);
+            ob.attachToPane(obstaclesBox, x/2 - ob.getWidth()/2, pos-ob.getHeight()-margin);
             gameObjects.add(ob);
-            pos -= ob.getHeight();
+            pos -= ob.getHeight() + margin;
             System.out.println(ob.getHeight() + ", pos: "+ pos);
         }
     }

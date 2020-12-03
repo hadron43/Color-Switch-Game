@@ -10,9 +10,9 @@
 <?import javafx.scene.text.*?>
 
 <Pane xmlns:fx="http://javafx.com/fxml/1" minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="GameController">
-    <VBox fx:id="obstaclesBox" maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768">
+    <Pane fx:id="obstaclesBox" maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768">
 
-    </VBox>
+    </Pane>
 
     <BorderPane maxWidth="Infinity" minWidth="768">
         <left>

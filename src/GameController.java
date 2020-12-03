@@ -1,7 +1,7 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
     @FXML
-    VBox obstaclesBox;
+    Pane obstaclesBox;
     @FXML
     Text score;
 

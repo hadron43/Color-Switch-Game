@@ -25,13 +25,19 @@ public abstract class GameObjects {
     public double getWidth() {
         if(pane == null)
             return 0;
-        return pane.getWidth();
+        // Use only maxWidth Property in fxml objects associated with game objects
+        return pane.getMaxWidth();
     }
 
     public double getHeight() {
-        if(pane == null)
+        if(pane == null) {
+            System.out.println("Null Pointer!");
             return 0;
-        return pane.getHeight();
+        }
+
+        // As I've set max height property to fxml objects,
+        // This means, set max height property to all game objects
+        return pane.getMaxHeight();
     }
 
     // Attach itself to a particular Parent Node
@@ -42,8 +48,9 @@ public abstract class GameObjects {
     }
 
     public void attachToPane(Pane node, double i, double j) {
+        node.getChildren().add(pane);
         pane.setLayoutX(i);
         pane.setLayoutY(j);
-        node.getChildren().add(pane);
+        pane.setStyle("-fx-border-color: white;");
     }
 }

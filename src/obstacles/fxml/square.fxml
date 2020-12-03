@@ -9,14 +9,16 @@
     <stylesheets>
         <URL value="@../../style/style.css" />
     </stylesheets>
-    
-    <Pane layoutX="138.0" layoutY="138.0" prefHeight="75" prefWidth="75">
-        <Pane fx:id="star" />
-    </Pane>
-    <Pane fx:id="square">
-        <Rectangle arcHeight="5.0" arcWidth="5.0" height="350.0" layoutX="323.0" styleClass="fill-purple" width="28.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="1.0" layoutY="322.0" styleClass="fill-pink" width="350.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" height="350.0" styleClass="fill-yellow" width="28.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="0.0" layoutY="0.0" styleClass="fill-blue" width="350.0" />
+
+    <Pane>
+        <Pane layoutX="138.0" layoutY="138.0" prefHeight="75" prefWidth="75">
+            <Pane fx:id="star" />
+        </Pane>
+        <Pane fx:id="square" scaleX="0.7" scaleY="0.7">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="350.0" layoutX="323.0" styleClass="fill-purple" width="28.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="1.0" layoutY="322.0" styleClass="fill-pink" width="350.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="350.0" styleClass="fill-yellow" width="28.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="0.0" layoutY="0.0" styleClass="fill-blue" width="350.0" />
+        </Pane>
     </Pane>
 </Pane>
