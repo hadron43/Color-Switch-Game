@@ -74,4 +74,6 @@ public abstract class SuperController implements Initializable {
     public void addRotation(Node node) {
         addRotation(node, defaultRotatingDuration, ((int) (Math.random()*2))==1?true:false);
     }
+
+    protected Pane getStar() {return star;}
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="350" maxWidth="350" minHeight="350" minWidth="350" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.controllers.TriangleController">
+
+    <stylesheets>
+        <URL value="@../../style/style.css" />
+    </stylesheets>
+
+    <Pane>
+        <Pane fx:id="triangle" layoutX="-4.0" layoutY="16.0" prefHeight="350" prefWidth="350.0" scaleX="0.9" scaleY="0.9">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="350.0" layoutX="252.0" layoutY="-47.0" rotate="150.0" styleClass="fill-purple" width="28.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="5.0" layoutY="258.0" styleClass="fill-pink" width="350.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="350.0" layoutX="81.0" layoutY="-45.0" rotate="30.0" styleClass="fill-yellow" width="28.0" />
+         <padding>
+            <Insets bottom="25.0" />
+         </padding>
+        </Pane>
+        <Pane layoutX="137.0" layoutY="149.0" prefHeight="75" prefWidth="75">
+            <Pane fx:id="star" />
+        </Pane>
+    </Pane>
+</Pane>
