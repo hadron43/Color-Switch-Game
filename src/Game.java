@@ -26,7 +26,7 @@ public class Game implements Serializable {
 //     Includes Obstacles, ColourSwitcher's
     private final List<GameObjects> gameObjects;
 //    Constants Required
-    private static final double margin = 75, shift = 100, shiftDur = 30, width = 768, height = 1024;
+    private static final double margin = 140, shift = 100, shiftDur = 30, width = 768, height = 1024;
 //     For storing the score
     int score;
 //    For storing the list of all keyframes to be updated on a click
@@ -66,10 +66,17 @@ public class Game implements Serializable {
 
     private void newObstacle() {
         try {
+            Class obsType = null;
+            // No two consecutive Obstacles Should be Same
+            while(obsType == null || (gameObjects.size() != 0 && obsType == gameObjects.get(gameObjects.size()-1).getClass())){
+                obsType = map.get((int)(Math.random()*map.size()));
+                if(map.size() == 1)
+                    break;
+            }
             double pos = height;
             if(gameObjects.size() != 0)
                 pos = gameObjects.get(gameObjects.size()-1).getPosY().getValue();
-            Obstacle ob = (Obstacle) (map.get((int)(Math.random()*map.size()))).getDeclaredConstructor().newInstance();
+            Obstacle ob = (Obstacle) (obsType.getDeclaredConstructor().newInstance());
             pos -= margin + ob.getHeight();
             ob.attachToPane(obstaclesBox, (width-ob.getWidth())/2, pos);
             rememberGameObject(ob);
@@ -118,7 +125,7 @@ public class Game implements Serializable {
     private void updateGameObjects() {
         if(objectsPosProperty == null || objectsPosProperty.size() == 0)
             return;
-        if(objectsPosProperty.get(objectsPosProperty.size()-1).getValue() > -500) {
+        if(objectsPosProperty.get(objectsPosProperty.size()-1).getValue() > -height) {
             newObstacle();
         }
         while(objectsPosProperty.size() > 0 && objectsPosProperty.get(0).getValue() > height) {
