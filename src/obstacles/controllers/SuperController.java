@@ -19,25 +19,29 @@ public abstract class SuperController implements Initializable {
     // To store all transition objects
     private final List<Transition> transitions;
     @FXML
-    public Pane star;
+    private Pane star;
 
     protected SuperController() {
         this.transitions = new ArrayList<>();
     }
 
-    protected void loadStar() {
-        if(star != null) {
+    protected void loadStar(Pane customPane) {
+        if(customPane != null) {
             Pane temp;
             try {
                 temp = FXMLLoader.load(getClass().getResource("/elements/fxml/star.fxml"));
-                List<Node> parentChildren = ((Pane) star.getParent()).getChildren();
-                parentChildren.set(parentChildren.indexOf(star), temp);
-                star = temp;
-                addScaling(star);
+                List<Node> parentChildren = ((Pane) customPane.getParent()).getChildren();
+                parentChildren.set(parentChildren.indexOf(customPane), temp);
+                customPane = temp;
+                addScaling(customPane);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    protected void loadStar() {
+        loadStar(star);
     }
 
     public void addRotation(Node node, int timeInMillis, boolean clockwise) {

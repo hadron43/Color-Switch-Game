@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="500" maxWidth="250" minHeight="500" minWidth="250" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.controllers.DoubleCircleVerticalController">
+
+    <stylesheets>
+        <URL value="@../../style/style.css" />
+    </stylesheets>
+    <Pane fx:id="circle2" layoutX="-50.0" layoutY="-51.0" rotate="45.0" scaleX="0.71" scaleY="0.71">
+        <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="0.0" styleClass="fill-yellow" type="ROUND" />
+        <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="90.0" styleClass="fill-blue" type="ROUND" />
+        <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="180.0" styleClass="fill-pink" type="ROUND" />
+        <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="270.0" styleClass="fill-purple" type="ROUND" />
+        <Circle fill="WHITE" layoutX="175.0" layoutY="175.0" radius="147.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
+    </Pane>
+    <Pane layoutX="88.0" layoutY="87.0" prefHeight="75" prefWidth="75">
+        <Pane fx:id="star2" />
+    </Pane>
+
+    <Pane fx:id="circle1" layoutX="-50.0" layoutY="199.0" rotate="-135.0" scaleX="0.71" scaleY="0.71">
+        <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="0.0" styleClass="fill-yellow" type="ROUND" />
+        <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="90.0" styleClass="fill-blue" type="ROUND" />
+        <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="180.0" styleClass="fill-pink" type="ROUND" />
+        <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="270.0" styleClass="fill-purple" type="ROUND" />
+        <Circle fill="WHITE" layoutX="175.0" layoutY="175.0" radius="147.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
+    </Pane>
+
+       <Pane layoutX="87.0" layoutY="340.0" prefHeight="75" prefWidth="75">
+            <Pane fx:id="star1" />
+        </Pane>
+</Pane>

@@ -18,7 +18,7 @@ import java.util.List;
 
 public class Game implements Serializable {
     private static final List<Class> map = Arrays.asList(
-            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class
+            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
     );
     private final Ball ball;
     private final long id;
@@ -73,10 +73,10 @@ public class Game implements Serializable {
                 if(map.size() == 1)
                     break;
             }
+            Obstacle ob = (Obstacle) (obsType.getDeclaredConstructor().newInstance());
             double pos = height;
             if(gameObjects.size() != 0)
                 pos = gameObjects.get(gameObjects.size()-1).getPosY().getValue();
-            Obstacle ob = (Obstacle) (obsType.getDeclaredConstructor().newInstance());
             pos -= margin + ob.getHeight();
             ob.attachToPane(obstaclesBox, (width-ob.getWidth())/2, pos);
             rememberGameObject(ob);
