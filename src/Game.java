@@ -1,9 +1,14 @@
 import elements.Ball;
 import global.GameObjects;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.DoubleProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import obstacles.*;
 
 import java.io.*;
@@ -12,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Game implements Serializable {
-    private static List<Class> map = Arrays.asList(
+    private static final List<Class> map = Arrays.asList(
             Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class
     );
     private final Ball ball;
@@ -20,22 +25,23 @@ public class Game implements Serializable {
     private final Player player;
 //     Includes Obstacles, ColourSwitcher's
     private final List<GameObjects> gameObjects;
+//    Constants Required
+    private static final double margin = 75, shift = 100, shiftDur = 30, width = 768, height = 1024;
 //     For storing the score
     int score;
-
-    @FXML
-    Pane obstaclesBox;
+//    For storing the list of all keyframes to be updated on a click
+    private final List<DoubleProperty> objectsPosProperty;
 
 //     Controller With this Class
     private GameController gameController;
-
-//    Constatnts Requried
-    private static final int margin = 75;
+    @FXML
+    private Pane obstaclesBox;
 
     public Game(Player player, Scene scene) {
         this.player = player;
         id = assignID();
         gameObjects = new ArrayList<>();
+        objectsPosProperty = new ArrayList<>();
         ball = new Ball();
         score = 0;
 
@@ -44,6 +50,7 @@ public class Game implements Serializable {
             Pane root = loader.load();
             scene.setRoot(root);
             gameController = loader.getController();
+            gameController.setGame(this);
             obstaclesBox = gameController.obstaclesBox;
         } catch (IOException e) {
             e.printStackTrace();
@@ -52,22 +59,30 @@ public class Game implements Serializable {
         initializeGame();
     }
 
+    private void rememberGameObject(GameObjects object) {
+        gameObjects.add(object);
+        objectsPosProperty.add(object.getPosY());
+    }
+
+    private void newObstacle() {
+        try {
+            double pos = height;
+            if(gameObjects.size() != 0)
+                pos = gameObjects.get(gameObjects.size()-1).getPosY().getValue();
+            Obstacle ob = (Obstacle) (map.get((int)(Math.random()*map.size()))).getDeclaredConstructor().newInstance();
+            pos -= margin + ob.getHeight();
+            ob.attachToPane(obstaclesBox, (width-ob.getWidth())/2, pos);
+            rememberGameObject(ob);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void initializeGame() {
         double pos = 1024 - margin;
         double x = 768;
         for(int i=0; i<3; ++i){
-            Obstacle ob = null;
-            try {
-                ob = (Obstacle) (map.get((int)(Math.random()*map.size()))).getDeclaredConstructor().newInstance();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if(ob == null)
-                continue;
-            ob.attachToPane(obstaclesBox, x/2 - ob.getWidth()/2, pos-ob.getHeight()-margin);
-            gameObjects.add(ob);
-            pos -= ob.getHeight() + margin;
-            System.out.println(ob.getHeight() + ", pos: "+ pos);
+            newObstacle();
         }
     }
 
@@ -98,5 +113,17 @@ public class Game implements Serializable {
     // Getters and setters
     public long getId() {
         return id;
+    }
+
+    public void shiftObstacles() {
+        Timeline timeline = new Timeline();
+        timeline.setCycleCount(1);
+        timeline.setRate(0.1);
+        for(DoubleProperty property : objectsPosProperty) {
+            KeyValue keyValue = new KeyValue(property, property.getValue() + shift);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(shiftDur), keyValue);
+            timeline.getKeyFrames().add(new KeyFrame(Duration.millis(shiftDur), keyValue));
+        }
+        timeline.play();
     }
 }

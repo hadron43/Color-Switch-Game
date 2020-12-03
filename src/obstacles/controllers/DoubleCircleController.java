@@ -17,7 +17,7 @@ public class DoubleCircleController extends SuperController {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Add transitions
-        addRotation(circle1);
+        addRotation(circle1, defaultRotatingDuration, true);
         addRotation(circle2, defaultRotatingDuration, false);
         loadStar();
     }

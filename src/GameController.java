@@ -13,6 +13,8 @@ public class GameController implements Initializable {
     @FXML
     Text score;
 
+    private Game game;
+
     @FXML
     private void loadGameOver(MouseEvent me) throws Exception {
         Main.loadGameOver();
@@ -22,8 +24,16 @@ public class GameController implements Initializable {
         score.setText(_score+"");
     }
 
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    public void mouseClicked(MouseEvent mouseEvent) {
+        game.shiftObstacles();
     }
 }

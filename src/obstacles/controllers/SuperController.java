@@ -68,6 +68,6 @@ public abstract class SuperController implements Initializable {
     protected void addScaling(Node node) { addScaling(node, defaultScalingDuration, 0.3);}
 
     public void addRotation(Node node) {
-        addRotation(node, defaultRotatingDuration, true);
+        addRotation(node, defaultRotatingDuration, ((int) (Math.random()*2))==1?true:false);
     }
 }
