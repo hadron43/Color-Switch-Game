@@ -115,6 +115,18 @@ public class Game implements Serializable {
         return id;
     }
 
+    private void updateGameObjects() {
+        if(objectsPosProperty == null || objectsPosProperty.size() == 0)
+            return;
+        if(objectsPosProperty.get(objectsPosProperty.size()-1).getValue() > -500) {
+            newObstacle();
+        }
+        while(objectsPosProperty.size() > 0 && objectsPosProperty.get(0).getValue() > height) {
+            objectsPosProperty.remove(0);
+            gameObjects.remove(0);
+        }
+    }
+
     public void shiftObstacles() {
         Timeline timeline = new Timeline();
         timeline.setCycleCount(1);
@@ -125,5 +137,8 @@ public class Game implements Serializable {
             timeline.getKeyFrames().add(new KeyFrame(Duration.millis(shiftDur), keyValue));
         }
         timeline.play();
+
+        // Generate new obstacle if running out of obstacles to display
+        updateGameObjects();
     }
 }
