@@ -13,7 +13,7 @@ public class GameTester extends Application {
         primaryStage.setHeight(1024);
         primaryStage.setWidth(768);
         primaryStage.show();
-        Game game = new Game(new Player(), scene);
+        Game game = new Game(new Player("uname", "pass"), scene);
         System.out.println(game.getId());
         primaryStage.hide();
         primaryStage.show();

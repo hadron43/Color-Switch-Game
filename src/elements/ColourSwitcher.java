@@ -14,14 +14,14 @@ public class ColourSwitcher extends GameObjects implements Collideable {
 
     @Override
     public Bounds getBounds() {
-        if(pane == null)
+        if(getPane() == null)
             return null;
-        return pane.getBoundsInParent();
+        return getPane().getBoundsInParent();
     }
 
     @Override
     public int hasCollided(Ball b) {
-        if(pane == null || b == null || b.getBounds() == null)
+        if(getPane() == null || b == null || b.getBounds() == null)
             return -1;
         return (getBounds().intersects(b.getBounds())) ? 1 : 0;
     }
@@ -31,16 +31,15 @@ public class ColourSwitcher extends GameObjects implements Collideable {
     }
 
     protected void loadColourSwitcherPane(String FXMLPath) {
-        Pane temp = null;
+        Pane temp;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPath));
             temp = loader.load();
+            setPane(temp);
             colourSwitcherController = loader.getController();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        pane = temp;
-        setPane(temp);
     }
 
 }
