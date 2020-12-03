@@ -6,7 +6,7 @@ import obstacles.controllers.DoubleCircleController;
 public class DoubleCircle extends Obstacle {
     private DoubleCircleController doubleCircleController;
 
-    DoubleCircle(double posY) {
+    public DoubleCircle() {
         // Load the FXML and set 'pane' in Parent
         loadObstaclePane("/obstacles/fxml/doubleCircle.fxml");
 

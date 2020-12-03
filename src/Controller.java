@@ -3,7 +3,6 @@ import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -21,15 +20,10 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn, box, ball, csContainer, colourSwitcher;
-    @FXML private ImageView ring_4, ring_5;
-
-    @FXML private ImageView backButton;
-    @FXML private Text high_score, total_stars;
+    @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn;
 
     @FXML
     private void handleFeedback() throws Exception {
@@ -50,7 +44,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        final int items = 8;
+        final int items = 5;
         RotateTransition[] r = new RotateTransition[items];
 
         for(int i=0; i<items; ++i) {
@@ -68,51 +62,12 @@ public class Controller implements Initializable {
         r[0].setNode(ring_1);
         r[1].setNode(ring_2);
         r[2].setNode(ring_3);
-        r[3].setNode(ring_4);
-        r[4].setNode(ring_5);
-        r[5].setNode(icon_1);
-        r[6].setNode(produced_btn);
-        r[7].setNode(csContainer);
+        r[3].setNode(icon_1);
+        r[4].setNode(produced_btn);
 
         for(int i=0; i<items; ++i)
             r[i].play();
 
-//        For loading sample obstacles for testing purposes
-        if(box != null) {
-            Pane newPane;
-            try {
-                newPane = FXMLLoader.load(getClass().getResource("/obstacles/fxml/circleFlow.fxml"));
-                List<Node> parentChildren = ((Pane) box.getParent()).getChildren();
-                parentChildren.set(parentChildren.indexOf(box), newPane);
-                box = newPane;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if(ball != null) {
-            Pane newPane;
-            try {
-                newPane = FXMLLoader.load(getClass().getResource("/elements/fxml/ball.fxml"));
-                List<Node> parentChildren = ((Pane) ball.getParent()).getChildren();
-                parentChildren.set(parentChildren.indexOf(ball), newPane);
-                box = newPane;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if(colourSwitcher != null) {
-            Pane temp;
-            try {
-                temp = FXMLLoader.load(getClass().getResource("/elements/fxml/colourSwitcher.fxml"));
-                List<Node> parentChildren = ((Pane) colourSwitcher.getParent()).getChildren();
-                parentChildren.set(parentChildren.indexOf(colourSwitcher), temp);
-                colourSwitcher = temp;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     @FXML
@@ -141,11 +96,6 @@ public class Controller implements Initializable {
     @FXML
     private void loadGamePage(MouseEvent me) throws Exception {
         Main.loadGame();
-    }
-
-    @FXML
-    private void loadGameOver(MouseEvent me) throws Exception {
-        Main.loadGameOver();
     }
 
     @FXML
