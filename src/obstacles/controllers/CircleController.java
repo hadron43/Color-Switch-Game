@@ -1,5 +1,6 @@
 package obstacles.controllers;
 
+import global.SuperController;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
 

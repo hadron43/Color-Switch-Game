@@ -2,7 +2,6 @@ package global;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
-import obstacles.controllers.SuperController;
 
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -1,4 +1,4 @@
-package obstacles.controllers;
+package global;
 
 import javafx.animation.*;
 import javafx.fxml.FXML;

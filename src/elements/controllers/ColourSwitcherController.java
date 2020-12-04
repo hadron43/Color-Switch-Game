@@ -3,7 +3,7 @@ package elements.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
-import obstacles.controllers.SuperController;
+import global.SuperController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
