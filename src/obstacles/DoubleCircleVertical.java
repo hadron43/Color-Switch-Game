@@ -8,7 +8,7 @@ public class DoubleCircleVertical extends Obstacle {
 
     public DoubleCircleVertical() {
         // Load the FXML and set 'pane' in Parent
-        loadObstaclePane("/obstacles/fxml/doubleCircleVertical.fxml");
+        loadFXMLtoPane("/obstacles/fxml/doubleCircleVertical.fxml");
 
         doubleCircleVerticalController = (DoubleCircleVerticalController) controller;
     }

@@ -9,7 +9,7 @@ public class CircleFlow extends Obstacle{
     public CircleFlow() {
 
         // Load the FXML and set 'pane' in Parent
-        loadObstaclePane("/obstacles/fxml/circleFlow.fxml");
+        loadFXMLtoPane("/obstacles/fxml/circleFlow.fxml");
 
         circleFlowController = (CircleFlowController) controller;
     }

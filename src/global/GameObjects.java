@@ -2,14 +2,19 @@ package global;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import obstacles.controllers.SuperController;
+
+import java.io.IOException;
 
 public abstract class GameObjects {
     @FXML
     private Pane pane;
     private DoubleProperty posY;
+    protected SuperController controller;
 
     public DoubleProperty getPosY() {
         return posY;
@@ -52,5 +57,17 @@ public abstract class GameObjects {
         pane.setLayoutX(i);
         pane.setLayoutY(j);
         pane.setStyle("-fx-border-color: white;");
+    }
+
+    protected void loadFXMLtoPane(String FXMLPath) {
+        Pane temp = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPath));
+            temp = loader.load();
+            controller = loader.getController();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        setPane(temp);
     }
 }

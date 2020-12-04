@@ -3,14 +3,15 @@ package elements;
 import elements.controllers.ColourSwitcherController;
 import global.Collideable;
 import global.GameObjects;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
-import javafx.scene.layout.Pane;
-
-import java.io.IOException;
 
 public class ColourSwitcher extends GameObjects implements Collideable {
     private ColourSwitcherController colourSwitcherController;
+
+    public ColourSwitcher() {
+        loadFXMLtoPane("/elements/fxml/colourSwitcher.fxml");
+        colourSwitcherController = (ColourSwitcherController) controller;
+    }
 
     @Override
     public Bounds getBounds() {
@@ -29,17 +30,4 @@ public class ColourSwitcher extends GameObjects implements Collideable {
     public void changeBallColour(Ball b){
         b.setColour();
     }
-
-    protected void loadColourSwitcherPane(String FXMLPath) {
-        Pane temp;
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPath));
-            temp = loader.load();
-            setPane(temp);
-            colourSwitcherController = loader.getController();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 }

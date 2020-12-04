@@ -8,7 +8,7 @@ public class Square extends Obstacle {
 
     public Square() {
         // Load the FXML and set 'pane' in Parent
-        loadObstaclePane("/obstacles/fxml/square.fxml");
+        loadFXMLtoPane("/obstacles/fxml/square.fxml");
 
         squareController = (SquareController) controller;
     }

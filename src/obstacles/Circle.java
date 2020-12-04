@@ -8,7 +8,7 @@ public class Circle extends Obstacle {
 
     public Circle() {
         // Load the FXML and set 'pane' in Parent
-        loadObstaclePane("/obstacles/fxml/circle.fxml");
+        loadFXMLtoPane("/obstacles/fxml/circle.fxml");
 
         circleController = (CircleController) controller;
     }

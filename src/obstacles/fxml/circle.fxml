@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="350" maxWidth="350" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.controllers.CircleController">
+<Pane xmlns:fx="http://javafx.com/fxml/1" minWidth="350" minHeight="350" maxHeight="350" maxWidth="350" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.controllers.CircleController">
 
     <stylesheets>
         <URL value="@../../style/style.css" />

@@ -8,7 +8,7 @@ public class Plus extends Obstacle {
 
     public Plus() {
         // Load the FXML and set 'pane' in Parent
-        loadObstaclePane("/obstacles/fxml/plus.fxml");
+        loadFXMLtoPane("/obstacles/fxml/plus.fxml");
 
         plusController = (PlusController) controller;
     }

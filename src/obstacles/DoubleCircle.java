@@ -8,7 +8,7 @@ public class DoubleCircle extends Obstacle {
 
     public DoubleCircle() {
         // Load the FXML and set 'pane' in Parent
-        loadObstaclePane("/obstacles/fxml/doubleCircle.fxml");
+        loadFXMLtoPane("/obstacles/fxml/doubleCircle.fxml");
 
         doubleCircleController = (DoubleCircleController) controller;
     }

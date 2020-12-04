@@ -8,7 +8,7 @@ public class Triangle extends Obstacle {
 
     public Triangle() {
         // Load the FXML and set 'pane' in Parent
-        loadObstaclePane("/obstacles/fxml/triangle.fxml");
+        loadFXMLtoPane("/obstacles/fxml/triangle.fxml");
 
         triangleController = (TriangleController) controller;
     }

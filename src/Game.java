@@ -1,4 +1,5 @@
 import elements.Ball;
+import elements.ColourSwitcher;
 import global.GameObjects;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -27,11 +28,14 @@ public class Game implements Serializable {
 //     Includes Obstacles, ColourSwitcher's
     private final List<GameObjects> gameObjects;
 //    Constants Required
-    private static final double margin = 140, shift = 100, shiftDur = 30, width = 768, height = 1024;
+    private static final double margin = 140, shift = 100, shiftDur = 30, width = 768, height = 1024, maxColorSwitcher = 2;
 //     For storing the score
     int score;
 //    For storing the list of all keyframes to be updated on a click
     private final List<DoubleProperty> objectsPosProperty;
+
+//    It stores the number of colourSwitchers allowed to be loaded at a time on the screen
+    private int colorSwitcherCount;
 
 //     Controller With this Class
     private GameController gameController;
@@ -60,9 +64,25 @@ public class Game implements Serializable {
         initializeGame();
     }
 
-    private void rememberGameObject(GameObjects object) {
-        gameObjects.add(object);
-        objectsPosProperty.add(object.getPosY());
+    private void attachGameObject(GameObjects ob) {
+        double pos = height;
+        if(gameObjects.size() != 0) {
+            pos = gameObjects.get(gameObjects.size() - 1).getPosY().getValue();
+
+            // To reduce gap in case of Colour Switchers
+            if(gameObjects.get(gameObjects.size() - 1) instanceof ColourSwitcher || ob instanceof ColourSwitcher)
+                pos += margin/2;
+
+            // To add some offset
+            // ColourSwitcher loads faster than Obstacle, and have less excess gap due to latency
+            if(ob instanceof ColourSwitcher)
+                pos -= margin/5;
+        }
+        pos -= margin + ob.getHeight();
+
+        ob.attachToPane(obstaclesBox, (width-ob.getWidth())/2, pos);
+        gameObjects.add(ob);
+        objectsPosProperty.add(ob.getPosY());
     }
 
     private void newObstacle() {
@@ -75,15 +95,16 @@ public class Game implements Serializable {
                     break;
             }
             Obstacle ob = (Obstacle) (obsType.getDeclaredConstructor().newInstance());
-            double pos = height;
-            if(gameObjects.size() != 0)
-                pos = gameObjects.get(gameObjects.size()-1).getPosY().getValue();
-            pos -= margin + ob.getHeight();
-            ob.attachToPane(obstaclesBox, (width-ob.getWidth())/2, pos);
-            rememberGameObject(ob);
+            attachGameObject(ob);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void newColorSwitcher() {
+        ColourSwitcher cs = new ColourSwitcher();
+        attachGameObject(cs);
+        colorSwitcherCount++;
     }
 
     private void initializeGame() {
@@ -128,8 +149,12 @@ public class Game implements Serializable {
             return;
         if(objectsPosProperty.get(objectsPosProperty.size()-1).getValue() > -height) {
             newObstacle();
+            if(colorSwitcherCount < maxColorSwitcher && Math.random()*3 > 2)
+                newColorSwitcher();
         }
         while(objectsPosProperty.size() > 0 && objectsPosProperty.get(0).getValue() > height) {
+            if(gameObjects.get(0) instanceof ColourSwitcher)
+                colorSwitcherCount--;
             objectsPosProperty.remove(0);
             gameObjects.remove(0);
         }
@@ -141,7 +166,6 @@ public class Game implements Serializable {
         timeline.setRate(0.1);
         for(DoubleProperty property : objectsPosProperty) {
             KeyValue keyValue = new KeyValue(property, property.getValue() + shift);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(shiftDur), keyValue);
             timeline.getKeyFrames().add(new KeyFrame(Duration.millis(shiftDur), keyValue));
         }
         timeline.play();
