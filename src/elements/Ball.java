@@ -1,16 +1,25 @@
 package elements;
 
 import elements.controllers.BallController;
+import elements.controllers.ColourSwitcherController;
+import global.GameObjects;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
+import javafx.scene.layout.Pane;
 
+import java.io.IOException;
 import java.util.Random;
 
-public class Ball {
+public class Ball extends GameObjects {
 
     private BallController ballController;
     private int colour;
     private double speed;
-    private double posY;
+
+    public Ball () {
+        loadFXMLtoPane("/elements/fxml/ball.fxml");
+        setColour();
+    }
 
     public Bounds getBounds() {
         if(ballController == null || ballController.circle_ball == null)
@@ -55,11 +64,15 @@ public class Ball {
         speed *= speed_level;
     }
 
-    public double getPosY() {
-        return posY;
-    }
-
-    public void setPosY(double posY) {
-        this.posY = posY;
+    public void loadBallPane(String FXMLPath) {
+        Pane temp = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPath));
+            temp = loader.load();
+            ballController = loader.getController();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        setPane(temp);
     }
 }
