@@ -107,4 +107,9 @@ public class Controller implements Initializable {
     private void loadHome(MouseEvent me) throws Exception {
         Main.loadHome();
     }
+
+    public void loadUserLogin(MouseEvent mouseEvent) throws Exception {
+        Main.setCurrentPlayer(null);
+        Main.loadUserLogin();
+    }
 }
