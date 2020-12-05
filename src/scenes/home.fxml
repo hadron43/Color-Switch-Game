@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Arc?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Text?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane minHeight="1024" minWidth="768" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <top>
@@ -136,7 +128,7 @@
             <left>
                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
                     <padding>
-                        <Insets bottom="50.0" top="100.0" />
+                        <Insets bottom="50.0" top="175.0" />
                     </padding>
                     <Pane fx:id="icon_1" onMouseClicked="#loadStats" prefHeight="101.0" prefWidth="90.0" styleClass="small-on-hover">
                         <cursor>
@@ -180,7 +172,7 @@
             <right>
                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
                     <padding>
-                        <Insets bottom="50.0" top="100.0" />
+                        <Insets bottom="50.0" top="175.0" />
                     </padding>
                     <Pane fx:id="produced_btn" onMouseClicked="#loadProducedBy" prefHeight="101.0" prefWidth="100.0" styleClass="small-on-hover">
                         <cursor>
