@@ -23,6 +23,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+    @FXML private ImageView ring_4, ring_5;
     @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn;
 
     @FXML
@@ -44,7 +45,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        final int items = 5;
+        final int items = 7;
         RotateTransition[] r = new RotateTransition[items];
 
         for(int i=0; i<items; ++i) {
@@ -64,6 +65,8 @@ public class Controller implements Initializable {
         r[2].setNode(ring_3);
         r[3].setNode(icon_1);
         r[4].setNode(produced_btn);
+        r[5].setNode(ring_4);
+        r[6].setNode(ring_5);
 
         for(int i=0; i<items; ++i)
             r[i].play();
