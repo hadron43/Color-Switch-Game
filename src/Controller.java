@@ -102,8 +102,24 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void exitGame(MouseEvent me) {
+    public void exitGame(MouseEvent me) throws IOException {
+        LoginController.serialize(Main.getCurrentPlayer());
+
+        System.out.println("\nexit game serialize:");
+        Main.getCurrentPlayer().print_player();
+
+        Main.setCurrentPlayer(null);
         Platform.exit();
+    }
+
+    public void logoutGame(MouseEvent mouseEvent) throws Exception {
+        LoginController.serialize(Main.getCurrentPlayer());
+
+        System.out.println("\nlogout serialize:");
+        Main.getCurrentPlayer().print_player();
+
+        Main.setCurrentPlayer(null);
+        Main.loadUserLogin();
     }
 
     @FXML

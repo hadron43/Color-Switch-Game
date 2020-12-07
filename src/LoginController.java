@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -49,29 +50,9 @@ public class LoginController implements Initializable {
         r[2].setNode(login_plus_1);
         r[3].setNode(login_plus_2);
 
-        for(int i=0; i<items; i++)
+        for(int i=0; i<items; i++) {
             r[i].play();
-
-//        // clockwise rotation for plus_1 (left)
-//        RotateTransition rt_plus_1 = new RotateTransition();
-//        rt_plus_1.setAxis((Rotate.Z_AXIS));
-//        rt_plus_1.setByAngle(360);
-//        rt_plus_1.setCycleCount(Animation.INDEFINITE);
-//        rt_plus_1.setInterpolator(Interpolator.LINEAR);
-//        rt_plus_1.setDuration(Duration.millis(3000));
-//        rt_plus_1.setNode(login_plus_1);
-//
-//        // anti-clockwise rotation for plus_2 (right)
-//        RotateTransition rt_plus_2 = new RotateTransition();
-//        rt_plus_2.setAxis((Rotate.Z_AXIS));
-//        rt_plus_2.setByAngle(-360);
-//        rt_plus_2.setCycleCount(Animation.INDEFINITE);
-//        rt_plus_2.setInterpolator(Interpolator.LINEAR);
-//        rt_plus_2.setDuration(Duration.millis(3000));
-//        rt_plus_2.setNode(login_plus_2);
-//
-//        rt_plus_1.play();
-//        rt_plus_2.play();
+        }
     }
 
 
@@ -86,11 +67,13 @@ public class LoginController implements Initializable {
             String password = passwordTxt.getText();
             Player new_player = new Player(user_name, password);
 
+            Player validatedPlayer = validateLoginDetails(new_player);
+
             // Validate player credentials
-            if (Main.validateLoginDetails(new_player)){
+            if (validatedPlayer != null){
                 login_status_label.setText("Logged in successfully!");
                 login_status_label.setFill(Color.GREEN);
-                Main.setCurrentPlayer(new_player);
+                Main.setCurrentPlayer(validatedPlayer);
                 Main.loadHome();
             }
             else {
@@ -122,13 +105,14 @@ public class LoginController implements Initializable {
 
             // Checking for duplicate username
             Player new_player = new Player(user_name, password);
-            if (Main.checkDuplicateUsername(new_player)){
+            if (checkDuplicateUsername(new_player)){
                 throw new DuplicateUsernameException("Username already exists!");
             }
             else{
-                Main.getPlayerList().add(new_player);
                 login_status_label.setText("Account created successfully!");
                 login_status_label.setFill(Color.GREEN);
+                Main.setCurrentPlayer(new_player);
+                serialize(new_player);
                 Main.loadHome();
             }
         }
@@ -146,5 +130,63 @@ public class LoginController implements Initializable {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void serialize (Player player) throws IOException {
+        String filename = player.getFileName();
+        System.out.println(filename);
+        String filepath = "src/player_data/" + filename;
+
+        ObjectOutputStream out = null;
+        try {
+            out = new ObjectOutputStream(new FileOutputStream(filepath));
+            out.writeObject(player);
+        }
+        finally {
+            out.close();
+        }
+    }
+
+    public static Player deserialize(Player player) throws IOException, ClassNotFoundException {
+        String filename = player.getFileName();
+        System.out.println(filename);
+        String filepath = "src/player_data/" + filename;
+
+        Player p = null;
+        ObjectInputStream in = null;
+        try {
+            in = new ObjectInputStream (new FileInputStream(filepath));
+            p = (Player) in.readObject();
+        }
+        finally {
+            in.close();
+        }
+        return p;
+    }
+
+
+    private static boolean checkPlayerName(Player p1){
+        String filepath = "src/player_data/" + p1.getFileName();
+        File temp = new File(filepath);
+        System.out.println(p1.getFileName() + ": " + temp.exists());
+        return temp.exists();
+    }
+
+    private static boolean checkDuplicateUsername(Player p1) {
+        return checkPlayerName(p1);
+    }
+
+    private static Player validateLoginDetails(Player p1) throws IOException, ClassNotFoundException {
+        if (checkPlayerName(p1)){
+            Player check_player = deserialize(p1);
+            if (p1.getPassword().equals(check_player.getPassword())){
+
+                System.out.println("\nvalidate deserialize:");
+                check_player.print_player();
+
+                return check_player;
+            }
+        }
+        return null;
     }
 }

@@ -1,11 +1,13 @@
+import java.io.Serializable;
 import java.security.*;
+import java.util.Arrays;
 
-public class Player {
+public class Player implements Serializable {
     private final String username;
     private final String password;
     private int starsEarned;
     private int highScore;
-    private static final byte[] salt = generateSalt();
+    private static final byte[] salt = "MyPasswordSalt".getBytes();
 
     public Player(String user_name, String password) {
         this.username = user_name;
@@ -23,6 +25,28 @@ public class Player {
         else{
             return false;
         }
+    }
+
+    @Override
+    public String toString(){
+        String player_info = this.username + "\n" +
+                this.password + "\n" +
+                Integer.toString(getHighScore()) + "\n" +
+                Integer.toString(getStarsEarned()) + "\n" +
+                Arrays.toString(salt) + "\n";
+        return player_info;
+    }
+
+    public void print_player(){
+        System.out.println(toString());
+    }
+
+    public String getFileName(){
+        String file_prefix = "player_";
+        String file_suffix = ".txt";
+        String filename = file_prefix + this.getUsername() + file_suffix;
+
+        return filename;
     }
 
     private static byte[] generateSalt(){

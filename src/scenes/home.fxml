@@ -151,7 +151,7 @@
                             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </VBox.margin>
                     </Button>
-                    <Button fx:id="logoutBtn" maxWidth="Infinity" onMouseClicked="#loadUserLogin" prefHeight="43.0" prefWidth="339.0" styleClass="feedback-button" text="Logout">
+                    <Button fx:id="logoutBtn" maxWidth="Infinity" onMouseClicked="#logoutGame" prefHeight="43.0" prefWidth="339.0" styleClass="feedback-button" text="Logout">
                         <cursor>
                             <Cursor fx:constant="HAND" />
                         </cursor>

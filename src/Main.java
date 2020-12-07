@@ -11,6 +11,7 @@ import javafx.scene.transform.Scale;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,6 @@ public class Main extends Application {
     static double width, height;
     static String color = "#292929";
     static Stage primaryStage;
-    private static ArrayList<Player> playerList = new ArrayList<Player>();
     private static Player currentPlayer;
 
 
@@ -83,25 +83,6 @@ public class Main extends Application {
         primaryStage.getScene().setRoot(root);
     }
 
-    protected static boolean checkDuplicateUsername(Player p1) {
-        for (Player player: playerList){
-            if (p1.equals(player)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    protected static boolean validateLoginDetails(Player p1) {
-        for (Player player: playerList){
-            if (p1.equals(player)){
-                if (p1.getPassword().equals(player.getPassword())){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 
     protected static Player getCurrentPlayer() {
         return currentPlayer;
@@ -111,9 +92,6 @@ public class Main extends Application {
         Main.currentPlayer = currentPlayer;
     }
 
-    private static void addSamplePlayer(){
-        playerList.add(new Player("smarty", "1234"));
-    }
 
     @Override
     public void start(Stage stage) throws Exception{
@@ -128,8 +106,6 @@ public class Main extends Application {
         height = viewPort.getHeight();
         width = 3*height/4;
 
-//        loadHome();
-        addSamplePlayer();
         loadUserLogin();
 
         primaryStage.setHeight(height);
@@ -140,9 +116,5 @@ public class Main extends Application {
     @Override
     public void init() {
         Font font = Font.loadFont(getClass().getResourceAsStream("fonts/Dyuthi-Regular.ttf"), 32);
-    }
-
-    public static ArrayList<Player> getPlayerList(){
-        return playerList;
     }
 }
