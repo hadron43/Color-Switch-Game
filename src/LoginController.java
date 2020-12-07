@@ -112,7 +112,12 @@ public class LoginController implements Initializable {
                 login_status_label.setText("Account created successfully!");
                 login_status_label.setFill(Color.GREEN);
                 Main.setCurrentPlayer(new_player);
+
                 serialize(new_player);
+
+                System.out.println("\ncreate account serialize:");
+                Main.getCurrentPlayer().print_player();
+
                 Main.loadHome();
             }
         }
@@ -135,7 +140,7 @@ public class LoginController implements Initializable {
     public static void serialize (Player player) throws IOException {
         String filename = player.getFileName();
         System.out.println(filename);
-        String filepath = "src/player_data/" + filename;
+        String filepath = "src/data/player_data/" + filename;
 
         ObjectOutputStream out = null;
         try {
@@ -150,7 +155,7 @@ public class LoginController implements Initializable {
     public static Player deserialize(Player player) throws IOException, ClassNotFoundException {
         String filename = player.getFileName();
         System.out.println(filename);
-        String filepath = "src/player_data/" + filename;
+        String filepath = "src/data/player_data/" + filename;
 
         Player p = null;
         ObjectInputStream in = null;
@@ -164,9 +169,8 @@ public class LoginController implements Initializable {
         return p;
     }
 
-
     private static boolean checkPlayerName(Player p1){
-        String filepath = "src/player_data/" + p1.getFileName();
+        String filepath = "src/data/player_data/" + p1.getFileName();
         File temp = new File(filepath);
         System.out.println(p1.getFileName() + ": " + temp.exists());
         return temp.exists();
