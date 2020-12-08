@@ -47,7 +47,6 @@ public class Game implements Serializable {
         id = assignID();
         gameObjects = new ArrayList<>();
         objectsPosProperty = new ArrayList<>();
-        ball = new Ball();
         score = 0;
 
         try {
@@ -61,6 +60,9 @@ public class Game implements Serializable {
             e.printStackTrace();
         }
 
+        ball = new Ball();
+        ball.attachToPane(obstaclesBox, (width/2-ball.getWidth()/2), height-margin);
+        System.out.println(ball.getBounds());
         initializeGame();
     }
 
