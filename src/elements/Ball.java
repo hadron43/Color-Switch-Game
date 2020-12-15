@@ -21,7 +21,7 @@ public class Ball extends GameObjects {
     public Bounds getBounds() {
         if(ballController == null || ballController.circle_ball == null)
             return null;
-        return ballController.circle_ball.getBoundsInParent();
+        return ballController.circle_ball.getBoundsInLocal();
     }
 
     public int getColour(){
@@ -53,6 +53,10 @@ public class Ball extends GameObjects {
             default:
                 break;
         }
+    }
+
+    public BallController getBallController() {
+        return ballController;
     }
 
     public double getSpeed(){

@@ -119,8 +119,8 @@ public class Game implements Serializable {
             newObstacle();
         }
 
-//        Thread collisionThread = new Thread(new collisionThread());
-//        collisionThread.start();
+        Thread collisionThread = new Thread(new collisionThread(), "Collision Thread");
+        collisionThread.start();
     }
 
     public void shiftObstacles() {
@@ -132,8 +132,6 @@ public class Game implements Serializable {
             timeline.getKeyFrames().add(new KeyFrame(Duration.millis(shiftDur), keyValue));
         }
         timeline.play();
-        Thread t1 = new Thread(new collisionThread());
-        t1.run();
         // Generate new obstacle if running out of obstacles to display
         updateGameObjects();
     }
@@ -194,8 +192,8 @@ public class Game implements Serializable {
                     if(!(gameObjects.get(i) instanceof Obstacle))
                         continue;
                     Obstacle go = (Obstacle) gameObjects.get(i);
-                    if (go.getPosY().getValue() - ball.getPosY().getValue() < -700)
-                        throw new Exception("Reached too far!");
+//                    if (go.getPosY().getValue() - ball.getPosY().getValue() < -700)
+//                        throw new Exception("Reached too far!");
                     if (go instanceof Circle) {
                         int col = go.hasCollided(ball);
                         if(col == 1)
@@ -203,8 +201,8 @@ public class Game implements Serializable {
                     }
                 }
                 catch(Exception e) {
-                    return;
-//                    i = -1;
+
+                    i = -1;
                 }
             }
         }

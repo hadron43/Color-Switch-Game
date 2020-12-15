@@ -24,7 +24,7 @@ public abstract class Obstacle extends GameObjects implements Collideable {
     public Bounds getBounds() {
         if(getPane() == null)
             return null;
-        return getPane().getBoundsInParent();
+        return getPane().getBoundsInLocal();
     }
 
     @Override
