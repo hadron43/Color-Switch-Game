@@ -10,7 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import obstacles.*;
+import obstacles.Circle;
+import obstacles.Obstacle;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -19,8 +20,8 @@ import java.util.List;
 
 public class Game implements Serializable {
     private static final List<Class> map = Arrays.asList(
-            Circle.class, CircleFlow.class
-//            DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class,
+            Circle.class
+//            , CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class,
 //            Triangle.class
     );
     private final Ball ball;
@@ -118,24 +119,23 @@ public class Game implements Serializable {
             newObstacle();
         }
 
-        Thread collisionThread = new Thread(new collisionThread());
-        collisionThread.start();
+//        Thread collisionThread = new Thread(new collisionThread());
+//        collisionThread.start();
     }
 
-    class collisionThread implements Runnable {
-        @Override
-        public void run() {
-//            while (true) {
-//                for (GameObjects go : gameObjects) {
-//                    if (go.getPosY().getValue() - ball.getPosY().getValue() < -700)
-//                        break;
-//                    if (go instanceof Circle) {
-////                        System.out.println("Checking collision!");
-//                        ((Obstacle) go).hasCollided(ball);
-//                    }
-//                }
-//            }
+    public void shiftObstacles() {
+        Timeline timeline = new Timeline();
+        timeline.setCycleCount(1);
+        timeline.setRate(0.1);
+        for(DoubleProperty property : objectsPosProperty) {
+            KeyValue keyValue = new KeyValue(property, property.getValue() + shift);
+            timeline.getKeyFrames().add(new KeyFrame(Duration.millis(shiftDur), keyValue));
         }
+        timeline.play();
+        Thread t1 = new Thread(new collisionThread());
+        t1.run();
+        // Generate new obstacle if running out of obstacles to display
+        updateGameObjects();
     }
 
     private long assignID() {
@@ -183,17 +183,30 @@ public class Game implements Serializable {
         }
     }
 
-    public void shiftObstacles() {
-        Timeline timeline = new Timeline();
-        timeline.setCycleCount(1);
-        timeline.setRate(0.1);
-        for(DoubleProperty property : objectsPosProperty) {
-            KeyValue keyValue = new KeyValue(property, property.getValue() + shift);
-            timeline.getKeyFrames().add(new KeyFrame(Duration.millis(shiftDur), keyValue));
+    class collisionThread implements Runnable {
+        @Override
+        public void run() {
+            for (int i=0; ;++i) {
+                if(i == -1) {
+                    System.out.println("Invalid State! i is -1!");
+                }
+                try {
+                    if(!(gameObjects.get(i) instanceof Obstacle))
+                        continue;
+                    Obstacle go = (Obstacle) gameObjects.get(i);
+                    if (go.getPosY().getValue() - ball.getPosY().getValue() < -700)
+                        throw new Exception("Reached too far!");
+                    if (go instanceof Circle) {
+                        int col = go.hasCollided(ball);
+                        if(col == 1)
+                            System.out.println("collision detected!");
+                    }
+                }
+                catch(Exception e) {
+                    return;
+//                    i = -1;
+                }
+            }
         }
-        timeline.play();
-
-        // Generate new obstacle if running out of obstacles to display
-        updateGameObjects();
     }
 }

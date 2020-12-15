@@ -22,6 +22,7 @@ public class Main extends Application {
         if(main == null) {
             main = new Main();
             main.setupScreen();
+            // Do set the stage when calling from outside
         }
         return main;
     }
@@ -46,7 +47,6 @@ public class Main extends Application {
         Scale scale = new Scale();
         scale.setPivotY(0);
         scale.setPivotX(0);
-        System.out.println("height" + height);
         scale.setY(height/1024);
         scale.setX(width/768);
         root.getTransforms().addAll(scale);
@@ -104,13 +104,17 @@ public class Main extends Application {
     }
 
     protected void setCurrentPlayer(Player currentPlayer) {
-        Main.getInstance().currentPlayer = currentPlayer;
+        this.currentPlayer = currentPlayer;
     }
 
     private void setupScreen() {
         Rectangle2D viewPort = Screen.getPrimary().getVisualBounds();
         height = viewPort.getHeight();
         width = 3*height/4;
+    }
+
+    protected void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
     }
 
     @Override
@@ -121,6 +125,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.getIcons().add(new Image("/assets/color-switch-icon.png"));
         primaryStage.setTitle("Color Switch");
+        main = this;
 
         setupScreen();
 

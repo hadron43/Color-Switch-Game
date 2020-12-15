@@ -20,7 +20,7 @@ public class Circle extends Obstacle {
         // -1 -> star earned
         // 1  -> collided
         int result = 0;
-        System.out.println("Brooks was here!");
+//        System.out.println("Brooks was here!");
 
         if(getBounds().intersects(b.getBounds())) {
             if(!circleController.safe.intersects(b.getBounds())) {

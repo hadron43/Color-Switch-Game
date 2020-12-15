@@ -82,10 +82,12 @@ public class LoginController implements Initializable {
         }
         catch(NullPointerException | NumberFormatException e){
             login_status_label.setFill(Color.RED);
+            e.printStackTrace();
             login_status_label.setText("Invalid details. Try again!");
         }
         catch(InvalidCredentialsException e){
             login_status_label.setFill(Color.RED);
+            e.printStackTrace();
             login_status_label.setText("Wrong credentials entered!");
         }
         catch (Exception e) {
@@ -123,6 +125,7 @@ public class LoginController implements Initializable {
         }
         catch (NullPointerException | NumberFormatException e){
             login_status_label.setFill(Color.RED);
+            e.printStackTrace();
             login_status_label.setText("Invalid details. Try again!");
         }
         catch (DuplicateUsernameException e){
