@@ -12,80 +12,106 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    static double width, height;
-    static String color = "#292929";
-    static Stage primaryStage;
-    private static Player currentPlayer;
+    private static Main main;
+    private double width, height;
+    private String color = "#292929";
+    private Stage primaryStage;
+    private Player currentPlayer;
 
+    public static Main getInstance() {
+        if(main == null) {
+            main = new Main();
+            main.setupScreen();
+        }
+        return main;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public String getColor() {
+        return color;
+    }
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    protected static void scale(Parent root) {
+    protected void scale(Parent root) {
         Scale scale = new Scale();
         scale.setPivotY(0);
         scale.setPivotX(0);
+        System.out.println("height" + height);
         scale.setY(height/1024);
         scale.setX(width/768);
         root.getTransforms().addAll(scale);
     }
 
-    protected static void loadSettings() throws Exception {
+    protected void loadSettings() throws Exception {
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/settings.fxml"));
         scale(root);
         primaryStage.getScene().setRoot(root);
     }
 
-    protected static void loadProducedBy() throws Exception {
+    protected void loadProducedBy() throws Exception {
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/produced.fxml"));
         scale(root);
         primaryStage.getScene().setRoot(root);
     }
 
-    protected static void loadAboutGame() throws Exception{
+    protected void loadAboutGame() throws Exception{
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/about_game.fxml"));
         scale(root);
         primaryStage.getScene().setRoot(root);
     }
 
-    protected static void loadStats() throws Exception{
+    protected void loadStats() throws Exception{
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/stats.fxml"));
         scale(root);
         primaryStage.getScene().setRoot(root);
     }
 
-    protected static void loadGame() throws Exception {
+    protected void loadGame() throws Exception {
         Game game = new Game(new Player("uname", "pass"), primaryStage.getScene());
     }
 
-    protected static void loadGameOver() throws Exception{
+    protected void loadGameOver() throws Exception{
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/game_over.fxml"));
         scale(root);
         primaryStage.getScene().setRoot(root);
     }
 
-    protected static void loadUserLogin() throws Exception{
+    protected void loadUserLogin() throws Exception{
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/user_login.fxml"));
         scale(root);
         primaryStage.getScene().setRoot(root);
     }
 
-    protected static void loadHome() throws Exception {
+    protected void loadHome() throws Exception {
         Parent root = FXMLLoader.load(Main.class.getResource("scenes/home.fxml"));
         scale(root);
         primaryStage.getScene().setRoot(root);
     }
 
 
-    protected static Player getCurrentPlayer() {
+    protected Player getCurrentPlayer() {
         return currentPlayer;
     }
 
-    protected static void setCurrentPlayer(Player currentPlayer) {
-        Main.currentPlayer = currentPlayer;
+    protected void setCurrentPlayer(Player currentPlayer) {
+        Main.getInstance().currentPlayer = currentPlayer;
     }
 
+    private void setupScreen() {
+        Rectangle2D viewPort = Screen.getPrimary().getVisualBounds();
+        height = viewPort.getHeight();
+        width = 3*height/4;
+    }
 
     @Override
     public void start(Stage stage) throws Exception{
@@ -96,9 +122,7 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("/assets/color-switch-icon.png"));
         primaryStage.setTitle("Color Switch");
 
-        Rectangle2D viewPort = Screen.getPrimary().getVisualBounds();
-        height = viewPort.getHeight();
-        width = 3*height/4;
+        setupScreen();
 
         loadUserLogin();
 

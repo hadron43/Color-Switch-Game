@@ -73,8 +73,8 @@ public class LoginController implements Initializable {
             if (validatedPlayer != null){
                 login_status_label.setText("Logged in successfully!");
                 login_status_label.setFill(Color.GREEN);
-                Main.setCurrentPlayer(validatedPlayer);
-                Main.loadHome();
+                Main.getInstance().setCurrentPlayer(validatedPlayer);
+                Main.getInstance().loadHome();
             }
             else {
                 throw new InvalidCredentialsException("Wrong credentials entered!");
@@ -111,14 +111,14 @@ public class LoginController implements Initializable {
             else{
                 login_status_label.setText("Account created successfully!");
                 login_status_label.setFill(Color.GREEN);
-                Main.setCurrentPlayer(new_player);
+                Main.getInstance().setCurrentPlayer(new_player);
 
                 serialize(new_player);
 
                 System.out.println("\ncreate account serialize:");
-                Main.getCurrentPlayer().print_player();
+                Main.getInstance().getCurrentPlayer().print_player();
 
-                Main.loadHome();
+                Main.getInstance().loadHome();
             }
         }
         catch (NullPointerException | NumberFormatException e){

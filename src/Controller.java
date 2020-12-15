@@ -4,15 +4,9 @@ import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -75,60 +69,60 @@ public class Controller implements Initializable {
 
     @FXML
     private void loadSettings(MouseEvent me) throws Exception {
-        Main.loadSettings();
+        Main.getInstance().loadSettings();
     }
     @FXML
     private void loadProducedBy(MouseEvent me) throws Exception {
-        Main.loadProducedBy();
+        Main.getInstance().loadProducedBy();
     }
     @FXML
     private void loadAbout(MouseEvent me) throws Exception {
-        Main.loadAboutGame();
+        Main.getInstance().loadAboutGame();
     }
 
     @FXML
     private void loadStats(MouseEvent me) throws Exception {
-        Main.loadStats();
+        Main.getInstance().loadStats();
     }
 
     @FXML
     private void backToHome(MouseEvent me) throws Exception {
-        Main.loadHome();
+        Main.getInstance().loadHome();
     }
 
     @FXML
     private void loadGamePage(MouseEvent me) throws Exception {
-        Main.loadGame();
+        Main.getInstance().loadGame();
     }
 
     @FXML
     public void exitGame(MouseEvent me) throws IOException {
-        LoginController.serialize(Main.getCurrentPlayer());
+        LoginController.serialize(Main.getInstance().getCurrentPlayer());
 
         System.out.println("\nexit game serialize:");
-        Main.getCurrentPlayer().print_player();
+        Main.getInstance().getCurrentPlayer().print_player();
 
-        Main.setCurrentPlayer(null);
+        Main.getInstance().setCurrentPlayer(null);
         Platform.exit();
     }
 
     public void logoutGame(MouseEvent mouseEvent) throws Exception {
-        LoginController.serialize(Main.getCurrentPlayer());
+        LoginController.serialize(Main.getInstance().getCurrentPlayer());
 
         System.out.println("\nlogout serialize:");
-        Main.getCurrentPlayer().print_player();
+        Main.getInstance().getCurrentPlayer().print_player();
 
-        Main.setCurrentPlayer(null);
-        Main.loadUserLogin();
+        Main.getInstance().setCurrentPlayer(null);
+        Main.getInstance().loadUserLogin();
     }
 
     @FXML
     private void loadHome(MouseEvent me) throws Exception {
-        Main.loadHome();
+        Main.getInstance().loadHome();
     }
 
     public void loadUserLogin(MouseEvent mouseEvent) throws Exception {
-        Main.setCurrentPlayer(null);
-        Main.loadUserLogin();
+        Main.getInstance().setCurrentPlayer(null);
+        Main.getInstance().loadUserLogin();
     }
 }

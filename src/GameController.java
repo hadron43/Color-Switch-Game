@@ -17,7 +17,7 @@ public class GameController implements Initializable {
 
     @FXML
     private void loadGameOver(MouseEvent me) throws Exception {
-        Main.loadGameOver();
+        Main.getInstance().loadGameOver();
     }
 
     public void setScore(int _score) {
