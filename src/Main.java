@@ -11,10 +11,6 @@ import javafx.scene.transform.Scale;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main extends Application {
     static double width, height;
     static String color = "#292929";
@@ -26,7 +22,7 @@ public class Main extends Application {
         launch(args);
     }
 
-    private static void scale(Parent root) {
+    protected static void scale(Parent root) {
         Scale scale = new Scale();
         scale.setPivotY(0);
         scale.setPivotX(0);
@@ -60,9 +56,7 @@ public class Main extends Application {
     }
 
     protected static void loadGame() throws Exception {
-        Parent root = FXMLLoader.load(Main.class.getResource("scenes/game.fxml"));
-        scale(root);
-        primaryStage.getScene().setRoot(root);
+        Game game = new Game(new Player("uname", "pass"), primaryStage.getScene());
     }
 
     protected static void loadGameOver() throws Exception{

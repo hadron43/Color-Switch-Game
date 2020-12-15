@@ -10,11 +10,11 @@
         <URL value="@../../style/style.css" />
     </stylesheets>
     <Pane fx:id="circle" >
-        <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="0.0" styleClass="fill-yellow" type="ROUND" />
-        <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="90.0" styleClass="fill-blue" type="ROUND" />
-        <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="180.0" styleClass="fill-pink" type="ROUND" />
-        <Arc focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="270.0" styleClass="fill-purple" type="ROUND" />
-        <Circle fill="WHITE" layoutX="175.0" layoutY="175.0" radius="147.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
+        <Arc fx:id="yellowRing" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="0.0" styleClass="fill-yellow" type="ROUND" />
+        <Arc fx:id="blueRing" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="90.0" styleClass="fill-blue" type="ROUND" />
+        <Arc fx:id="pinkRing" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="180.0" styleClass="fill-pink" type="ROUND" />
+        <Arc fx:id="purpleRing" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="270.0" styleClass="fill-purple" type="ROUND" />
+        <Circle fx:id="safe" fill="WHITE" layoutX="175.0" layoutY="175.0" radius="147.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
     </Pane>
     <Pane layoutX="138.0" layoutY="138.0" prefHeight="75" prefWidth="75">
         <Pane fx:id="star" />

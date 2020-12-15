@@ -19,8 +19,9 @@ import java.util.List;
 
 public class Game implements Serializable {
     private static final List<Class> map = Arrays.asList(
-            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class,
-            Triangle.class
+            Circle.class, CircleFlow.class
+//            DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class,
+//            Triangle.class
     );
     private final Ball ball;
     private final long id;
@@ -53,6 +54,7 @@ public class Game implements Serializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/game.fxml"));
             Pane root = loader.load();
             scene.setRoot(root);
+            Main.scale(root);
             gameController = loader.getController();
             gameController.setGame(this);
             obstaclesBox = gameController.obstaclesBox;
@@ -61,6 +63,7 @@ public class Game implements Serializable {
         }
 
         ball = new Ball();
+        System.out.println("Ball Width: " + ball.getWidth());
         ball.attachToPane(obstaclesBox, (width/2-ball.getWidth()/2), height-margin);
         System.out.println(ball.getBounds());
         initializeGame();
@@ -114,6 +117,25 @@ public class Game implements Serializable {
         double x = 768;
         for(int i=0; i<3; ++i){
             newObstacle();
+        }
+
+        Thread collisionThread = new Thread(new collisionThread());
+        collisionThread.start();
+    }
+
+    class collisionThread implements Runnable {
+        @Override
+        public void run() {
+//            while (true) {
+//                for (GameObjects go : gameObjects) {
+//                    if (go.getPosY().getValue() - ball.getPosY().getValue() < -700)
+//                        break;
+//                    if (go instanceof Circle) {
+////                        System.out.println("Checking collision!");
+//                        ((Obstacle) go).hasCollided(ball);
+//                    }
+//                }
+//            }
         }
     }
 
