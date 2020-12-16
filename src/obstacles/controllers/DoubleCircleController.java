@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 
 public class DoubleCircleController extends SuperController {
     @FXML
-    public Pane circle1, circle2;
+    public Pane circle1, circle2, star, whole;
 
     @FXML
     public Arc one_yellow_ring, one_blue_ring, one_pink_ring, one_purple_ring;
@@ -21,8 +21,6 @@ public class DoubleCircleController extends SuperController {
 
     @FXML
     public Circle safe;
-    @FXML
-    public Pane star;
 
     public DoubleCircleController() {
         super();
@@ -31,7 +29,8 @@ public class DoubleCircleController extends SuperController {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Add transitions
-        addRotation(circle1, defaultRotatingDuration, true);
-        addRotation(circle2, defaultRotatingDuration, false);
+        addRotation(circle2, defaultRotatingDuration/2, false);
+        addRotation(circle1, defaultRotatingDuration*2, true);
+        addRotation(whole, defaultRotatingDuration, true);
     }
 }
