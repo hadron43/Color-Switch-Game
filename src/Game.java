@@ -217,22 +217,19 @@ public class Game implements Serializable {
                     System.out.println("Invalid State! i is -1!");
                 }
                 try {
-                    if(!(gameObjects.get(i) instanceof Obstacle)){
-                        if (gameObjects.get(i) instanceof ColourSwitcher){
-                            ColourSwitcher cs = (ColourSwitcher) gameObjects.get(i);
-                            if (cs.hasCollided(ball) == 2){
-                                System.out.println("colour switcher detected! " + counter);
-                            }
+                    if (gameObjects.get(i) instanceof ColourSwitcher){
+                        ColourSwitcher cs = (ColourSwitcher) gameObjects.get(i);
+                        if (cs.hasCollided(ball) == 2){
+                            System.out.println("colour switcher detected! " + counter);
                         }
-                        continue;
                     }
-                    Obstacle go = (Obstacle) gameObjects.get(i);
-//                    if (go.getPosY().getValue() - ball.getPosY().getValue() < -700)
-//                        throw new Exception("Reached too far!");
-
-                    int col = go.hasCollided(ball);
-                    if(col == 1)
-                        System.out.println("collision detected! " + counter);
+                    else if (gameObjects.get(i) instanceof Obstacle) {
+                        Obstacle go = (Obstacle) gameObjects.get(i);
+                        int col = go.hasCollided(ball);
+                        if (col == 1)
+                            System.out.println("collision detected! " + counter);
+                    }
+                    else continue;
                 }
                 catch(Exception e) {
 
