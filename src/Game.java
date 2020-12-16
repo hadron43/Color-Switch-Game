@@ -14,6 +14,8 @@ import obstacles.Circle;
 import obstacles.Obstacle;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,6 +29,9 @@ public class Game implements Serializable {
     private final Ball ball;
     private final long id;
     private final Player player;
+
+//    date and time when the game was last played
+    private String date_time;
 //     Includes Obstacles, ColourSwitcher's
     private final List<GameObjects> gameObjects;
 //    Constants Required
@@ -50,6 +55,7 @@ public class Game implements Serializable {
         gameObjects = new ArrayList<>();
         objectsPosProperty = new ArrayList<>();
         score = 0;
+        initialiseDateTime();
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/game.fxml"));
@@ -214,5 +220,16 @@ public class Game implements Serializable {
                 counter++;
             }
         }
+    }
+
+    public void setDateTime(String date_time) {
+        this.date_time = date_time;
+    }
+
+    private void initialiseDateTime(){
+        DateTimeFormatter dt_format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String dt = dt_format.format(now);
+        setDateTime(dt);
     }
 }

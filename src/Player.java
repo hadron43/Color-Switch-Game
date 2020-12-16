@@ -10,14 +10,14 @@ public class Player implements Serializable {
     private int starsEarned;
     private int highScore;
     private static final byte[] salt = "MyPasswordSalt".getBytes();
-    private Map<String, Game> savedGamesMap;
+    private Map<Long, Game> savedGamesMap;
 
     public Player(String user_name, String password) {
         this.username = user_name;
         this.password = generatePasswordHash(password);
         this.starsEarned = 0;
         this.highScore = 0;
-        savedGamesMap = new HashMap<String, Game>();
+        savedGamesMap = new HashMap<Long, Game>();
     }
 
     @Override
@@ -105,10 +105,17 @@ public class Player implements Serializable {
     }
 
     public void saveGame(Game game){
+
         DateTimeFormatter dt_format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         String date_time = dt_format.format(now);
         System.out.println(dt_format.format(now));
-        savedGamesMap.put(date_time, game);
+
+        game.setDateTime(date_time);
+        savedGamesMap.put(game.getId(), game);
+    }
+
+    public void deleteSavedGame(Game game){
+        savedGamesMap.remove(game.getId());
     }
 }
