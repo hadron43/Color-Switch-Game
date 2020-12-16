@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import obstacles.Circle;
-import obstacles.Obstacle;
+import obstacles.*;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -22,8 +22,7 @@ import java.util.List;
 
 public class Game implements Serializable {
     private static final List<Class> map = Arrays.asList(
-            Circle.class
-//            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
+            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
 //            Triangle.class
     );
     private final Ball ball;

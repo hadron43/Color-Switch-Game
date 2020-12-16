@@ -71,7 +71,7 @@ public class BallController extends SuperController implements Initializable {
         downTimeline.stop();
         downTimeline = new Timeline();
         DoubleProperty layoutY = ball.layoutYProperty();
-        downTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(moveUpDur * 1.5 * (maxY - layoutY.getValue())/moveUpDist), new KeyValue(layoutY, maxY, Interpolator.EASE_IN)));
+        downTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(moveUpDur * (maxY - layoutY.getValue())/moveUpDist), new KeyValue(layoutY, maxY, Interpolator.EASE_IN)));
         downTimeline.play();
         System.out.println("Down movement triggered!");
     }
