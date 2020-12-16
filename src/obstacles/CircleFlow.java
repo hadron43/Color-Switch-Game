@@ -16,6 +16,7 @@ public class CircleFlow extends Obstacle{
 
     @Override
     public int hasCollided(Ball b) {
+
         return 0;
     }
 }

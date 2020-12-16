@@ -11,6 +11,7 @@ public class Player implements Serializable {
     private int highScore;
     private static final byte[] salt = "MyPasswordSalt".getBytes();
     private Map<Long, Game> savedGamesMap;
+    private static final long serialversionUID = 7L;
 
     public Player(String user_name, String password) {
         this.username = user_name;
