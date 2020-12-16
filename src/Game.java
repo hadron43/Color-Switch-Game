@@ -47,7 +47,7 @@ public class Game implements Serializable {
 //     Controller With this Class
     private GameController gameController;
     @FXML
-    private Pane obstaclesBox;
+    private Pane obstaclesBox, root;
 
     public Game(Player player, Scene scene) {
         this.player = player;
@@ -59,7 +59,7 @@ public class Game implements Serializable {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/game.fxml"));
-            Pane root = loader.load();
+            root = loader.load();
             scene.setRoot(root);
             Main.getInstance().scale(root);
             gameController = loader.getController();
@@ -70,7 +70,7 @@ public class Game implements Serializable {
         }
 
         ball = new Ball();
-        ball.attachToPane(obstaclesBox, (width/2-ball.getWidth()/2), height-margin);
+        ball.attachToPane(root, (width/2-ball.getWidth()/2), height-margin);
         System.out.println(ball.getBounds());
         initializeGame();
     }
