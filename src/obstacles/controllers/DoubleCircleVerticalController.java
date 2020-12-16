@@ -30,7 +30,5 @@ public class DoubleCircleVerticalController extends SuperController {
         boolean clockwise = (Math.random()*2 >= 1) ? true : false;
         addRotation(circle1, defaultRotatingDuration, clockwise);
         addRotation(circle2, defaultRotatingDuration, clockwise);
-        loadStar(star1);
-        loadStar(star2);
     }
 }

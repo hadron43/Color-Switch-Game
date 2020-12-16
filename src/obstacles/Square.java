@@ -12,6 +12,7 @@ public class Square extends Obstacle {
         loadFXMLtoPane("/obstacles/fxml/square.fxml");
 
         squareController = (SquareController) controller;
+        loadStar(squareController.star);
     }
 
     @Override
@@ -24,6 +25,10 @@ public class Square extends Obstacle {
                 (Shape.intersect(squareController.blue_rect, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1 && b.getColour() != 2) ||
                 (Shape.intersect(squareController.purple_rect, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1 && b.getColour() != 3)){
             result = 1;
+        }
+
+        if(result == 0) {
+            result = hasCollidedWithStar(b);
         }
 
         return result;

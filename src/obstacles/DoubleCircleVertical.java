@@ -12,6 +12,8 @@ public class DoubleCircleVertical extends Obstacle {
         loadFXMLtoPane("/obstacles/fxml/doubleCircleVertical.fxml");
 
         doubleCircleVerticalController = (DoubleCircleVerticalController) controller;
+        loadStar(doubleCircleVerticalController.star1);
+        loadStar(doubleCircleVerticalController.star2);
     }
 
     @Override
@@ -34,6 +36,10 @@ public class DoubleCircleVertical extends Obstacle {
 
                 result = 1;
             }
+        }
+
+        if(result == 0) {
+            result = hasCollidedWithStar(b);
         }
 
         return result;

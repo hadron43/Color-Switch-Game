@@ -2,6 +2,7 @@ import elements.Ball;
 import elements.ColorSwitcherLogo;
 import elements.ColourSwitcher;
 import elements.Hand;
+import global.Collideable;
 import global.GameObjects;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -240,34 +241,24 @@ public class Game implements Serializable {
                     System.out.println("Invalid State! i is -1!");
                 }
                 try {
-                    if (gameObjects.get(i) instanceof ColourSwitcher){
-                        ColourSwitcher cs = (ColourSwitcher) gameObjects.get(i);
-                        if (cs.hasCollided(ball) == 2){
-                            System.out.println("colour switcher detected! " + counter);
+                    GameObjects object = gameObjects.get(i);
+                    if(object instanceof Collideable) {
+                        int ret = ((Collideable) object).hasCollided(ball);
+                        if(ret != 0) {
+                            System.out.println("Collision detected, ret: "+ret+"; it: "+counter);
                         }
                     }
-                    else if (gameObjects.get(i) instanceof Obstacle) {
-                        Obstacle go = (Obstacle) gameObjects.get(i);
-                        int col = go.hasCollided(ball);
-                        if (col == 1) {
-                            System.out.println("collision detected! " + counter);
-                            setGameOver(go);
-                            return;
-                        }
-                    }
-                    else continue;
                 }
                 catch(Exception e) {
-
                     i = -1;
                 }
+                counter++;
 
                 try {
-                    Thread.sleep(10);
+                    Thread.sleep(15);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                counter++;
             }
         }
     }

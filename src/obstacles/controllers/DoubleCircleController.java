@@ -21,6 +21,8 @@ public class DoubleCircleController extends SuperController {
 
     @FXML
     public Circle safe;
+    @FXML
+    public Pane star;
 
     public DoubleCircleController() {
         super();
@@ -31,6 +33,5 @@ public class DoubleCircleController extends SuperController {
         // Add transitions
         addRotation(circle1, defaultRotatingDuration, true);
         addRotation(circle2, defaultRotatingDuration, false);
-        loadStar();
     }
 }

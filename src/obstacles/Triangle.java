@@ -11,6 +11,7 @@ public class Triangle extends Obstacle {
         loadFXMLtoPane("/obstacles/fxml/triangle.fxml");
 
         triangleController = (TriangleController) controller;
+        loadStar(triangleController.star);
     }
 
     @Override

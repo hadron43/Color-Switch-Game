@@ -1,4 +1,4 @@
-package obstacles.controllers;
+package elements.controllers;
 
 import global.SuperController;
 import javafx.fxml.FXML;
@@ -8,21 +8,15 @@ import javafx.scene.shape.Rectangle;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SquareController extends SuperController {
-    @FXML
-    public Pane square;
-    @FXML public Rectangle blue_rect, pink_rect, yellow_rect, purple_rect;
-
+public class StarController extends SuperController {
     @FXML
     public Pane star;
 
-    public SquareController() {
-        super();
-    }
+    @FXML
+    public Rectangle collisionRect;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Add transitions
-        addRotation(square);
+        addScaling(star);
     }
 }

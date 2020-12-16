@@ -10,8 +10,8 @@ public class Circle extends Obstacle {
     public Circle() {
         // Load the FXML and set 'pane' in Parent
         loadFXMLtoPane("/obstacles/fxml/circle.fxml");
-
         circleController = (CircleController) controller;
+        loadStar(circleController.star);
     }
 
     @Override
@@ -32,6 +32,10 @@ public class Circle extends Obstacle {
                 b.getColour() != 3 && Shape.intersect(circleController.purpleRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1
             )
                 result = 1;
+        }
+
+        if(result == 0) {
+            result = hasCollidedWithStar(b);
         }
 
         return result;

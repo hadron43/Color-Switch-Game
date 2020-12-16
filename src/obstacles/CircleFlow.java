@@ -14,6 +14,7 @@ public class CircleFlow extends Obstacle{
         loadFXMLtoPane("/obstacles/fxml/circleFlow.fxml");
 
         circleFlowController = (CircleFlowController) controller;
+        loadStar(circleFlowController.star);
     }
 
     @Override
@@ -26,6 +27,10 @@ public class CircleFlow extends Obstacle{
                 check_intersection(b, circleFlowController.blue_balls, 2) ||
                 check_intersection(b, circleFlowController.purple_balls, 3)){
             result = 1;
+        }
+
+        if(result == 0) {
+            result = hasCollidedWithStar(b);
         }
 
         return result;

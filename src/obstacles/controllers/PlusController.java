@@ -12,6 +12,9 @@ public class PlusController extends SuperController {
     @FXML public Pane plus;
     @FXML public Rectangle blue_rect, pink_rect, yellow_rect, purple_rect;
 
+    @FXML
+    public Pane star;
+
     public PlusController() {
         super();
     }
@@ -20,6 +23,5 @@ public class PlusController extends SuperController {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Add transitions
         addRotation(plus);
-        loadStar();
     }
 }

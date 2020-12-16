@@ -12,6 +12,7 @@ public class Plus extends Obstacle {
         loadFXMLtoPane("/obstacles/fxml/plus.fxml");
 
         plusController = (PlusController) controller;
+        loadStar(plusController.star);
     }
 
     @Override
@@ -24,6 +25,10 @@ public class Plus extends Obstacle {
                 (Shape.intersect(plusController.blue_rect, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1 && b.getColour() != 2) ||
                 (Shape.intersect(plusController.purple_rect, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1 && b.getColour() != 3)){
             result = 1;
+        }
+
+        if(result == 0) {
+            result = hasCollidedWithStar(b);
         }
 
         return result;
