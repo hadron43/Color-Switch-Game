@@ -184,6 +184,7 @@ public class Game implements Serializable {
     class collisionThread implements Runnable {
         @Override
         public void run() {
+            long counter = 0;
             for (int i=0; ;++i) {
                 if(i == -1) {
                     System.out.println("Invalid State! i is -1!");
@@ -197,13 +198,20 @@ public class Game implements Serializable {
                     if (go instanceof Circle) {
                         int col = go.hasCollided(ball);
                         if(col == 1)
-                            System.out.println("collision detected!");
+                            System.out.println("collision detected! " + counter);
                     }
                 }
                 catch(Exception e) {
 
                     i = -1;
                 }
+
+                try {
+                    Thread.sleep(15);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                counter++;
             }
         }
     }

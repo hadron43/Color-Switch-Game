@@ -77,7 +77,7 @@ public class Main extends Application {
     }
 
     protected void loadGame() throws Exception {
-        Game game = new Game(new Player("uname", "pass"), primaryStage.getScene());
+        Game game = new Game(getCurrentPlayer(), primaryStage.getScene());
     }
 
     protected void loadGameOver() throws Exception{
