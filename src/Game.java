@@ -1,5 +1,7 @@
 import elements.Ball;
+import elements.ColorSwitcherLogo;
 import elements.ColourSwitcher;
+import elements.Hand;
 import global.GameObjects;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -67,10 +69,7 @@ public class Game implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         ball = new Ball();
-        ball.attachToPane(root, (width/2-ball.getWidth()/2), height-margin);
-        System.out.println(ball.getBounds());
         initializeGame();
     }
 
@@ -89,6 +88,13 @@ public class Game implements Serializable {
                 pos -= margin/5;
         }
         pos -= margin + ob.getHeight();
+        if(gameObjects.isEmpty()) {
+            pos += margin;
+            pos -= 30;
+        }
+        else if(gameObjects.size() <= 2) {
+            pos += margin/2;
+        }
 
         ob.attachToPane(obstaclesBox, (width-ob.getWidth())/2, pos);
         gameObjects.add(ob);
@@ -118,11 +124,15 @@ public class Game implements Serializable {
     }
 
     private void initializeGame() {
-        double pos = 1024 - margin;
-        double x = 768;
+        attachGameObject(new Hand());
+        attachGameObject(new ColorSwitcherLogo());
+        attachGameObject(new Circle());
+
         for(int i=0; i<3; ++i){
             newObstacle();
         }
+
+        ball.attachToPane(root, (width/2-ball.getWidth()/2), gameObjects.get(0).getPosY().getValue() - ball.getHeight() - 10);
 
         Thread collisionThread = new Thread(new collisionThread(), "Collision Thread");
         collisionThread.start();
