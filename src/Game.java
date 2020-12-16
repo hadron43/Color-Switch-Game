@@ -130,11 +130,12 @@ public class Game implements Serializable {
     }
 
     public void shiftObstacles() {
+        double shiftExcess = Math.min(shift, ball.getBallController().moveUp());
         Timeline timeline = new Timeline();
         timeline.setCycleCount(1);
         timeline.setRate(0.1);
         for(DoubleProperty property : objectsPosProperty) {
-            KeyValue keyValue = new KeyValue(property, property.getValue() + shift);
+            KeyValue keyValue = new KeyValue(property, property.getValue() + shiftExcess);
             timeline.getKeyFrames().add(new KeyFrame(Duration.millis(shiftDur), keyValue));
         }
         timeline.play();
@@ -187,6 +188,17 @@ public class Game implements Serializable {
         }
     }
 
+    public void setDateTime(String date_time) {
+        this.date_time = date_time;
+    }
+
+    private void initialiseDateTime(){
+        DateTimeFormatter dt_format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String dt = dt_format.format(now);
+        setDateTime(dt);
+    }
+
     class collisionThread implements Runnable {
         @Override
         public void run() {
@@ -220,16 +232,5 @@ public class Game implements Serializable {
                 counter++;
             }
         }
-    }
-
-    public void setDateTime(String date_time) {
-        this.date_time = date_time;
-    }
-
-    private void initialiseDateTime(){
-        DateTimeFormatter dt_format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        String dt = dt_format.format(now);
-        setDateTime(dt);
     }
 }

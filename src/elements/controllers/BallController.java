@@ -1,11 +1,15 @@
 package elements.controllers;
 
 import global.SuperController;
-import javafx.animation.Animation;
-import javafx.animation.TranslateTransition;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.DoubleProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
@@ -20,62 +24,54 @@ public class BallController extends SuperController implements Initializable {
     @FXML
     public Circle circle_ball;
 
-    public BallController () {
+    private static double moveUpDist = 100, moveUpDur = 200, minY = 1024/2, maxY = 1024-50;
+    private Timeline upTimeline, downTimeline, initialTimeline;
 
+    public BallController () {
+        upTimeline = new Timeline();
+        downTimeline = new Timeline();
+        initialTimeline = new Timeline();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         // Welcome translate transition
-        TranslateTransition t_trans = new TranslateTransition();
-        t_trans.setByY(-100);
-        t_trans.setDuration(Duration.millis(750));
-        t_trans.setCycleCount(Animation.INDEFINITE);
-        t_trans.setAutoReverse(true);
-        t_trans.setNode(ball);
-        t_trans.play();
-        transitions.add(t_trans);
-
-        // move up transition
-        TranslateTransition move_up = new TranslateTransition(Duration.millis(250), ball);
-        move_up.setByY(-100);
-        transitions.add(move_up);
-
-        // free fall transition
-        TranslateTransition free_fall = new TranslateTransition(Duration.millis(250), ball);
-        free_fall.setByY(75);
-        transitions.add(free_fall);
-
-
+        initialTimeline.setCycleCount(Timeline.INDEFINITE);
+        KeyValue kv = new KeyValue(ball.layoutYProperty(), ball.layoutYProperty().getValue() + moveUpDist, Interpolator.EASE_BOTH);
     }
 
-    public void moveUp(MouseEvent mouseEvent) {
-        transitions.get(0).stop();
-        transitions.get(1).play();
+    public double moveUp() {
+        double ret = 0, value = moveUpDist;
+        upTimeline.stop();
+        initialTimeline.stop();
+        downTimeline.stop();
+        upTimeline = new Timeline();
+
+        double layoutY = ball.getLayoutY();
+
+        if(layoutY - value < minY) {
+            ret = minY - (layoutY - value);
+            value = layoutY - minY;
+        }
+//        For Debugging purpose
+//        System.out.println("ball y: "+ layoutY +" move ball up by: "+value + ", shift obstacles down by : "+ret);
+
+        DoubleProperty posY = ball.layoutYProperty();
+        upTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(moveUpDur*(value)/moveUpDist), new KeyValue(posY, posY.getValue() - value, Interpolator.EASE_OUT)));
+        upTimeline.play();
+        upTimeline.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                freeFall();
+            }
+        });
+        return ret;
     }
-
-    public void freeFall(MouseEvent me) {
-        transitions.get(2).play();
+    public void freeFall(){
+        downTimeline.stop();
+        downTimeline = new Timeline();
+        DoubleProperty layoutY = ball.layoutYProperty();
+        downTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(moveUpDur * 1.5 * (maxY - layoutY.getValue())/moveUpDist), new KeyValue(layoutY, maxY, Interpolator.EASE_IN)));
+        downTimeline.play();
     }
-
-
-    // Key functionality to be added:
-
-//    public void moveUp(KeyEvent ke){
-//        if (ke.getCode() == KeyCode.UP){
-//            System.out.println("UP pressed!");
-//            TranslateTransition move_up = new TranslateTransition(Duration.millis(250), ball);
-//            move_up.setByY(-100);
-//            move_up.play();
-//        }
-//    }
-//    public void freeFall(KeyEvent ke){
-//        if (ke.getCode() == KeyCode.UP){
-//            System.out.println("UP released!");
-//            TranslateTransition fall = new TranslateTransition(Duration.millis(250), ball);
-//            fall.setByY(75);
-//            fall.play();
-//        }
-//    }
 }
