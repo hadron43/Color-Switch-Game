@@ -71,7 +71,10 @@ public class Main extends Application {
     }
 
     protected void loadStats() throws Exception{
-        Parent root = FXMLLoader.load(Main.class.getResource("scenes/stats.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("scenes/stats.fxml"));
+        Parent root = loader.load();
+        Controller controller = loader.getController();
+        controller.updateStats();
         scale(root);
         primaryStage.getScene().setRoot(root);
     }
@@ -80,8 +83,11 @@ public class Main extends Application {
         Game game = new Game(getCurrentPlayer(), primaryStage.getScene());
     }
 
-    protected void loadGameOver() throws Exception{
-        Parent root = FXMLLoader.load(Main.class.getResource("scenes/game_over.fxml"));
+    protected void loadGameOver(int score, int highScore) throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("scenes/game_over.fxml"));
+        Parent root = loader.load();
+        GameController controller = loader.getController();
+        controller.setGameOverScores(score, highScore);
         scale(root);
         primaryStage.getScene().setRoot(root);
     }

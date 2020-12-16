@@ -89,7 +89,6 @@ public class Controller implements Initializable {
 
     @FXML
     private void loadStats(MouseEvent me) throws Exception {
-        updateStats();
         Main.getInstance().loadStats();
     }
 

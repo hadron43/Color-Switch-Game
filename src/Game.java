@@ -224,20 +224,19 @@ public class Game implements Serializable {
             player.setHighScore(score);
         }
         player.setStarsEarned(player.getStarsEarned() + score);
+        Main.getInstance().loadGameOver(score, player.getHighScore());
 
-        if (player.getStarsEarned() > resurrection_stars){
-            System.out.println("Resurrection possible!");
-            int difference = player.getStarsEarned() - resurrection_stars;
-            // give option of ressurection
-            // resurrection to be implemented
-            resurrectPlayer(obstacle);
-            player.setStarsEarned(difference);
-        }
-        else {
-
-            Main.getInstance().loadGameOver();
-            gameController.setGameOverScores(score, player.getHighScore());
-        }
+//        if (player.getStarsEarned() > resurrection_stars){
+//            System.out.println("Resurrection possible!");
+//            int difference = player.getStarsEarned() - resurrection_stars;
+//            // give option of ressurection
+//            // resurrection to be implemented
+//            resurrectPlayer(obstacle);
+//            player.setStarsEarned(difference);
+//        }
+//        else {
+//            Main.getInstance().loadGameOver(score, player.getHighScore());
+//        }
     }
 
     private void resurrectPlayer(Obstacle obstacle){

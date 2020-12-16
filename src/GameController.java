@@ -18,11 +18,6 @@ public class GameController implements Initializable {
     private Game game;
 
     @FXML
-    private void loadGameOver(MouseEvent me) throws Exception {
-        Main.getInstance().loadGameOver();
-    }
-
-    @FXML
     private void backToHome(MouseEvent me) throws Exception {
         Main.getInstance().loadHome();
     }
