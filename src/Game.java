@@ -21,8 +21,8 @@ import java.util.List;
 
 public class Game implements Serializable {
     private static final List<Class> map = Arrays.asList(
-            DoubleCircleVertical.class
-//            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
+//            DoubleCircleVertical.class
+            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
 //            Triangle.class
     );
     private final Ball ball;
@@ -207,8 +207,15 @@ public class Game implements Serializable {
                     System.out.println("Invalid State! i is -1!");
                 }
                 try {
-                    if(!(gameObjects.get(i) instanceof Obstacle))
+                    if(!(gameObjects.get(i) instanceof Obstacle)){
+                        if (gameObjects.get(i) instanceof ColourSwitcher){
+                            ColourSwitcher cs = (ColourSwitcher) gameObjects.get(i);
+                            if (cs.hasCollided(ball) == 2){
+                                System.out.println("colour switcher detected! " + counter);
+                            }
+                        }
                         continue;
+                    }
                     Obstacle go = (Obstacle) gameObjects.get(i);
 //                    if (go.getPosY().getValue() - ball.getPosY().getValue() < -700)
 //                        throw new Exception("Reached too far!");
