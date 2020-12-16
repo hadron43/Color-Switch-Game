@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
     @FXML
-    Pane obstaclesBox;
+    Pane obstaclesBox, overlay;
     @FXML
     Text score;
 
@@ -46,7 +46,20 @@ public class GameController implements Initializable {
 
     }
 
+    public void pause() {
+        System.out.println("Game was paused!");
+        overlay.setVisible(true);
+    }
+
     public void mouseClicked(MouseEvent mouseEvent) {
         game.shiftObstacles();
+    }
+
+    public void backToHome() throws Exception {
+        Main.getInstance().loadHome();
+    }
+
+    public void resume() throws Exception {
+        overlay.setVisible(false);
     }
 }
