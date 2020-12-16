@@ -233,9 +233,7 @@ public class Game implements Serializable {
             player.setStarsEarned(difference);
         }
         else {
-
-            Main.getInstance().loadGameOver();
-//            gameController.setGameOverScores(score, player.getHighScore());
+            Main.getInstance().loadGameOver(score, player.getHighScore());
         }
     }
 

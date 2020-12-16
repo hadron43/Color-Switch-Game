@@ -80,8 +80,11 @@ public class Main extends Application {
         Game game = new Game(getCurrentPlayer(), primaryStage.getScene());
     }
 
-    protected void loadGameOver() throws Exception{
-        Parent root = FXMLLoader.load(Main.class.getResource("scenes/game_over.fxml"));
+    protected void loadGameOver(int score, int highScore) throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("scenes/game_over.fxml"));
+        Parent root = loader.load();
+        GameController controller = loader.getController();
+        controller.setGameOverScores(score, highScore);
         scale(root);
         primaryStage.getScene().setRoot(root);
     }
