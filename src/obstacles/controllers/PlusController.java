@@ -22,6 +22,13 @@ public class PlusController extends SuperController {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Add transitions
-        addRotation(plus);
+        int val = (int)(Math.random()*2);
+        if(val == 0) {
+            plus.getParent().setRotate(180);
+            addRotation(plus, defaultRotatingDuration, true);
+        }
+        else {
+            addRotation(plus, defaultRotatingDuration, false);
+        }
     }
 }

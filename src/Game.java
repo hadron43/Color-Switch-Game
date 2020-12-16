@@ -24,8 +24,8 @@ import java.util.List;
 
 public class Game implements Serializable {
     private static final List<Class> map = Arrays.asList(
-            CircleFlow.class
-//            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
+//            Plus.class
+            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
 //            Triangle.class
     );
     private final Ball ball;
@@ -258,11 +258,14 @@ public class Game implements Serializable {
                             }
                         }
                     }
+                    // To increase efficiency
+                    counter++;
+                    if(i > 3)
+                        throw new Exception("reached too far!");
                 }
                 catch(Exception e) {
                     i = -1;
                 }
-                counter++;
 
                 try {
                     Thread.sleep(15);
