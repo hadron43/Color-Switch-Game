@@ -23,7 +23,7 @@ import java.util.List;
 public class Game implements Serializable {
     private static final List<Class> map = Arrays.asList(
             Circle.class
-//            , CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class,
+//            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
 //            Triangle.class
     );
     private final Ball ball;
@@ -213,11 +213,10 @@ public class Game implements Serializable {
                     Obstacle go = (Obstacle) gameObjects.get(i);
 //                    if (go.getPosY().getValue() - ball.getPosY().getValue() < -700)
 //                        throw new Exception("Reached too far!");
-                    if (go instanceof Circle) {
-                        int col = go.hasCollided(ball);
-                        if(col == 1)
-                            System.out.println("collision detected! " + counter);
-                    }
+
+                    int col = go.hasCollided(ball);
+                    if(col == 1)
+                        System.out.println("collision detected! " + counter);
                 }
                 catch(Exception e) {
 
@@ -225,7 +224,7 @@ public class Game implements Serializable {
                 }
 
                 try {
-                    Thread.sleep(15);
+                    Thread.sleep(30);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
