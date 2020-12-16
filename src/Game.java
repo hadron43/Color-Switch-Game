@@ -21,7 +21,7 @@ import java.util.List;
 
 public class Game implements Serializable {
     private static final List<Class> map = Arrays.asList(
-            Square.class
+            DoubleCircleVertical.class
 //            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
 //            Triangle.class
     );
@@ -223,7 +223,7 @@ public class Game implements Serializable {
                 }
 
                 try {
-                    Thread.sleep(15);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

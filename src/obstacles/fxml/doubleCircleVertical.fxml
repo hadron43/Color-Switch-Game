@@ -14,7 +14,7 @@
         <Arc fx:id="two_blue_ring" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="90.0" styleClass="fill-blue" type="ROUND" />
         <Arc fx:id="two_pink_ring" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="180.0" styleClass="fill-pink" type="ROUND" />
         <Arc fx:id="two_purple_ring" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="270.0" styleClass="fill-purple" type="ROUND" />
-        <Circle fill="WHITE" layoutX="175.0" layoutY="175.0" radius="147.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
+        <Circle fx:id="safe_2" fill="WHITE" layoutX="175.0" layoutY="175.0" radius="147.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
     </Pane>
     <Pane layoutX="88.0" layoutY="87.0" prefHeight="75" prefWidth="75">
         <Pane fx:id="star2" />
@@ -25,7 +25,7 @@
         <Arc fx:id="one_blue_ring" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="90.0" styleClass="fill-blue" type="ROUND" />
         <Arc fx:id="one_pink_ring" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="180.0" styleClass="fill-pink" type="ROUND" />
         <Arc fx:id="one_purple_ring" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="270.0" styleClass="fill-purple" type="ROUND" />
-        <Circle fill="WHITE" layoutX="175.0" layoutY="175.0" radius="147.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
+        <Circle fx:id="safe_1" fill="WHITE" layoutX="175.0" layoutY="175.0" radius="147.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
     </Pane>
 
        <Pane layoutX="87.0" layoutY="340.0" prefHeight="75" prefWidth="75">
