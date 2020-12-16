@@ -26,10 +26,10 @@ public class Circle extends Obstacle {
         if(Shape.intersect(circleController.safe, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1) {
             // To be done: handle star collision
 
-            if(b.getColour() == 0 && Shape.intersect(circleController.yellowRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() == -1 ||
-                b.getColour() == 1 && Shape.intersect(circleController.pinkRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() == -1 ||
-                b.getColour() == 2 && Shape.intersect(circleController.blueRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() == -1 ||
-                b.getColour() == 3 && Shape.intersect(circleController.purpleRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() == -1
+            if(b.getColour() != 0 && Shape.intersect(circleController.yellowRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1 ||
+                b.getColour() != 1 && Shape.intersect(circleController.pinkRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1 ||
+                b.getColour() != 2 && Shape.intersect(circleController.blueRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1 ||
+                b.getColour() != 3 && Shape.intersect(circleController.purpleRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1
             )
                 result = 1;
         }
