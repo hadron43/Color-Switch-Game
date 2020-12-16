@@ -24,7 +24,7 @@ public class BallController extends SuperController implements Initializable {
     @FXML
     public Circle circle_ball;
 
-    private static double moveUpDist = 100, moveUpDur = 200, minY = 1024/2, maxY = 1024-50;
+    private static double moveUpDist = 80, moveUpDur = 200, minY = 1024/2, maxY = 1024-50;
     private Timeline upTimeline, downTimeline, initialTimeline;
 
     public BallController () {
@@ -36,8 +36,8 @@ public class BallController extends SuperController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Welcome translate transition
-        initialTimeline.setCycleCount(Timeline.INDEFINITE);
-        KeyValue kv = new KeyValue(ball.layoutYProperty(), ball.layoutYProperty().getValue() + moveUpDist, Interpolator.EASE_BOTH);
+//        initialTimeline.setCycleCount(Timeline.INDEFINITE);
+//        KeyValue kv = new KeyValue(ball.layoutYProperty(), ball.layoutYProperty().getValue() + moveUpDist, Interpolator.EASE_BOTH);
     }
 
     public double moveUp() {
@@ -57,7 +57,7 @@ public class BallController extends SuperController implements Initializable {
 //        System.out.println("ball y: "+ layoutY +" move ball up by: "+value + ", shift obstacles down by : "+ret);
 
         DoubleProperty posY = ball.layoutYProperty();
-        upTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(moveUpDur*(value)/moveUpDist), new KeyValue(posY, posY.getValue() - value, Interpolator.EASE_OUT)));
+        upTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(moveUpDur*(value)/moveUpDist), new KeyValue(posY, posY.getValue() - value + 1, Interpolator.EASE_OUT)));
         upTimeline.play();
         upTimeline.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
@@ -71,7 +71,8 @@ public class BallController extends SuperController implements Initializable {
         downTimeline.stop();
         downTimeline = new Timeline();
         DoubleProperty layoutY = ball.layoutYProperty();
-        downTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(moveUpDur * 1.5 * (maxY - layoutY.getValue())/moveUpDist), new KeyValue(layoutY, maxY, Interpolator.EASE_IN)));
+        downTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(moveUpDur * (maxY - layoutY.getValue())/moveUpDist), new KeyValue(layoutY, maxY, Interpolator.EASE_IN)));
         downTimeline.play();
+        System.out.println("Down movement triggered!");
     }
 }

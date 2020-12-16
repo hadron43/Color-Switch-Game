@@ -21,7 +21,7 @@ import java.util.List;
 
 public class Game implements Serializable {
     private static final List<Class> map = Arrays.asList(
-            DoubleCircle.class
+            Circle.class
 //            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
 //            Triangle.class
     );
@@ -34,7 +34,7 @@ public class Game implements Serializable {
 //     Includes Obstacles, ColourSwitcher's
     private final List<GameObjects> gameObjects;
 //    Constants Required
-    private static final double margin = 140, shift = 100, shiftDur = 30, width = 768, height = 1024, maxColorSwitcher = 2;
+    private static final double margin = 200, shift = 100, shiftDur = 30, width = 768, height = 1024, maxColorSwitcher = 2;
 //     For storing the score
     int score;
 //    For storing the list of all keyframes to be updated on a click

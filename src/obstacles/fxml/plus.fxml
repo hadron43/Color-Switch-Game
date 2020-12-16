@@ -5,8 +5,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<Pane xmlns:fx="http://javafx.com/fxml/1" minHeight="300.0" minWidth="300.0" maxHeight="300.0" maxWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.controllers.PlusController">
-    <Pane minHeight="300.0" minWidth="300.0"  fx:id="plus">
+<Pane xmlns:fx="http://javafx.com/fxml/1" minHeight="300.0" minWidth="500.0" maxHeight="300.0" maxWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.controllers.PlusController">
+    <Pane minHeight="300.0" minWidth="300.0" maxWidth="300.0" maxHeight="300.0" fx:id="plus">
         <Rectangle fx:id="blue_rect" height="150.0" layoutX="135.0" width="30.0">
           <styleClass>
              <String fx:value="fill-blue" />
