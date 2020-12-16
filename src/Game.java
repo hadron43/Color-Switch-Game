@@ -24,7 +24,7 @@ import java.util.List;
 
 public class Game implements Serializable {
     private static final List<Class> map = Arrays.asList(
-            DoubleCircle.class
+            CircleFlow.class
 //            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
 //            Triangle.class
     );

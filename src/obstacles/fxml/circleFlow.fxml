@@ -1,46 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<Pane xmlns:fx="http://javafx.com/fxml/1" minWidth="350" minHeight="350"  maxHeight="350" maxWidth="350" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.controllers.CircleFlowController">
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="350" maxWidth="350" minHeight="350" minWidth="350" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="obstacles.controllers.CircleController">
 
     <stylesheets>
         <URL value="@../../style/style.css" />
     </stylesheets>
-    <Pane fx:id="circleFlow">
-        <Circle fx:id="yellow_ball_1" layoutX="63.0" layoutY="59.0" radius="14.0" styleClass="fill-yellow" />
-        <Circle fx:id="yellow_ball_2" layoutX="92.0" layoutY="37.0" radius="14.0" styleClass="fill-yellow" />
-        <Circle fx:id="yellow_ball_3" layoutX="41.0" layoutY="86.0" radius="14.0" styleClass="fill-yellow" />
-        <Circle fx:id="yellow_ball_4" layoutX="24.0" layoutY="117.0" radius="14.0" styleClass="fill-yellow" />
-        <Circle fx:id="yellow_ball_5" layoutX="16.0" layoutY="151.0" radius="14.0" styleClass="fill-yellow" />
-        <Circle fx:id="yellow_ball_6" layoutX="126.0" layoutY="22.0" radius="14.0" styleClass="fill-yellow" />
-        <Circle fx:id="yellow_ball_7" layoutX="161.0" layoutY="15.0" radius="14.0" styleClass="fill-yellow" />
 
-        <Circle fx:id="blue_ball_1" layoutX="116.0" layoutY="325.0" radius="14.0" styleClass="fill-blue" />
-        <Circle fx:id="blue_ball_2" layoutX="85.0" layoutY="309.0" radius="14.0" styleClass="fill-blue" />
-        <Circle fx:id="blue_ball_3" layoutX="58.0" layoutY="286.0" radius="14.0" styleClass="fill-blue" />
-        <Circle fx:id="blue_ball_4" layoutX="37.0" layoutY="258.0" radius="14.0" styleClass="fill-blue" />
-        <Circle fx:id="blue_ball_5" layoutX="22.0" layoutY="226.0" radius="14.0" styleClass="fill-blue" />
-        <Circle fx:id="blue_ball_6" layoutX="150.0" layoutY="334.0" radius="14.0" styleClass="fill-blue" />
-        <Circle fx:id="blue_ball_7" layoutX="15.0" layoutY="190.0" radius="14.0" styleClass="fill-blue" />
+    <Pane fx:id="circle">
+        <Pane opacity="0.01">
+            <Arc fx:id="yellowRing" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="0.0" styleClass="fill-yellow" type="ROUND" />
+            <Arc fx:id="blueRing" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="90.0" styleClass="fill-blue" type="ROUND" />
+            <Arc fx:id="pinkRing" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="180.0" styleClass="fill-pink" type="ROUND" />
+            <Arc fx:id="purpleRing" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="270.0" styleClass="fill-purple" type="ROUND" />
+            <Circle fx:id="safe" fill="WHITE" layoutX="175.0" layoutY="175.0" radius="147.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
+        </Pane>
 
-        <Circle fx:id="pink_ball_1" layoutX="285.0" layoutY="292.0" radius="14.0" styleClass="fill-pink" />
-        <Circle fx:id="pink_ball_2" layoutX="224.0" layoutY="328.0" radius="14.0" styleClass="fill-pink" />
-        <Circle fx:id="pink_ball_3" layoutX="309.0" layoutY="265.0" radius="14.0" styleClass="fill-pink" />
-        <Circle fx:id="pink_ball_4" layoutX="335.0" layoutY="198.0" radius="14.0" styleClass="fill-pink" />
-        <Circle fx:id="pink_ball_5" layoutX="256.0" layoutY="314.0" radius="14.0" styleClass="fill-pink" />
-        <Circle fx:id="pink_ball_6" layoutX="189.0" layoutY="336.0" radius="14.0" styleClass="fill-pink" />
-        <Circle fx:id="pink_ball_7" layoutX="326.0" layoutY="233.0" radius="14.0" styleClass="fill-pink" />
+        <Pane fx:id="circleFlow" rotate="90.0">
+            <Circle fx:id="yellow_ball_1" layoutX="63.0" layoutY="59.0" radius="14.0" styleClass="fill-yellow" />
+            <Circle fx:id="yellow_ball_2" layoutX="92.0" layoutY="37.0" radius="14.0" styleClass="fill-yellow" />
+            <Circle fx:id="yellow_ball_3" layoutX="41.0" layoutY="86.0" radius="14.0" styleClass="fill-yellow" />
+            <Circle fx:id="yellow_ball_4" layoutX="24.0" layoutY="117.0" radius="14.0" styleClass="fill-yellow" />
+            <Circle fx:id="yellow_ball_5" layoutX="16.0" layoutY="151.0" radius="14.0" styleClass="fill-yellow" />
+            <Circle fx:id="yellow_ball_6" layoutX="126.0" layoutY="22.0" radius="14.0" styleClass="fill-yellow" />
+            <Circle fx:id="yellow_ball_7" layoutX="161.0" layoutY="15.0" radius="14.0" styleClass="fill-yellow" />
 
-        <Circle fx:id="purple_ball_1" layoutX="328.0" layoutY="126.0" radius="14.0" styleClass="fill-purple" />
-        <Circle fx:id="purple_ball_2" layoutX="235.0" layoutY="26.0" radius="14.0" styleClass="fill-purple" />
-        <Circle fx:id="purple_ball_3" layoutX="198.0" layoutY="16.0" radius="14.0" styleClass="fill-purple" />
-        <Circle fx:id="purple_ball_4" layoutX="292.0" layoutY="65.0" radius="14.0" styleClass="fill-purple" />
-        <Circle fx:id="purple_ball_5" layoutX="335.0" layoutY="161.0" radius="14.0" styleClass="fill-purple" />
-        <Circle fx:id="purple_ball_6" layoutX="266.0" layoutY="42.0" radius="14.0" styleClass="fill-purple" />
-        <Circle fx:id="purple_ball_7" layoutX="314.0" layoutY="93.0" radius="14.0" styleClass="fill-purple" />
+            <Circle fx:id="blue_ball_1" layoutX="116.0" layoutY="325.0" radius="14.0" styleClass="fill-blue" />
+            <Circle fx:id="blue_ball_2" layoutX="85.0" layoutY="309.0" radius="14.0" styleClass="fill-blue" />
+            <Circle fx:id="blue_ball_3" layoutX="58.0" layoutY="286.0" radius="14.0" styleClass="fill-blue" />
+            <Circle fx:id="blue_ball_4" layoutX="37.0" layoutY="258.0" radius="14.0" styleClass="fill-blue" />
+            <Circle fx:id="blue_ball_5" layoutX="22.0" layoutY="226.0" radius="14.0" styleClass="fill-blue" />
+            <Circle fx:id="blue_ball_6" layoutX="150.0" layoutY="334.0" radius="14.0" styleClass="fill-blue" />
+            <Circle fx:id="blue_ball_7" layoutX="15.0" layoutY="190.0" radius="14.0" styleClass="fill-blue" />
+
+            <Circle fx:id="pink_ball_1" layoutX="285.0" layoutY="292.0" radius="14.0" styleClass="fill-pink" />
+            <Circle fx:id="pink_ball_2" layoutX="224.0" layoutY="328.0" radius="14.0" styleClass="fill-pink" />
+            <Circle fx:id="pink_ball_3" layoutX="309.0" layoutY="265.0" radius="14.0" styleClass="fill-pink" />
+            <Circle fx:id="pink_ball_4" layoutX="335.0" layoutY="198.0" radius="14.0" styleClass="fill-pink" />
+            <Circle fx:id="pink_ball_5" layoutX="256.0" layoutY="314.0" radius="14.0" styleClass="fill-pink" />
+            <Circle fx:id="pink_ball_6" layoutX="189.0" layoutY="336.0" radius="14.0" styleClass="fill-pink" />
+            <Circle fx:id="pink_ball_7" layoutX="326.0" layoutY="233.0" radius="14.0" styleClass="fill-pink" />
+
+            <Circle fx:id="purple_ball_1" layoutX="328.0" layoutY="126.0" radius="14.0" styleClass="fill-purple" />
+            <Circle fx:id="purple_ball_2" layoutX="235.0" layoutY="26.0" radius="14.0" styleClass="fill-purple" />
+            <Circle fx:id="purple_ball_3" layoutX="198.0" layoutY="16.0" radius="14.0" styleClass="fill-purple" />
+            <Circle fx:id="purple_ball_4" layoutX="292.0" layoutY="65.0" radius="14.0" styleClass="fill-purple" />
+            <Circle fx:id="purple_ball_5" layoutX="335.0" layoutY="161.0" radius="14.0" styleClass="fill-purple" />
+            <Circle fx:id="purple_ball_6" layoutX="266.0" layoutY="42.0" radius="14.0" styleClass="fill-purple" />
+            <Circle fx:id="purple_ball_7" layoutX="314.0" layoutY="93.0" radius="14.0" styleClass="fill-purple" />
+        </Pane>
     </Pane>
     <Pane layoutX="138.0" layoutY="138.0" prefHeight="75" prefWidth="75">
         <Pane fx:id="star" />
