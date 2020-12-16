@@ -4,6 +4,7 @@ import global.SuperController;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Arc;
+import javafx.scene.shape.Circle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,9 @@ public class DoubleCircleController extends SuperController {
 
     @FXML
     public Arc two_yellow_ring, two_blue_ring, two_pink_ring, two_purple_ring;
+
+    @FXML
+    public Circle safe;
 
     public DoubleCircleController() {
         super();

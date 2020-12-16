@@ -32,14 +32,11 @@ public class CircleFlow extends Obstacle{
     }
     
     private boolean check_intersection(Ball b, Circle array[], int colour){
-        boolean check = false;
         for (Circle circle: array){
-            if (Shape.intersect(circle, b.getBallController().circle_ball).getBoundsInLocal().getWidth() == -1 
-                    && b.getColour() != colour){
-                check = true;
-                break;
+            if (b.getColour() != colour && Shape.intersect(circle, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1){
+                return true;
             }
         }
-        return check;
+        return false;
     }
 }

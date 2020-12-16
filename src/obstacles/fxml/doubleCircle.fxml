@@ -22,7 +22,7 @@
         <Arc fx:id="two_blue_ring" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="90.0" styleClass="fill-blue" type="ROUND" />
         <Arc fx:id="two_pink_ring" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="180.0" styleClass="fill-pink" type="ROUND" />
         <Arc fx:id="two_purple_ring" focusTraversable="true" layoutX="175.0" layoutY="175.0" length="90.0" radiusX="175.0" radiusY="175.0" startAngle="270.0" styleClass="fill-purple" type="ROUND" />
-        <Circle fill="WHITE" layoutX="175.0" layoutY="175.0" radius="147.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
+        <Circle fx:id="safe" fill="WHITE" layoutX="175.0" layoutY="175.0" radius="147.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
     </Pane>
 
           <Pane layoutX="163.0" layoutY="166.0" prefHeight="75" prefWidth="75">

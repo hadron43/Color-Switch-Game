@@ -23,7 +23,7 @@ public class Circle extends Obstacle {
         int result = 0;
 //        System.out.println("Brooks was here!");
 
-        if(Shape.intersect(circleController.safe, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1) {
+        if(Shape.intersect(circleController.safe, b.getBallController().circle_ball).getBoundsInLocal().getWidth() == -1) {
             // To be done: handle star collision
 
             if(b.getColour() != 0 && Shape.intersect(circleController.yellowRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1 ||
