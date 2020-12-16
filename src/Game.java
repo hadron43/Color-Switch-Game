@@ -45,6 +45,9 @@ public class Game implements Serializable {
 //    It stores the number of colourSwitchers allowed to be loaded at a time on the screen
     private int colorSwitcherCount;
 
+//    Min number of stars for which resurrection can be offered to player
+    private final int resurrection_stars = 10;
+
 //     Controller With this Class
     private GameController gameController;
     @FXML
@@ -208,6 +211,26 @@ public class Game implements Serializable {
         setDateTime(dt);
     }
 
+    private void setGameOver(Obstacle obstacle) throws Exception {
+        int player_highscore = player.getHighScore();
+        if (score > player_highscore) {
+            player.setHighScore(score);
+        }
+        player.setStarsEarned(player.getStarsEarned() + score);
+
+        if (player.getStarsEarned() > resurrection_stars){
+            // give option of ressurection
+            // resurrection to be implemented
+        }
+        else {
+            Main.getInstance().loadGameOver();
+        }
+    }
+
+    private void resurrectPlayer(Obstacle obstacle){
+
+    }
+
     class collisionThread implements Runnable {
         @Override
         public void run() {
@@ -226,8 +249,11 @@ public class Game implements Serializable {
                     else if (gameObjects.get(i) instanceof Obstacle) {
                         Obstacle go = (Obstacle) gameObjects.get(i);
                         int col = go.hasCollided(ball);
-                        if (col == 1)
+                        if (col == 1) {
                             System.out.println("collision detected! " + counter);
+                            setGameOver(go);
+                            return;
+                        }
                     }
                     else continue;
                 }
