@@ -1,5 +1,7 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -56,5 +58,12 @@ public class GameController implements Initializable {
 
     public void resume() throws Exception {
         overlay.setVisible(false);
+    }
+
+    public void keyPressed(KeyEvent keyEvent) {
+        KeyCode keyCode = keyEvent.getCode();
+        if (keyCode == KeyCode.SPACE){
+            game.shiftObstacles();
+        }
     }
 }
