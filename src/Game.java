@@ -244,8 +244,18 @@ public class Game implements Serializable {
                     GameObjects object = gameObjects.get(i);
                     if(object instanceof Collideable) {
                         int ret = ((Collideable) object).hasCollided(ball);
+                        /*return codes:
+                        1. Obstacle = 1
+                        2. Colour Switcher = 2
+                        3. Star = 3
+                        */
                         if(ret != 0) {
-                            System.out.println("Collision detected, ret: "+ret+"; it: "+counter);
+                            System.out.println("Collision detected, ret: " + ret + "; it: " + counter);
+                            if (ret == 1){
+                                // Collision with obstacle
+                                setGameOver((Obstacle) object);
+                                return;
+                            }
                         }
                     }
                 }
