@@ -35,9 +35,15 @@ public class BallController extends SuperController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+    }
+
+    public void welcome() {
         // Welcome translate transition
-//        initialTimeline.setCycleCount(Timeline.INDEFINITE);
-//        KeyValue kv = new KeyValue(ball.layoutYProperty(), ball.layoutYProperty().getValue() + moveUpDist, Interpolator.EASE_BOTH);
+        initialTimeline.setCycleCount(Timeline.INDEFINITE);
+        KeyValue kv = new KeyValue(ball.layoutYProperty(), ball.layoutYProperty().getValue() - moveUpDist, Interpolator.EASE_OUT);
+        initialTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(moveUpDur*2), kv));
+        initialTimeline.setAutoReverse(true);
+        initialTimeline.play();
     }
 
     public double moveUp() {

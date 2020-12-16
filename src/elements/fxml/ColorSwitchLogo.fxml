@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane xmlns:fx="http://javafx.com/fxml/1" prefHeight="246.0" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="global.ColorSwitchLogo">
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxWidth="331" maxHeight="246" minHeight="246" minWidth="331" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="elements.controllers.ColorSwitchLogoController">
     <VBox alignment="CENTER" opacity="0.7" scaleX="0.75" scaleY="0.75">
         <FlowPane prefHeight="134.0" prefWidth="213.0">
             <Text styleClass="home-heading" text="C" />
 
             <ImageView fx:id="ring1">
-                <Image requestedHeight="65" requestedWidth="65" url="@../assets/home/circle.png" />
+                <Image requestedHeight="65" requestedWidth="65" url="@../../assets/home/circle.png" />
                 <FlowPane.margin>
                     <Insets bottom="25.0" left="10.0" right="10.0" />
                 </FlowPane.margin>
@@ -21,7 +21,7 @@
             <Text styleClass="home-heading" text="L" />
 
             <ImageView fx:id="ring2">
-                <Image requestedHeight="65" requestedWidth="65" url="@../assets/home/circle.png" />
+                <Image requestedHeight="65" requestedWidth="65" url="@../../assets/home/circle.png" />
                 <FlowPane.margin>
                     <Insets bottom="25.0" left="10.0" right="10.0" />
                 </FlowPane.margin>
@@ -33,6 +33,6 @@
     </VBox>
 
     <stylesheets>
-        <URL value="@../style/style.css" />
+        <URL value="@../../style/style.css" />
     </stylesheets>
 </Pane>
