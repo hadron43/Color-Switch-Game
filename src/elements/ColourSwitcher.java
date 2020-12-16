@@ -27,9 +27,10 @@ public class ColourSwitcher extends GameObjects implements Collideable {
         int result = 0;
 
         // return 2 if collision is detected
-        if (Shape.intersect(colourSwitcherController.colour_switch_rect, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1){
+        if (colourSwitcherController.colourSwitcher.isVisible() && Shape.intersect(colourSwitcherController.colour_switch_rect, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1){
             result = 2;
             changeBallColour(b);
+            colourSwitcherController.colourSwitcher.setVisible(false);
         }
 
 //        if(Shape.intersect(colourSwitcherController.yellow_arc, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1 ||
