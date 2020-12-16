@@ -1,6 +1,8 @@
 import java.io.Serializable;
 import java.security.*;
-import java.util.Arrays;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class Player implements Serializable {
     private final String username;
@@ -8,12 +10,14 @@ public class Player implements Serializable {
     private int starsEarned;
     private int highScore;
     private static final byte[] salt = "MyPasswordSalt".getBytes();
+    private Map<String, Game> savedGamesMap;
 
     public Player(String user_name, String password) {
         this.username = user_name;
         this.password = generatePasswordHash(password);
         this.starsEarned = 0;
         this.highScore = 0;
+        savedGamesMap = new HashMap<String, Game>();
     }
 
     @Override
@@ -98,5 +102,13 @@ public class Player implements Serializable {
 
     public void setHighScore(int highScore) {
         this.highScore = highScore;
+    }
+
+    public void saveGame(Game game){
+        DateTimeFormatter dt_format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String date_time = dt_format.format(now);
+        System.out.println(dt_format.format(now));
+        savedGamesMap.put(date_time, game);
     }
 }
