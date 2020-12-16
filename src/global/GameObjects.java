@@ -18,7 +18,7 @@ public abstract class GameObjects {
     public DoubleProperty getPosY() {
         return posY;
     }
-    protected Pane getPane() {
+    public Pane getPane() {
         return pane;
     }
     protected void setPane(Pane pane) {

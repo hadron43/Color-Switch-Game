@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -19,6 +20,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
     @FXML private ImageView ring_4, ring_5;
     @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn;
+    @FXML private Text high_score, total_stars;
 
     @FXML
     private void handleFeedback() throws Exception {
@@ -67,6 +69,11 @@ public class Controller implements Initializable {
 
     }
 
+    public void updateStats(){
+        total_stars.setText(Integer.toString(Main.getInstance().getCurrentPlayer().getStarsEarned()));
+        high_score.setText((Integer.toString(Main.getInstance().getCurrentPlayer().getHighScore())));
+    }
+
     @FXML
     private void loadSettings(MouseEvent me) throws Exception {
         Main.getInstance().loadSettings();
@@ -82,6 +89,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void loadStats(MouseEvent me) throws Exception {
+        updateStats();
         Main.getInstance().loadStats();
     }
 

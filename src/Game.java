@@ -24,7 +24,7 @@ import java.util.List;
 
 public class Game implements Serializable {
     private static final List<Class> map = Arrays.asList(
-            CircleFlow.class
+            DoubleCircle.class
 //            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
 //            Triangle.class
     );
@@ -212,6 +212,11 @@ public class Game implements Serializable {
         setDateTime(dt);
     }
 
+    private synchronized void updateGameScore(){
+        this.score ++;
+        gameController.setScore(this.score);
+    }
+
     private void setGameOver(Obstacle obstacle) throws Exception {
         int player_highscore = player.getHighScore();
         if (score > player_highscore) {
@@ -220,16 +225,21 @@ public class Game implements Serializable {
         player.setStarsEarned(player.getStarsEarned() + score);
 
         if (player.getStarsEarned() > resurrection_stars){
+            int difference = player.getStarsEarned() - resurrection_stars;
             // give option of ressurection
             // resurrection to be implemented
+            resurrectPlayer(obstacle);
+            player.setStarsEarned(difference);
         }
         else {
+
             Main.getInstance().loadGameOver();
+//            gameController.setGameOverScores(score, player.getHighScore());
         }
     }
 
     private void resurrectPlayer(Obstacle obstacle){
-
+        obstacle.getPane().setVisible(false);
     }
 
     class collisionThread implements Runnable {
@@ -247,11 +257,15 @@ public class Game implements Serializable {
                         /*return codes:
                         1. Obstacle = 1
                         2. Colour Switcher = 2
-                        3. Star = 3
+                        3. Star = -1
                         */
                         if(ret != 0) {
                             System.out.println("Collision detected, ret: " + ret + "; it: " + counter);
-                            if (ret == 1){
+                            if (ret == -1){
+                                // Collision with star
+                                updateGameScore();
+                            }
+                            if (ret == 1 && object.getPane().isVisible()){
                                 // Collision with obstacle
                                 setGameOver((Obstacle) object);
                                 return;

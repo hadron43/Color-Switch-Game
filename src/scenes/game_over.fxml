@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<BorderPane minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
     <top>
         <BorderPane>
             <left>
@@ -53,7 +53,7 @@
             </Pane>
             <Pane prefHeight="117.0" prefWidth="668.0">
                <children>
-                  <Text fill="white" layoutX="322.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="5" />
+                  <Text fx:id="game_over_score" fill="white" layoutX="235.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="5" textAlignment="CENTER" wrappingWidth="197.59121704101562" />
                </children>
             </Pane>
             <Pane prefHeight="90.0" prefWidth="668.0">
@@ -64,7 +64,7 @@
             </Pane>
             <Pane prefHeight="127.0" prefWidth="668.0">
                <children>
-                  <Text fx:id="high_score" fill="white" layoutX="310.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="10" />
+                  <Text fx:id="game_over_highscore" fill="white" layoutX="240.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="10" textAlignment="CENTER" wrappingWidth="187.84902954101562" />
                   <ImageView fitHeight="99.0" fitWidth="85.0" layoutX="27.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/score-trophy.png" />

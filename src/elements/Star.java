@@ -26,9 +26,9 @@ public class Star extends GameObjects implements Collideable {
         if(!active)
             return result;
 
-        // return 3 if collision is detected
+        // return 1 if collision is detected
         if (Shape.intersect(starController.collisionRect, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1){
-            result = 3;
+            result = 1;
             active = false;
             getPane().setOpacity(0);
         }
