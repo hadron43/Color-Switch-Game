@@ -226,6 +226,7 @@ public class Game implements Serializable {
         player.setStarsEarned(player.getStarsEarned() + score);
 
         if (player.getStarsEarned() > resurrection_stars){
+            System.out.println("Resurrection possible!");
             int difference = player.getStarsEarned() - resurrection_stars;
             // give option of ressurection
             // resurrection to be implemented
@@ -235,7 +236,7 @@ public class Game implements Serializable {
         else {
 
             Main.getInstance().loadGameOver();
-//            gameController.setGameOverScores(score, player.getHighScore());
+            gameController.setGameOverScores(score, player.getHighScore());
         }
     }
 
