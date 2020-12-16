@@ -18,10 +18,10 @@ public class CircleFlowController extends SuperController {
     @FXML private Circle pink_ball_1, pink_ball_2, pink_ball_3, pink_ball_4, pink_ball_5, pink_ball_6, pink_ball_7;
     @FXML private Circle purple_ball_1, purple_ball_2, purple_ball_3, purple_ball_4, purple_ball_5, purple_ball_6, purple_ball_7;
 
-    public Circle yellow_balls[] = {yellow_ball_1, yellow_ball_2, yellow_ball_3, yellow_ball_4, yellow_ball_5, yellow_ball_6, yellow_ball_7};
-    public Circle blue_balls[] = {blue_ball_1, blue_ball_2, blue_ball_3, blue_ball_4, blue_ball_5, blue_ball_6, blue_ball_7};
-    public Circle pink_balls[] = {pink_ball_1, pink_ball_2, pink_ball_3, pink_ball_4, pink_ball_5, pink_ball_6, pink_ball_7};
-    public Circle purple_balls[] = {purple_ball_1, purple_ball_2, purple_ball_3, purple_ball_4, purple_ball_5, purple_ball_6, purple_ball_7};
+    public Circle[] yellow_balls = {yellow_ball_1, yellow_ball_2, yellow_ball_3, yellow_ball_4, yellow_ball_5, yellow_ball_6, yellow_ball_7};
+    public Circle[] blue_balls = {blue_ball_1, blue_ball_2, blue_ball_3, blue_ball_4, blue_ball_5, blue_ball_6, blue_ball_7};
+    public Circle[] pink_balls = {pink_ball_1, pink_ball_2, pink_ball_3, pink_ball_4, pink_ball_5, pink_ball_6, pink_ball_7};
+    public Circle[] purple_balls = {purple_ball_1, purple_ball_2, purple_ball_3, purple_ball_4, purple_ball_5, purple_ball_6, purple_ball_7};
 
     public CircleFlowController() {
         super();
