@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class SuperController implements Initializable, Serializable {
+public abstract class SuperController implements Initializable {
     public static int defaultRotatingDuration = 4000;
     public static int defaultScalingDuration = 750;
     // To store all transition objects

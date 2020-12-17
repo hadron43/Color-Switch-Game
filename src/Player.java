@@ -132,6 +132,7 @@ public class Player implements Serializable {
         savedGamesMap.remove(game.getId());
     }
 
+    /* For testing purpose only */
     public Game getPlayerGame(){
         Iterator iterator = savedGamesMap.entrySet().iterator();
         if (iterator.hasNext()){

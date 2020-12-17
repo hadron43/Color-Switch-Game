@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import javafx.util.Pair;
 import obstacles.*;
 
 import java.io.*;
@@ -29,7 +30,7 @@ public class Game implements Serializable {
             Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
 //            Triangle.class
     );
-    private final Ball ball;
+    private transient final Ball ball;
     private final long id;
     private final Player player;
 
@@ -42,7 +43,7 @@ public class Game implements Serializable {
 //     For storing the score
     int score;
 //    For storing the list of all keyframes to be updated on a click
-    private final List<DoubleProperty> objectsPosProperty;
+    private transient final List<DoubleProperty> objectsPosProperty;
 
 //    It stores the number of colourSwitchers allowed to be loaded at a time on the screen
     private int colorSwitcherCount;
@@ -52,6 +53,8 @@ public class Game implements Serializable {
 
     private volatile boolean gameOver;
 
+    private List<Pair<Class, Double>> objectsPosition;
+
     public Game(Player player, Scene scene) {
         this.player = player;
         id = assignID();
@@ -59,6 +62,7 @@ public class Game implements Serializable {
         objectsPosProperty = new ArrayList<>();
         score = 0;
         initialiseDateTime();
+        objectsPosition = new ArrayList<>();
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/game.fxml"));
@@ -77,9 +81,9 @@ public class Game implements Serializable {
     }
 
 //     Controller With this Class
-    private GameController gameController;
+    private transient GameController gameController;
     @FXML
-    private Pane obstaclesBox, root;
+    private transient Pane obstaclesBox, root;
 
     private synchronized void toggleGameOver() {
         gameOver = !gameOver;
@@ -235,6 +239,13 @@ public class Game implements Serializable {
         gameController.setScore(this.score);
     }
 
+    public void saveObjectPositions(){
+        for (GameObjects gameObject: gameObjects){
+            objectsPosition.add(new Pair<>(gameObject.getClass(), gameObject.getPosY().getValue()));
+        }
+        objectsPosition.add(new Pair<>(ball.getClass(), ball.getPosY().getValue()));
+    }
+
     private void setGameOver(Obstacle obstacle) throws Exception {
         int player_highscore = player.getHighScore();
         toggleGameOver();
@@ -244,7 +255,8 @@ public class Game implements Serializable {
         player.setStarsEarned(player.getStarsEarned() + score);
         Main.getInstance().loadGameOver(score, player.getHighScore());
 
-//        player.saveGame(this);
+        saveObjectPositions();
+        player.saveGame(this);
 
 //        if (player.getStarsEarned() > resurrection_stars){
 //            System.out.println("Resurrection possible!");
