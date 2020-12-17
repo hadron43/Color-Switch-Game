@@ -9,44 +9,14 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<Pane xmlns:fx="http://javafx.com/fxml/1" minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="GameController">
-    <Pane fx:id="obstaclesBox" maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768" onKeyPressed="#keyPressed" onMouseClicked="#mouseClicked">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="GameController">
+    <center>
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1">
+    <Pane maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768">
+        <Pane fx:id="obstaclesBox" maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768" onKeyPressed="#keyPressed" onMouseClicked="#mouseClicked">
 
+        </Pane>
     </Pane>
-
-    <BorderPane maxWidth="Infinity" minWidth="768">
-        <left>
-            <Pane layoutX="14.0" layoutY="14.0" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0" BorderPane.alignment="CENTER">
-                <cursor>
-                    <Cursor fx:constant="HAND" />
-                </cursor>
-                <Circle fill="white" layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
-                 <styleClass>
-                    <String fx:value="back-button" />
-                    <String fx:value="fill-grey" />
-                 </styleClass></Circle>
-                <Text fx:id="score" fill="WHITE" layoutX="16.0" layoutY="66.0" text="0" textAlignment="CENTER" wrappingWidth="63.0" />
-            </Pane>
-        </left>
-        <right>
-            <Pane layoutX="660.0" layoutY="14.0" onMouseClicked="#pause" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" BorderPane.alignment="CENTER">
-                <cursor>
-                    <Cursor fx:constant="HAND" />
-                </cursor>
-                <Circle layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
-                 <styleClass>
-                    <String fx:value="back-button" />
-                    <String fx:value="fill-grey" />
-                 </styleClass></Circle>
-                <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="21.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
-                    <Image url="@../assets/game/pause.png" />
-                </ImageView>
-            </Pane>
-        </right>
-     <padding>
-        <Insets left="25.0" right="25.0" top="25.0" />
-     </padding>
-    </BorderPane>
 
     <Pane fx:id="overlay" visible="false">
         <Pane minHeight="1024" minWidth="768" opacity="0.7" style="-fx-background-color: #292929;">
@@ -102,7 +72,49 @@
         </BorderPane>
     </Pane>
 
+
+</Pane>
+</center>
+
+    <top>
+        <BorderPane maxWidth="Infinity" minWidth="768">
+            <left>
+                <Pane layoutX="14.0" layoutY="14.0" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0" BorderPane.alignment="CENTER">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <Circle fill="white" layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
+                        <styleClass>
+                            <String fx:value="back-button" />
+                            <String fx:value="fill-grey" />
+                        </styleClass></Circle>
+                    <Text fx:id="score" fill="WHITE" layoutX="16.0" layoutY="66.0" text="0" textAlignment="CENTER" wrappingWidth="63.0" />
+                </Pane>
+            </left>
+            <right>
+                <Pane layoutX="660.0" layoutY="14.0" onMouseClicked="#pause" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" BorderPane.alignment="CENTER">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <Circle layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
+                        <styleClass>
+                            <String fx:value="back-button" />
+                            <String fx:value="fill-grey" />
+                        </styleClass></Circle>
+                    <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="21.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
+                        <Image url="@../assets/game/pause.png" />
+                    </ImageView>
+                </Pane>
+            </right>
+            <padding>
+                <Insets left="25.0" right="50.0" top="25.0" />
+            </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+        </BorderPane>
+    </top>
     <stylesheets>
         <URL value="@../style/style.css" />
     </stylesheets>
-</Pane>
+</BorderPane>
