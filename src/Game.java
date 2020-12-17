@@ -180,7 +180,9 @@ public class Game implements Serializable {
                     go.attachToPane((Pane)obstaclesBox.getParent(), (width/2-ball.getWidth()/2), pair.getValue());
                 }
                 else {
-                    attachGameObject(go);
+                    go.attachToPane(obstaclesBox, (width - go.getWidth())/2, pair.getValue());
+                    gameObjects.add(go);
+                    objectsPosProperty.add(go.getPane().layoutYProperty());
                 }
             } catch (Exception e) {
                 e.printStackTrace();
