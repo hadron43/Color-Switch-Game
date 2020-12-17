@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" minHeight="1024" minWidth="768" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Controller">
+
+    <stylesheets>
+        <URL value="@../style/style.css" />
+    </stylesheets>
+
+    <top>
+      <BorderPane BorderPane.alignment="CENTER">
+          <left>
+              <Pane onMouseClicked="#backToHome" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" BorderPane.alignment="CENTER">
+                  <cursor>
+                      <Cursor fx:constant="HAND" />
+                  </cursor>
+                  <Circle fill="white" layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="back-button" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER" />
+                  <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="18.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
+                      <Image url="@../assets/back.png" />
+                  </ImageView>
+              </Pane>
+          </left>
+         <center>
+              <Label scaleX="1.5" scaleY="1.5" text="Load Game" textFill="white" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+    </top>
+   <center>
+      <TableView BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="160.0" text="Game Id" />
+          <TableColumn minWidth="0.0" prefWidth="263.0" text="Last Played On" />
+            <TableColumn minWidth="0.0" prefWidth="104.0" text="Score" />
+        </columns>
+         <BorderPane.margin>
+            <Insets bottom="75.0" left="75.0" right="75.0" top="75.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+   <padding>
+      <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+   </padding>
+
+</BorderPane>
