@@ -222,22 +222,8 @@ public class Main extends Application {
 
 //        toggleGameSounds();
 //        playTapSound();
-        toggleMusic();
-        playBackgroundMusic();
-
-//        String path = "/assets/sounds/bgMusic.mp3";
-//
-//        Media media = null;
-//        try {
-//            media = new Media(Main.class.getResource("/assets/sounds/bgMusic.mp3").toURI().toString());
-//            MediaPlayer mediaPlayer = new MediaPlayer(media);
-//            mediaPlayer.setAutoPlay(true);
-//        } catch (URISyntaxException e) {
-//            e.printStackTrace();
-//        }
-
-//        AudioClip tune = new AudioClip(Main.class.getResource("/assets/sounds/error.wav").toString());
-//        tune.play();
+//        toggleMusic();
+//        playBackgroundMusic();
 
         loadUserLogin();
 
