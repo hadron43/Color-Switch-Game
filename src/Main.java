@@ -39,7 +39,7 @@ public class Main extends Application {
         colorSwitch = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/colorswitch.wav").toURI().toString()));
     }
 
-    public void playBackgroundMusic(){
+    public void playBackgroundMusic() {
         if(musicOn) {
             bgMusic.setCycleCount(MediaPlayer.INDEFINITE);
             bgMusic.play();
@@ -53,6 +53,9 @@ public class Main extends Application {
         if (gameSounds){
             tap.play();
         }
+        else{
+            tap.stop();
+        }
     }
 
     public void playKeyPressedSound(){
@@ -65,6 +68,7 @@ public class Main extends Application {
         if (gameSounds){
             star.play();
         }
+        star.stop();
     }
 
     public void playObstacleCollisionSound(){
@@ -222,8 +226,8 @@ public class Main extends Application {
 
 //        toggleGameSounds();
 //        playTapSound();
-//        toggleMusic();
-//        playBackgroundMusic();
+        toggleMusic();
+        playBackgroundMusic();
 
         loadUserLogin();
 
