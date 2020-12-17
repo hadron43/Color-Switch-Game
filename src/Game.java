@@ -168,6 +168,28 @@ public class Game implements Serializable {
         collisionThread.start();
     }
 
+    public void resumeGame() {
+        gameObjects.clear();
+        objectsPosProperty.clear();
+
+        for(Pair<Class, Double> pair : objectsPosition) {
+            try {
+                GameObjects go = (GameObjects) (pair.getKey().getDeclaredConstructor().newInstance());
+                if(go instanceof Ball) {
+                    ((Ball)go).getBallController().pause();
+                    go.attachToPane((Pane)obstaclesBox.getParent(), (width/2-ball.getWidth()/2), pair.getValue());
+                }
+                else {
+                    attachGameObject(go);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        new Thread(new Collision(), "Collision Thread").start();
+    }
+
     public void shiftObstacles() {
         double shiftExcess = Math.min(shift, ball.getBallController().moveUp());
         Timeline timeline = new Timeline();
