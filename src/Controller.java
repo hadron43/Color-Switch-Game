@@ -2,10 +2,16 @@ import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -13,12 +19,11 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-import javax.swing.text.TabableView;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -26,8 +31,10 @@ public class Controller implements Initializable {
     @FXML private ImageView ring_4, ring_5;
     @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn;
     @FXML private Text high_score, total_stars;
-    @FXML private TableView game_table;
-    @FXML private ToggleButton play_bgmusic_btn, play_sounds_btn;
+    @FXML private TableView<gameModel> savedGamesTable;
+    @FXML private TableColumn<gameModel, Long> gameId;
+    @FXML private TableColumn<gameModel, String> date;
+    @FXML private TableColumn<gameModel, Integer> score;
 
     @FXML
     private void handleFeedback() throws Exception {
@@ -73,6 +80,12 @@ public class Controller implements Initializable {
 
         for(int i=0; i<items; ++i)
             r[i].play();
+
+        if(gameId != null) {
+            gameId.setCellValueFactory(new PropertyValueFactory<gameModel, Long>("GameId"));
+            date.setCellValueFactory(new PropertyValueFactory<gameModel, String>("Date"));
+            score.setCellValueFactory(new PropertyValueFactory<gameModel, Integer>("Score"));
+        }
 
     }
 
@@ -140,35 +153,61 @@ public class Controller implements Initializable {
         Main.getInstance().loadUserLogin();
     }
 
-    public Object[][] getTableMatrix(){
+    public void loadSavedGames() throws Exception {
+        Main.getInstance().loadSavedGames();
+    }
+
+    public void loadGamesList() throws Exception {
+        savedGamesTable.setItems(getTableMatrix());
+    }
+
+    public ObservableList<gameModel> getTableMatrix(){
         Map<Long, Game> game_map = Main.getInstance().getCurrentPlayer().getSavedGamesMap();
-        int col = 3;
-        int row = game_map.size();
-
-        Object[][] game_data = new Object[row][col];
-
-        int i = 0;
+        ArrayList<gameModel> game_data = new ArrayList<>();
 
         for (Map.Entry<Long, Game> map_element : game_map.entrySet()){
             long id  = map_element.getKey();
             String date_time = map_element.getValue().getDateTime();
             int score = map_element.getValue().score;
 
-            game_data[i][0] = id;
-            game_data[i][1] = date_time;
-            game_data[i][2] = score;
-
-            i++;
+            game_data.add(new gameModel(id, date_time, score));
         }
-        return game_data;
+        return FXCollections.observableArrayList(game_data);
     }
 
-    public void playBgMusic(MouseEvent mouseEvent) {
-        Main.getInstance().toggleMusic();
-        Main.getInstance().playBackgroundMusic();
-    }
+    private class gameModel {
+        private SimpleLongProperty gameId;
+        private SimpleStringProperty date;
+        private SimpleIntegerProperty score;
 
-    public void playSounds(MouseEvent mouseEvent) {
-        Main.getInstance().toggleGameSounds();
+        public gameModel(Long gameId, String date, Integer score) {
+            this.gameId = new SimpleLongProperty(gameId);
+            this.date = new SimpleStringProperty(date);
+            this.score = new SimpleIntegerProperty(score);
+        }
+
+        public long getGameId() {
+            return gameId.get();
+        }
+
+        public void setGameId(long gameId) {
+            this.gameId.set(gameId);;
+        }
+
+        public String getDate() {
+            return date.get();
+        }
+
+        public void setDate(String date) {
+            this.date.set(date);
+        }
+
+        public int getScore() {
+            return score.get();
+        }
+
+        public void setScore(int score) {
+            this.score.set(score);
+        }
     }
 }
