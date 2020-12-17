@@ -58,10 +58,8 @@ public class Game implements Serializable {
 
     public Game(Player player, Scene scene) {
         this.player = player;
-
-        if (Main.getInstance().isAutoSave()) player.saveGame(this);
-
         id = assignID();
+
         gameObjects = new ArrayList<>();
         objectsPosProperty = new ArrayList<>();
         score = 0;
@@ -82,6 +80,8 @@ public class Game implements Serializable {
         ball = new Ball();
         gameOver = false;
         initializeGame();
+
+        if (Main.getInstance().isAutoSave()) player.saveGame(this);
     }
 
 //     Controller With this Class
@@ -169,7 +169,19 @@ public class Game implements Serializable {
         collisionThread.start();
     }
 
-    public void resumeGame() {
+    public void resumeGame(Scene scene) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/game.fxml"));
+            root = loader.load();
+            scene.setRoot(root);
+            Main.getInstance().scale(root);
+            gameController = loader.getController();
+            gameController.setGame(this);
+            obstaclesBox = gameController.obstaclesBox;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         gameObjects.clear();
         objectsPosProperty.clear();
 
@@ -188,6 +200,11 @@ public class Game implements Serializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
         new Thread(new Collision(), "Collision Thread").start();
@@ -320,6 +337,7 @@ public class Game implements Serializable {
             return true;
         }
         thread.start();
+
         return false;
     }
 

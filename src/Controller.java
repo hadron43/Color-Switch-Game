@@ -215,7 +215,7 @@ public class Controller implements Initializable {
 
             Game selected_game = Main.getInstance().getCurrentPlayer().findGame(Integer.parseInt(input_id));
             if (selected_game != null){
-                selected_game.resumeGame();
+                selected_game.resumeGame(Main.getInstance().getPrimaryStage().getScene());
             }
             else{
                 throw new GameNotFoundException("No game found for entered ID");

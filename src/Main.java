@@ -191,8 +191,6 @@ public class Main extends Application {
 
     protected void loadGame() throws Exception {
         Game game = new Game(getCurrentPlayer(), primaryStage.getScene());
-//        Game game = getCurrentPlayer().getPlayerGame();
-//        System.out.println(game.score);
     }
 
     protected void loadSavedGames() throws Exception {
@@ -234,6 +232,10 @@ public class Main extends Application {
         this.currentPlayer = currentPlayer;
     }
 
+    public Stage getPrimaryStage(){
+        return primaryStage;
+    }
+
     public void setupScreen(Stage stage) {
         primaryStage = stage;
         Rectangle2D viewPort = Screen.getPrimary().getVisualBounds();
@@ -255,7 +257,7 @@ public class Main extends Application {
         main = this;
 
         toggleGameSounds();
-        toggleMusic();
+        //toggleMusic();
         toggleAutoSave();
         playBackgroundMusic();
 
