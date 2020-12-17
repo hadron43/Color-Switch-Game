@@ -8,6 +8,7 @@ public class GameTester extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Only for testing purposes
+        Main.getInstance().setupScreen(primaryStage);
         Scene scene = new Scene(new Pane());
         primaryStage.setTitle("Color Switch");
         primaryStage.setScene(scene);

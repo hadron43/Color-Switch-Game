@@ -5,11 +5,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.transform.Scale;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 public class Main extends Application {
     private static Main main;
@@ -18,13 +22,46 @@ public class Main extends Application {
     private Stage primaryStage;
     private Player currentPlayer;
 
+    public MediaPlayer bgMusic, tap, star, hit, resurrect, buttonPress, over, colorSwitch;
+
+    private boolean musicOn, gameSounds, autoSave;
+
+    private void loadMusic() {
+        bgMusic = new MediaPlayer(new Media(new File("assets/sounds/bgMusic.mp3").toURI().toString()));
+        tap = new MediaPlayer(new Media(new File("assets/sounds/jump.wav").toURI().toString()));
+        star = new MediaPlayer(new Media(new File("assets/sounds/star.wav").toURI().toString()));
+        hit = new MediaPlayer(new Media(new File("assets/sounds/dead.wav").toURI().toString()));
+        resurrect = new MediaPlayer(new Media(new File("assets/sounds/victory.wav").toURI().toString()));
+        buttonPress = new MediaPlayer(new Media(new File("assets/sounds/button.wav").toURI().toString()));
+        over = new MediaPlayer(new Media(new File("assets/sounds/start.wav").toURI().toString()));
+        colorSwitch = new MediaPlayer(new Media(new File("assets/sounds/colorswitch.wav").toURI().toString()));
+    }
+
     public static Main getInstance() {
         if(main == null) {
             main = new Main();
-            main.setupScreen();
             // Do set the stage when calling from outside
         }
         return main;
+    }
+
+    public boolean isAutoSave() {
+        return autoSave;
+    }
+    public void toggleAutoSave() {
+        autoSave = !autoSave;
+    }
+    public boolean isGameSounds() {
+        return gameSounds;
+    }
+    public void toggleGameSounds() {
+        gameSounds = !gameSounds;
+    }
+    public boolean isMusicOn() {
+        return musicOn;
+    }
+    public void toggleMusic() {
+        musicOn = !musicOn;
     }
 
     public double getHeight() {
@@ -115,19 +152,17 @@ public class Main extends Application {
         this.currentPlayer = currentPlayer;
     }
 
-    private void setupScreen() {
+    public void setupScreen(Stage stage) {
+        primaryStage = stage;
         Rectangle2D viewPort = Screen.getPrimary().getVisualBounds();
         height = viewPort.getHeight();
         width = 3*height/4;
     }
 
-    protected void setPrimaryStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-    }
-
     @Override
     public void start(Stage stage) throws Exception{
-        primaryStage = stage;
+        setupScreen(stage);
+//        loadMusic();
         Scene scene = new Scene(new Pane());
         scene.setFill(Paint.valueOf(color));
         primaryStage.setScene(scene);
@@ -135,7 +170,10 @@ public class Main extends Application {
         primaryStage.setTitle("Color Switch");
         main = this;
 
-        setupScreen();
+//        if(musicOn) {
+//            bgMusic.setCycleCount(MediaPlayer.INDEFINITE);
+//            bgMusic.play();
+//        }
 
         loadUserLogin();
 

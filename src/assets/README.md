@@ -1,8 +1,10 @@
-# Attributions for Icons Used
+# Attributions
 
 This contains the references for all the resources used.  
 ***Please add attribution while adding any new resources to the project.***
  
+## Icons Used
+
 - `back.png` <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from www.flaticon.com
 - `settings/music.png` `settings/diskette.png` `settings/volume` `home/gear.png` <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from www.flaticon.com
 - `love.png` <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from www.flaticon.com
@@ -18,4 +20,8 @@ This contains the references for all the resources used.
 - `game/star.png` <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from www.flaticon.com
 - `rating-icon.png` <a href="https://www.flaticon.com/free-icon/rate_3163742?related_item_id=3163742&term=rating&related_item_id=3163742" title="photo3idea_studio">photo3idea_studio</a> from www.flaticon.com
 - `animated-star.gif` <a href="https://www.animatedimages.org/cat-stars-280.htm">AnimatedImages.org</a>
+
+## Sound Effects
+
+- `sounds/*` from https://www.sounds-resource.com/mobile/colorswitch/sound/7826/
 
