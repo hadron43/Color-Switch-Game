@@ -57,6 +57,9 @@ public class Game implements Serializable {
 
     public Game(Player player, Scene scene) {
         this.player = player;
+
+        if (Main.getInstance().isAutoSave()) player.saveGame(this);
+
         id = assignID();
         gameObjects = new ArrayList<>();
         objectsPosProperty = new ArrayList<>();
@@ -282,10 +285,10 @@ public class Game implements Serializable {
         player.setStarsEarned(player.getStarsEarned() + score);
 
         saveObjectPositions();
-        player.saveGame(this);
 
         Thread thread = new Thread(() -> {
             try {
+                player.deleteSavedGame(this);
                 Main.getInstance().playGameOverSound();
                 Main.getInstance().loadGameOver(score, player.getHighScore());
             } catch (Exception e) {
