@@ -7,6 +7,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" minHeight="1024" minWidth="768" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Controller">
 
@@ -34,9 +35,29 @@
     </top>
    <center>
         <GridPane fx:id="savedGames">
-
-        </GridPane>
+         <BorderPane.margin>
+            <Insets top="30.0" />
+         </BorderPane.margin></GridPane>
    </center>
+    <bottom>
+        <VBox spacing="25.0">
+            <HBox>
+               <TextField fx:id="game_id_input">
+               <HBox.margin>
+                  <Insets left="25.0" right="25.0" />
+               </HBox.margin></TextField>
+                <Button onMouseClicked="#fetch_saved_game" text="Load">
+
+                </Button>
+            </HBox>
+            <BorderPane>
+                <center>
+                    <Text fx:id="game_found_status" textAlignment="CENTER">
+                    </Text>
+                </center>
+            </BorderPane>
+        </VBox>
+    </bottom>
    <padding>
       <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
    </padding>

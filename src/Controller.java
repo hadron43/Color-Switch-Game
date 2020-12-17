@@ -6,6 +6,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -14,7 +15,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -154,14 +154,16 @@ public class Controller implements Initializable {
 
     public void displaySavedGames() {
         Object[][] matrix = getTableMatrix();
-        savedGames.add(new Text("Game Id  "), 0, 0,1,1);
-        savedGames.add(new Text("Last Played  "), 1, 0,1,1);
-        savedGames.add(new Text("Score"), 2, 0,1,1);
+        String[] headings = {"Game Id", "Last Played", "Score"};
+        for(int i=0; i<3; ++i) {
+            Text text = new Text(headings[i]+"  ");
+            text.setFill(Paint.valueOf("#ffffff"));
+            savedGames.add(text, i, 0, 1, 1);
+        }
         for(int i=0; i<Main.getInstance().getCurrentPlayer().getSavedGamesMap().size(); ++i) {
             for(int j=0; j<3; ++j) {
                 Text text = new Text(matrix[i][j]+"  ");
                 text.setFill(Paint.valueOf("#ffffff"));
-                text.setTextAlignment(TextAlignment.CENTER);
                 savedGames.add(text, j, i+1, 1, 1);
             }
         }
