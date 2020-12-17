@@ -286,6 +286,7 @@ public class Game implements Serializable {
 
         Thread thread = new Thread(() -> {
             try {
+                Main.getInstance().playGameOverSound();
                 Main.getInstance().loadGameOver(score, player.getHighScore());
             } catch (Exception e) {
                 e.printStackTrace();
@@ -343,10 +344,15 @@ public class Game implements Serializable {
                             System.out.println("Collision detected, ret: " + ret + "; it: " + counter);
                             if (ret == -1){
                                 // Collision with star
+                                Main.getInstance().playStarCollisionSound();
                                 updateGameScore();
                             }
+
+                            if (ret == 2) Main.getInstance().playColourSwitchSound();
+
                             if (ret == 1){
                                 // Collision with obstacle
+                                Main.getInstance().playObstacleCollisionSound();
                                 ball.getBallController().pause();
                                 boolean resurrect = setGameOver((Obstacle) object);
                                 if(!resurrect) {

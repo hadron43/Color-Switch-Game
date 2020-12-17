@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Paint;
@@ -14,6 +15,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.net.URISyntaxException;
 
 public class Main extends Application {
     private static Main main;
@@ -26,15 +28,61 @@ public class Main extends Application {
 
     private boolean musicOn, gameSounds, autoSave;
 
-    private void loadMusic() {
-        bgMusic = new MediaPlayer(new Media(new File("assets/sounds/bgMusic.mp3").toURI().toString()));
-        tap = new MediaPlayer(new Media(new File("assets/sounds/jump.wav").toURI().toString()));
-        star = new MediaPlayer(new Media(new File("assets/sounds/star.wav").toURI().toString()));
-        hit = new MediaPlayer(new Media(new File("assets/sounds/dead.wav").toURI().toString()));
-        resurrect = new MediaPlayer(new Media(new File("assets/sounds/victory.wav").toURI().toString()));
-        buttonPress = new MediaPlayer(new Media(new File("assets/sounds/button.wav").toURI().toString()));
-        over = new MediaPlayer(new Media(new File("assets/sounds/start.wav").toURI().toString()));
-        colorSwitch = new MediaPlayer(new Media(new File("assets/sounds/colorswitch.wav").toURI().toString()));
+    private void loadMusic() throws URISyntaxException {
+        bgMusic = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/bgMusic.mp3").toURI().toString()));
+        tap = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/jump.wav").toURI().toString()));
+        star = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/star.wav").toURI().toString()));
+        hit = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/dead.wav").toURI().toString()));
+        resurrect = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/victory.wav").toURI().toString()));
+        buttonPress = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/button.wav").toURI().toString()));
+        over = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/start.wav").toURI().toString()));
+        colorSwitch = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/colorswitch.wav").toURI().toString()));
+    }
+
+    public void playBackgroundMusic(){
+        if(musicOn) {
+            bgMusic.setCycleCount(MediaPlayer.INDEFINITE);
+            bgMusic.play();
+        }
+        else{
+            bgMusic.stop();
+        }
+    }
+
+    public void playTapSound(){
+        if (gameSounds){
+            tap.play();
+        }
+    }
+
+    public void playKeyPressedSound(){
+        if (gameSounds){
+            buttonPress.play();
+        }
+    }
+
+    public void playStarCollisionSound(){
+        if (gameSounds){
+            star.play();
+        }
+    }
+
+    public void playObstacleCollisionSound(){
+        if (gameSounds){
+            hit.play();
+        }
+    }
+
+    public void playGameOverSound(){
+        if (gameSounds){
+            over.play();
+        }
+    }
+
+    public void playColourSwitchSound(){
+        if (gameSounds){
+            colorSwitch.play();
+        }
     }
 
     public static Main getInstance() {
@@ -162,7 +210,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception{
         setupScreen(stage);
-//        loadMusic();
+
+
+        loadMusic();
         Scene scene = new Scene(new Pane());
         scene.setFill(Paint.valueOf(color));
         primaryStage.setScene(scene);
@@ -170,10 +220,24 @@ public class Main extends Application {
         primaryStage.setTitle("Color Switch");
         main = this;
 
-//        if(musicOn) {
-//            bgMusic.setCycleCount(MediaPlayer.INDEFINITE);
-//            bgMusic.play();
+//        toggleGameSounds();
+//        playTapSound();
+        toggleMusic();
+        playBackgroundMusic();
+
+//        String path = "/assets/sounds/bgMusic.mp3";
+//
+//        Media media = null;
+//        try {
+//            media = new Media(Main.class.getResource("/assets/sounds/bgMusic.mp3").toURI().toString());
+//            MediaPlayer mediaPlayer = new MediaPlayer(media);
+//            mediaPlayer.setAutoPlay(true);
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();
 //        }
+
+//        AudioClip tune = new AudioClip(Main.class.getResource("/assets/sounds/error.wav").toString());
+//        tune.play();
 
         loadUserLogin();
 

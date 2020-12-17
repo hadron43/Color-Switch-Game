@@ -52,12 +52,12 @@
          <ImageView fitHeight="75.0" fitWidth="75.0" styleClass="settings-icon" GridPane.columnIndex="0" GridPane.rowIndex="1">
             <Image url="@../assets/settings/music.png" />
          </ImageView>
-         <ToggleButton styleClass="settings-button" text="PLAY MUSIC" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <ToggleButton fx:id="play_bgmusic_btn" onMouseClicked="#playBgMusic" styleClass="settings-button" text="PLAY MUSIC" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
          <ImageView fitHeight="75.0" fitWidth="75.0" styleClass="settings-icon" GridPane.columnIndex="0" GridPane.rowIndex="2">
             <Image url="@../assets/settings/volume.png" />
          </ImageView>
-         <ToggleButton styleClass="settings-button" text="PLAY SOUNDS" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <ToggleButton fx:id="play_sounds_btn" onMouseClicked="#playSounds" styleClass="settings-button" text="PLAY SOUNDS" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
          <columnConstraints>
             <ColumnConstraints />

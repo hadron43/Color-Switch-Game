@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -26,6 +27,7 @@ public class Controller implements Initializable {
     @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn;
     @FXML private Text high_score, total_stars;
     @FXML private TableView game_table;
+    @FXML private ToggleButton play_bgmusic_btn, play_sounds_btn;
 
     @FXML
     private void handleFeedback() throws Exception {
@@ -159,5 +161,14 @@ public class Controller implements Initializable {
             i++;
         }
         return game_data;
+    }
+
+    public void playBgMusic(MouseEvent mouseEvent) {
+        Main.getInstance().toggleMusic();
+        Main.getInstance().playBackgroundMusic();
+    }
+
+    public void playSounds(MouseEvent mouseEvent) {
+        Main.getInstance().toggleGameSounds();
     }
 }
