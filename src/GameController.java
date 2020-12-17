@@ -85,7 +85,6 @@ public class GameController implements Initializable, Serializable {
     }
 
     public void mouseClicked(MouseEvent mouseEvent) {
-        Main.getInstance().playTapSound();
         game.shiftObstacles();
     }
 
@@ -101,7 +100,6 @@ public class GameController implements Initializable, Serializable {
     public void keyPressed(KeyEvent keyEvent) {
         KeyCode keyCode = keyEvent.getCode();
         if (keyCode == KeyCode.SPACE){
-            Main.getInstance().playKeyPressedSound();
             game.shiftObstacles();
         }
     }
