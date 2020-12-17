@@ -226,6 +226,10 @@ public class Game implements Serializable {
         }
     }
 
+    public String getDateTime() {
+        return this.date_time;
+    }
+
     public void setDateTime(String date_time) {
         this.date_time = date_time;
     }

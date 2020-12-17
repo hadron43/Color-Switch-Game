@@ -107,6 +107,10 @@ public class Player implements Serializable {
         this.highScore = highScore;
     }
 
+    public Map<Long, Game> getSavedGamesMap(){
+        return savedGamesMap;
+    }
+
 
     public Game findGame(long input_id) throws GameNotFoundException {
         if (savedGamesMap.containsKey(input_id)){
