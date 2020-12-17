@@ -146,7 +146,7 @@
             </left>
             <center>
                 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="359.0">
-                    <Button maxWidth="Infinity" onMouseClicked="#loadGamePage" prefHeight="45.0" prefWidth="339.0" styleClass="feedback-button" text="Resume Game">
+                    <Button maxWidth="Infinity" onMouseClicked="#loadSavedGames" prefHeight="45.0" prefWidth="339.0" styleClass="feedback-button" text="Resume Game">
                         <cursor>
                             <Cursor fx:constant="HAND" />
                         </cursor>

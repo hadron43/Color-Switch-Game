@@ -195,6 +195,15 @@ public class Main extends Application {
 //        System.out.println(game.score);
     }
 
+    protected void loadSavedGames() throws Exception {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("scenes/load_game.fxml"));
+        Parent root = loader.load();
+        Controller controller = loader.getController();
+        controller.displaySavedGames();
+        scale(root);
+        primaryStage.getScene().setRoot(root);
+    }
+
     protected void loadGameOver(int score, int highScore) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("scenes/game_over.fxml"));
         Parent root = loader.load();

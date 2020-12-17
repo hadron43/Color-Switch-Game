@@ -33,16 +33,9 @@
       </BorderPane>
     </top>
    <center>
-      <TableView fx:id="game_table" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn prefWidth="160.0" text="Game Id" />
-          <TableColumn minWidth="0.0" prefWidth="263.0" text="Last Played On" />
-            <TableColumn minWidth="0.0" prefWidth="104.0" text="Score" />
-        </columns>
-         <BorderPane.margin>
-            <Insets bottom="75.0" left="75.0" right="75.0" top="75.0" />
-         </BorderPane.margin>
-      </TableView>
+        <GridPane fx:id="savedGames">
+
+        </GridPane>
    </center>
    <padding>
       <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
