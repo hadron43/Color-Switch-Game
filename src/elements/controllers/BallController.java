@@ -27,10 +27,13 @@ public class BallController extends SuperController implements Initializable {
     private static double moveUpDist = 80, moveUpDur = 200, minY = 1024/2, maxY = 1024-50;
     private Timeline upTimeline, downTimeline, initialTimeline;
 
+    private boolean paused;
+
     public BallController () {
         upTimeline = new Timeline();
         downTimeline = new Timeline();
         initialTimeline = new Timeline();
+        paused = false;
     }
 
     @Override
@@ -49,6 +52,8 @@ public class BallController extends SuperController implements Initializable {
     public double moveUp() {
         double ret = 0, value = moveUpDist;
         upTimeline.stop();
+        if(paused)
+            return 0;
         initialTimeline.stop();
         downTimeline.stop();
         upTimeline = new Timeline();
@@ -75,9 +80,20 @@ public class BallController extends SuperController implements Initializable {
     }
     public void freeFall(){
         downTimeline.stop();
+        if(paused)
+            return;
         downTimeline = new Timeline();
         DoubleProperty layoutY = ball.layoutYProperty();
         downTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(moveUpDur * (maxY - layoutY.getValue())/moveUpDist), new KeyValue(layoutY, maxY, Interpolator.EASE_IN)));
         downTimeline.play();
+    }
+
+    public void pause() {
+        paused = true;
+        downTimeline.stop();
+    }
+
+    public void resume() {
+        paused = false;
     }
 }

@@ -9,112 +9,136 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="GameController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="Infinity" maxWidth="Infinity" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="GameController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="Infinity" maxWidth="Infinity" xmlns="http://javafx.com/javafx/11.0.1">
     <center>
-<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768" xmlns="http://javafx.com/javafx/11.0.1">
     <Pane maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768">
         <Pane fx:id="obstaclesBox" maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768" onKeyPressed="#keyPressed" onMouseClicked="#mouseClicked">
 
         </Pane>
     </Pane>
+</center>
+</BorderPane>
+<BorderPane maxWidth="Infinity" minWidth="768" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <left>
+        <Pane layoutX="14.0" layoutY="14.0" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0" BorderPane.alignment="CENTER">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <Circle fill="white" layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
+                <styleClass>
+                    <String fx:value="back-button" />
+                    <String fx:value="fill-grey" />
+                </styleClass></Circle>
+            <Text fx:id="score" fill="WHITE" layoutX="16.0" layoutY="66.0" text="0" textAlignment="CENTER" wrappingWidth="63.0" />
+        </Pane>
+    </left>
+    <right>
+        <Pane layoutX="660.0" layoutY="14.0" onMouseClicked="#pause" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" BorderPane.alignment="CENTER">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <Circle layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
+                <styleClass>
+                    <String fx:value="back-button" />
+                    <String fx:value="fill-grey" />
+                </styleClass></Circle>
+            <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="21.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
+                <Image url="@../assets/game/pause.png" />
+            </ImageView>
+        </Pane>
+    </right>
+    <padding>
+        <Insets left="25.0" right="50.0" top="25.0" />
+    </padding>
+ <BorderPane.margin>
+    <Insets />
+ </BorderPane.margin>
+</BorderPane>
 
-    <Pane fx:id="overlay" visible="false">
+    <Pane fx:id="overlay" maxHeight="1024" maxWidth="768" minHeight="1024" minWidth="768" visible="false">
         <Pane minHeight="1024" minWidth="768" opacity="0.7" style="-fx-background-color: #292929;">
 
         </Pane>
-
-        <BorderPane minHeight="1024" minWidth="768">
-            <top>
-                <AnchorPane>
-                    <Pane onMouseClicked="#backToHome" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" BorderPane.alignment="CENTER">
-                        <cursor>
-                            <Cursor fx:constant="HAND" />
-                        </cursor>
-                        <Circle fill="white" layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="back-button" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER" />
-                        <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="21.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
-                            <Image url="@../assets/home.png" />
-                        </ImageView>
-                    </Pane>
-                </AnchorPane>
-            </top>
-            <center>
-                <VBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="50.0" BorderPane.alignment="CENTER">
-                    <Pane onMouseClicked="#resume" prefHeight="129.0" prefWidth="133.0" styleClass="small-on-hover">
-                        <Circle layoutX="66.0" layoutY="64.0" radius="67.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey">
+        <Pane minHeight="1024" minWidth="768">
+            <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="paused" minHeight="1024" minWidth="768" visible="false" xmlns="http://javafx.com/javafx/11.0.1">
+                <top>
+                    <AnchorPane>
+                        <Pane onMouseClicked="#backToHome" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" BorderPane.alignment="CENTER">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
-                        </Circle>
-                        <ImageView fitHeight="80.0" fitWidth="78.0" layoutX="36.0" layoutY="27.0">
-                            <Image url="@../assets/play-button-arrowhead.png" />
+                            <Circle fill="white" layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="back-button" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER" />
+                            <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="21.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
+                                <Image url="@../assets/home.png" />
+                            </ImageView>
+                        </Pane>
+                    </AnchorPane>
+                </top>
+                <center>
+                    <VBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="50.0" BorderPane.alignment="CENTER">
+                        <Pane onMouseClicked="#resume" prefHeight="129.0" prefWidth="133.0" styleClass="small-on-hover">
+                            <Circle layoutX="66.0" layoutY="64.0" radius="67.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Circle>
+                            <ImageView fitHeight="80.0" fitWidth="78.0" layoutX="36.0" layoutY="27.0">
+                                <Image url="@../assets/play-button-arrowhead.png" />
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </ImageView>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
-                        </ImageView>
-                        <cursor>
-                            <Cursor fx:constant="HAND" />
-                        </cursor>
-                    </Pane>
+                        </Pane>
 
-                    <Pane prefHeight="133.0" prefWidth="133.0" styleClass="small-on-hover">
-                        <ImageView fitHeight="133" fitWidth="133.0" styleClass="settings-icon" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                            <Image url="@../assets/settings/diskette.png" />
-                        </ImageView>
-                        <cursor>
-                            <Cursor fx:constant="HAND" />
-                        </cursor>
-                    </Pane>
-               <padding>
-                  <Insets bottom="75.0" />
-               </padding>
-                </VBox>
-            </center>
-        </BorderPane>
+                        <Pane prefHeight="133.0" prefWidth="133.0" styleClass="small-on-hover">
+                            <ImageView fitHeight="133" fitWidth="133.0" styleClass="settings-icon" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Image url="@../assets/settings/diskette.png" />
+                            </ImageView>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Pane>
+                        <padding>
+                            <Insets bottom="75.0" />
+                        </padding>
+                    </VBox>
+                </center>
+                <stylesheets>
+                    <URL value="@../style/style.css" />
+                </stylesheets>
+            </BorderPane>
+
+            <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="resurrect" minHeight="1024" minWidth="768" visible="false" xmlns="http://javafx.com/javafx/11.0.1">
+                <center>
+                    <VBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="50.0" BorderPane.alignment="CENTER">
+
+                        <padding>
+                            <Insets bottom="75.0" />
+                        </padding>
+                  <children>
+                     <Pane fx:id="resurrectButton" onMouseClicked="#toggleResurrectSuccess" prefHeight="200.0" prefWidth="300.0">
+                        <children>
+                           <Rectangle arcHeight="30.0" arcWidth="30.0" fill="TOMATO" height="200.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
+                            <Text fill="WHITE" layoutX="64.0" layoutY="125.0" scaleX="1.5" scaleY="1.5" text="Continue?">
+                              </Text>
+                           <Circle fill="DODGERBLUE" layoutX="150.0" layoutY="45.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+                            <Text fx:id="resurrectCount" fill="aliceblue" layoutX="139.0" layoutY="57.0" text="5" />
+                            <Text fill="beige" layoutX="41.0" layoutY="167.0" scaleX="0.8" scaleY="0.8" text="Cost: 10 stars" />
+                        </children></Pane>
+                  </children>
+                    </VBox>
+                </center>
+                <stylesheets>
+                    <URL value="@../style/style.css" />
+                </stylesheets>
+            </BorderPane>
+        </Pane>
     </Pane>
-
-
-</Pane>
-</center>
-
-    <top>
-        <BorderPane maxWidth="Infinity" minWidth="768">
-            <left>
-                <Pane layoutX="14.0" layoutY="14.0" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0" BorderPane.alignment="CENTER">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                    <Circle fill="white" layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
-                        <styleClass>
-                            <String fx:value="back-button" />
-                            <String fx:value="fill-grey" />
-                        </styleClass></Circle>
-                    <Text fx:id="score" fill="WHITE" layoutX="16.0" layoutY="66.0" text="0" textAlignment="CENTER" wrappingWidth="63.0" />
-                </Pane>
-            </left>
-            <right>
-                <Pane layoutX="660.0" layoutY="14.0" onMouseClicked="#pause" prefHeight="101.0" prefWidth="94.0" styleClass="small-on-hover" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" BorderPane.alignment="CENTER">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                    <Circle layoutX="48.0" layoutY="53.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" BorderPane.alignment="CENTER">
-                        <styleClass>
-                            <String fx:value="back-button" />
-                            <String fx:value="fill-grey" />
-                        </styleClass></Circle>
-                    <ImageView fitHeight="54.0" fitWidth="59.0" layoutX="21.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
-                        <Image url="@../assets/game/pause.png" />
-                    </ImageView>
-                </Pane>
-            </right>
-            <padding>
-                <Insets left="25.0" right="50.0" top="25.0" />
-            </padding>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-        </BorderPane>
-    </top>
     <stylesheets>
         <URL value="@../style/style.css" />
     </stylesheets>
-</BorderPane>
+</AnchorPane>

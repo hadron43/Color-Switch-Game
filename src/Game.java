@@ -249,33 +249,47 @@ public class Game implements Serializable {
         objectsPosition.add(new Pair<>(ball.getClass(), ball.getPosY().getValue()));
     }
 
-    private void setGameOver(Obstacle obstacle) throws Exception {
+    private boolean setGameOver(Obstacle obstacle) throws Exception {
         int player_highscore = player.getHighScore();
-        toggleGameOver();
         if (score > player_highscore) {
             player.setHighScore(score);
         }
         player.setStarsEarned(player.getStarsEarned() + score);
-        Main.getInstance().loadGameOver(score, player.getHighScore());
 
         saveObjectPositions();
         player.saveGame(this);
 
-//        if (player.getStarsEarned() > resurrection_stars){
-//            System.out.println("Resurrection possible!");
-//            int difference = player.getStarsEarned() - resurrection_stars;
-//            // give option of ressurection
-//            // resurrection to be implemented
-//            resurrectPlayer(obstacle);
-//            player.setStarsEarned(difference);
-//        }
-//        else {
-//            Main.getInstance().loadGameOver(score, player.getHighScore());
-//        }
+        Thread thread = new Thread(() -> {
+            try {
+                Main.getInstance().loadGameOver(score, player.getHighScore());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        if (player.getStarsEarned() > resurrection_stars){
+            System.out.println("Resurrection possible!");
+            int difference = player.getStarsEarned() - resurrection_stars;
+            // give option of ressurection
+
+            boolean success = gameController.displayResurrect();
+
+            // resurrection to be implemented
+            if(!success) {
+                thread.start();
+                return false;
+            }
+            resurrectPlayer(obstacle);
+            player.setStarsEarned(difference);
+            return true;
+        }
+        thread.start();
+        return false;
     }
 
     private void resurrectPlayer(Obstacle obstacle){
         obstacle.getPane().setVisible(false);
+        gameObjects.remove(obstacle);
     }
 
     class Collision implements Runnable {
@@ -308,8 +322,13 @@ public class Game implements Serializable {
                             }
                             if (ret == 1){
                                 // Collision with obstacle
-                                setGameOver((Obstacle) object);
-                                return;
+                                ball.getBallController().pause();
+                                boolean resurrect = setGameOver((Obstacle) object);
+                                if(!resurrect) {
+                                    toggleGameOver();
+                                }
+                                else
+                                    ball.getBallController().resume();
                             }
                         }
                     }
