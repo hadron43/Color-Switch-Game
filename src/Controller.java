@@ -13,12 +13,11 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-import javax.swing.text.TabableView;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -163,7 +162,7 @@ public class Controller implements Initializable {
         return game_data;
     }
 
-    public void playBgMusic(MouseEvent mouseEvent) {
+    public void playBgMusic(MouseEvent mouseEvent) throws URISyntaxException {
         Main.getInstance().toggleMusic();
         Main.getInstance().playBackgroundMusic();
     }
