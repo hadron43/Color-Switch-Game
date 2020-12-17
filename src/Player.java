@@ -1,3 +1,5 @@
+import global.GameNotFoundException;
+
 import java.io.Serializable;
 import java.security.*;
 import java.time.LocalDateTime;
@@ -105,6 +107,16 @@ public class Player implements Serializable {
         this.highScore = highScore;
     }
 
+
+    public Game findGame(long input_id) throws GameNotFoundException {
+        if (savedGamesMap.containsKey(input_id)){
+            return savedGamesMap.get(input_id);
+        }
+        else{
+            throw new GameNotFoundException("No saved game found for the given ID!");
+        }
+    }
+
     public void saveGame(Game game){
 
         DateTimeFormatter dt_format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -118,5 +130,16 @@ public class Player implements Serializable {
 
     public void deleteSavedGame(Game game){
         savedGamesMap.remove(game.getId());
+    }
+
+    public Game getPlayerGame(){
+        Iterator iterator = savedGamesMap.entrySet().iterator();
+        if (iterator.hasNext()){
+            return (Game) iterator.next();
+        }
+        else{
+            System.out.println("No game in hashmap!");
+            return null;
+        }
     }
 }

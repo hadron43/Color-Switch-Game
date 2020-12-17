@@ -85,6 +85,17 @@ public class Game implements Serializable {
         gameOver = !gameOver;
     }
 
+    @Override
+    public boolean equals(Object o1){
+        if (o1 != null && getClass() == o1.getClass()){
+            Game g = (Game) o1;
+            return (this.id == g.id);
+        }
+        else{
+            return false;
+        }
+    }
+
     private void attachGameObject(GameObjects ob) {
         double pos = height;
         if(gameObjects.size() != 0) {
@@ -233,6 +244,8 @@ public class Game implements Serializable {
         }
         player.setStarsEarned(player.getStarsEarned() + score);
         Main.getInstance().loadGameOver(score, player.getHighScore());
+
+        player.saveGame(this);
 
 //        if (player.getStarsEarned() > resurrection_stars){
 //            System.out.println("Resurrection possible!");

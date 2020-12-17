@@ -6,10 +6,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GameController implements Initializable {
+public class GameController implements Initializable, Serializable {
     @FXML
     Pane obstaclesBox, overlay;
     @FXML

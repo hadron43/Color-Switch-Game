@@ -8,8 +8,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public abstract class GameObjects {
+public abstract class GameObjects implements Serializable {
     @FXML
     private Pane pane;
     private DoubleProperty posY;

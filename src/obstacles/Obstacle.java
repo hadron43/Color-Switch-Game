@@ -7,6 +7,7 @@ import global.GameObjects;
 import javafx.geometry.Bounds;
 import javafx.scene.layout.Pane;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public abstract class Obstacle extends GameObjects implements Collideable {

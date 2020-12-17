@@ -81,6 +81,8 @@ public class Main extends Application {
 
     protected void loadGame() throws Exception {
         Game game = new Game(getCurrentPlayer(), primaryStage.getScene());
+//        Game game = getCurrentPlayer().getPlayerGame();
+//        System.out.println(game.score);
     }
 
     protected void loadGameOver(int score, int highScore) throws Exception{
