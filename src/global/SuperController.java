@@ -1,15 +1,12 @@
 package global;
 
 import javafx.animation.*;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,30 +15,9 @@ public abstract class SuperController implements Initializable {
     public static int defaultScalingDuration = 750;
     // To store all transition objects
     protected final List<Transition> transitions;
-    @FXML
-    private Pane star;
 
     protected SuperController() {
         this.transitions = new ArrayList<>();
-    }
-
-    protected void loadStar(Pane customPane) {
-        if(customPane != null) {
-            Pane temp;
-            try {
-                temp = FXMLLoader.load(getClass().getResource("/elements/fxml/star.fxml"));
-                List<Node> parentChildren = ((Pane) customPane.getParent()).getChildren();
-                parentChildren.set(parentChildren.indexOf(customPane), temp);
-                customPane = temp;
-                addScaling(customPane);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    protected void loadStar() {
-        loadStar(star);
     }
 
     public void addRotation(Node node, int timeInMillis, boolean clockwise) {
@@ -74,6 +50,4 @@ public abstract class SuperController implements Initializable {
     public void addRotation(Node node) {
         addRotation(node, defaultRotatingDuration, ((int) (Math.random()*2))==1?true:false);
     }
-
-    protected Pane getStar() {return star;}
 }

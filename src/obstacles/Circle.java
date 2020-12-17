@@ -1,6 +1,7 @@
 package obstacles;
 
 import elements.Ball;
+import javafx.scene.shape.Shape;
 import obstacles.controllers.CircleController;
 
 public class Circle extends Obstacle {
@@ -9,8 +10,8 @@ public class Circle extends Obstacle {
     public Circle() {
         // Load the FXML and set 'pane' in Parent
         loadFXMLtoPane("/obstacles/fxml/circle.fxml");
-
         circleController = (CircleController) controller;
+        loadStar(circleController.star);
     }
 
     @Override
@@ -22,21 +23,20 @@ public class Circle extends Obstacle {
         int result = 0;
 //        System.out.println("Brooks was here!");
 
-        if(getBounds().intersects(b.getBounds())) {
-            if(!circleController.safe.intersects(b.getBounds())) {
-                // To be done: handle star collision
+        if(Shape.intersect(circleController.safe, b.getBallController().circle_ball).getBoundsInLocal().getWidth() == -1) {
+            // To be done: handle star collision
 
-                if(b.getColour() == 0 && circleController.yellowRing.intersects(b.getBounds()) ||
-                    b.getColour() == 1 && circleController.pinkRing.intersects(b.getBounds()) ||
-                    b.getColour() == 2 && circleController.blueRing.intersects(b.getBounds()) ||
-                    b.getColour() == 3 && circleController.purpleRing.intersects(b.getBounds())
-                )
-                    result = 1;
-            }
+            if(b.getColour() != 0 && Shape.intersect(circleController.yellowRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1 ||
+                b.getColour() != 1 && Shape.intersect(circleController.pinkRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1 ||
+                b.getColour() != 2 && Shape.intersect(circleController.blueRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1 ||
+                b.getColour() != 3 && Shape.intersect(circleController.purpleRing, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1
+            )
+                result = 1;
         }
 
-        if(result == 1)
-            System.out.println(result);
+        if(result == 0) {
+            result = hasCollidedWithStar(b);
+        }
 
         return result;
     }

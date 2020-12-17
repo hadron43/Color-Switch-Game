@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Arc?>
-<?import java.net.URL?>
-<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="colourSwitcher" minHeight="28.0" minWidth="28.0" maxHeight="28.0" maxWidth="28.0"
-      xmlns="http://javafx.com/javafx/11.0.1" fx:controller="elements.controllers.ColourSwitcherController">
-    <Arc layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE"
-         styleClass="fill-yellow" type="ROUND"/>
-    <Arc layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" startAngle="90.0" stroke="BLACK"
-         strokeType="INSIDE" styleClass="fill-pink" type="ROUND"/>
-    <Arc layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" startAngle="180.0" stroke="BLACK"
-         strokeType="INSIDE" styleClass="fill-blue" type="ROUND"/>
-    <Arc layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" startAngle="270.0" stroke="BLACK"
-         strokeType="INSIDE" styleClass="fill-purple" type="ROUND"/>
+<?import javafx.scene.shape.Rectangle?>
+
+<Pane fx:id="colourSwitcher" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="elements.controllers.ColourSwitcherController">
+   <Rectangle fx:id="colour_switch_rect" arcHeight="5.0" arcWidth="5.0" height="28.0" stroke="BLACK" strokeType="INSIDE" width="28.0" styleClass="fill-soft-black"/>
+    <Arc fx:id="yellow_arc" layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-yellow" type="ROUND" />
+    <Arc fx:id="pink_arc" layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-pink" type="ROUND" />
+    <Arc fx:id="blue_arc" layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-blue" type="ROUND" />
+    <Arc fx:id="purple_arc" layoutX="14" layoutY="14" length="90.0" radiusX="14.0" radiusY="14.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-purple" type="ROUND" />
 
     <stylesheets>
         <URL value="@/style/style.css" />

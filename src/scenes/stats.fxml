@@ -75,8 +75,8 @@
                      <Circle layoutX="150.0" layoutY="150.0" radius="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
 
                  </Pane>
-                 <Pane layoutX="130.0" layoutY="109.0">
-                     <Text id="high_score" fx:id="high_score" fill="white" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="10" textAlignment="CENTER" />
+                 <Pane layoutX="95.0" layoutY="109.0" prefHeight="85.0" prefWidth="113.0">
+                     <Text id="high_score" fx:id="high_score" fill="white" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="10" textAlignment="CENTER" wrappingWidth="107.18231964111328" />
                  </Pane>
 
              </Pane>
@@ -99,8 +99,8 @@
                      <Circle layoutX="150.0" layoutY="150.0" radius="120.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-soft-black" />
 
                  </Pane>
-                 <Pane layoutX="130.0" layoutY="109.0">
-                     <Text fx:id="total_stars" fill="white" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="10" textAlignment="CENTER" />
+                 <Pane layoutX="92.0" layoutY="109.0" prefHeight="82.0" prefWidth="116.0">
+                     <Text fx:id="total_stars" fill="white" layoutX="1.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stats_info" text="10" textAlignment="CENTER" wrappingWidth="111.84896850585938" />
                  </Pane>
              </Pane>
          </children>

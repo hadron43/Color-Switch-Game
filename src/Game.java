@@ -1,5 +1,8 @@
 import elements.Ball;
+import elements.ColorSwitcherLogo;
 import elements.ColourSwitcher;
+import elements.Hand;
+import global.Collideable;
 import global.GameObjects;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -10,39 +13,47 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import obstacles.Circle;
-import obstacles.Obstacle;
+import javafx.util.Pair;
+import obstacles.*;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Game implements Serializable {
     private static final List<Class> map = Arrays.asList(
-            Circle.class
-//            , CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class,
+//            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
+//            Plus.class
+            Circle.class, CircleFlow.class, DoubleCircle.class, Plus.class, Square.class, DoubleCircleVertical.class
 //            Triangle.class
     );
-    private final Ball ball;
+    private transient final Ball ball;
     private final long id;
     private final Player player;
+
+//    date and time when the game was last played
+    private String date_time;
 //     Includes Obstacles, ColourSwitcher's
-    private final List<GameObjects> gameObjects;
+    private transient final List<GameObjects> gameObjects;
 //    Constants Required
-    private static final double margin = 140, shift = 100, shiftDur = 30, width = 768, height = 1024, maxColorSwitcher = 2;
+    private static final double margin = 200, shift = 100, shiftDur = 300, width = 768, height = 1024, maxColorSwitcher = 3;
 //     For storing the score
     int score;
 //    For storing the list of all keyframes to be updated on a click
-    private final List<DoubleProperty> objectsPosProperty;
+    private transient final List<DoubleProperty> objectsPosProperty;
 
 //    It stores the number of colourSwitchers allowed to be loaded at a time on the screen
     private int colorSwitcherCount;
 
-//     Controller With this Class
-    private GameController gameController;
-    @FXML
-    private Pane obstaclesBox;
+//    Min number of stars for which resurrection can be offered to player
+    private final int resurrection_stars = 10;
+
+    private volatile boolean gameOver;
+
+    private List<Pair<Class, Double>> objectsPosition;
 
     public Game(Player player, Scene scene) {
         this.player = player;
@@ -50,10 +61,15 @@ public class Game implements Serializable {
         gameObjects = new ArrayList<>();
         objectsPosProperty = new ArrayList<>();
         score = 0;
+        initialiseDateTime();
+        objectsPosition = new ArrayList<>();
+
+        // For testing purpose
+        System.out.println("Old game score = " + player.getPlayerGame().score);
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/game.fxml"));
-            Pane root = loader.load();
+            root = loader.load();
             scene.setRoot(root);
             Main.getInstance().scale(root);
             gameController = loader.getController();
@@ -62,11 +78,29 @@ public class Game implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         ball = new Ball();
-        ball.attachToPane(obstaclesBox, (width/2-ball.getWidth()/2), height-margin);
-        System.out.println(ball.getBounds());
+        gameOver = false;
         initializeGame();
+    }
+
+//     Controller With this Class
+    private transient GameController gameController;
+    @FXML
+    private transient Pane obstaclesBox, root;
+
+    private synchronized void toggleGameOver() {
+        gameOver = !gameOver;
+    }
+
+    @Override
+    public boolean equals(Object o1){
+        if (o1 != null && getClass() == o1.getClass()){
+            Game g = (Game) o1;
+            return (this.id == g.id);
+        }
+        else{
+            return false;
+        }
     }
 
     private void attachGameObject(GameObjects ob) {
@@ -84,6 +118,13 @@ public class Game implements Serializable {
                 pos -= margin/5;
         }
         pos -= margin + ob.getHeight();
+        if(gameObjects.isEmpty()) {
+            pos += margin;
+            pos -= 30;
+        }
+        else if(gameObjects.size() <= 2) {
+            pos += margin/2;
+        }
 
         ob.attachToPane(obstaclesBox, (width-ob.getWidth())/2, pos);
         gameObjects.add(ob);
@@ -113,27 +154,53 @@ public class Game implements Serializable {
     }
 
     private void initializeGame() {
-        double pos = 1024 - margin;
-        double x = 768;
+        attachGameObject(new Hand());
+        attachGameObject(new ColorSwitcherLogo());
+        attachGameObject(new Circle());
+
         for(int i=0; i<3; ++i){
             newObstacle();
         }
 
-//        Thread collisionThread = new Thread(new collisionThread());
-//        collisionThread.start();
+        ball.attachToPane((Pane)obstaclesBox.getParent(), (width/2-ball.getWidth()/2), gameObjects.get(0).getPosY().getValue() - ball.getHeight() - 10);
+
+        Thread collisionThread = new Thread(new Collision(), "Collision Thread");
+        collisionThread.start();
+    }
+
+    public void resumeGame() {
+        gameObjects.clear();
+        objectsPosProperty.clear();
+
+        for(Pair<Class, Double> pair : objectsPosition) {
+            try {
+                GameObjects go = (GameObjects) (pair.getKey().getDeclaredConstructor().newInstance());
+                if(go instanceof Ball) {
+                    ((Ball)go).getBallController().pause();
+                    go.attachToPane((Pane)obstaclesBox.getParent(), (width/2-ball.getWidth()/2), pair.getValue());
+                }
+                else {
+                    go.attachToPane(obstaclesBox, (width - go.getWidth())/2, pair.getValue());
+                    gameObjects.add(go);
+                    objectsPosProperty.add(go.getPane().layoutYProperty());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        new Thread(new Collision(), "Collision Thread").start();
     }
 
     public void shiftObstacles() {
+        double shiftExcess = Math.min(shift, ball.getBallController().moveUp());
         Timeline timeline = new Timeline();
         timeline.setCycleCount(1);
-        timeline.setRate(0.1);
         for(DoubleProperty property : objectsPosProperty) {
-            KeyValue keyValue = new KeyValue(property, property.getValue() + shift);
+            KeyValue keyValue = new KeyValue(property, property.getValue() + shiftExcess*1.5);
             timeline.getKeyFrames().add(new KeyFrame(Duration.millis(shiftDur), keyValue));
         }
         timeline.play();
-        Thread t1 = new Thread(new collisionThread());
-        t1.run();
         // Generate new obstacle if running out of obstacles to display
         updateGameObjects();
     }
@@ -183,28 +250,125 @@ public class Game implements Serializable {
         }
     }
 
-    class collisionThread implements Runnable {
+    public void setDateTime(String date_time) {
+        this.date_time = date_time;
+    }
+
+    private void initialiseDateTime(){
+        DateTimeFormatter dt_format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String dt = dt_format.format(now);
+        setDateTime(dt);
+    }
+
+    private synchronized void updateGameScore(){
+        this.score ++;
+        gameController.setScore(this.score);
+    }
+
+    public void saveObjectPositions(){
+        for (GameObjects gameObject: gameObjects){
+            objectsPosition.add(new Pair<>(gameObject.getClass(), gameObject.getPosY().getValue()));
+        }
+        objectsPosition.add(new Pair<>(ball.getClass(), ball.getPosY().getValue()));
+    }
+
+    private boolean setGameOver(Obstacle obstacle) throws Exception {
+        int player_highscore = player.getHighScore();
+        if (score > player_highscore) {
+            player.setHighScore(score);
+        }
+        player.setStarsEarned(player.getStarsEarned() + score);
+
+        saveObjectPositions();
+        player.saveGame(this);
+
+        Thread thread = new Thread(() -> {
+            try {
+                Main.getInstance().loadGameOver(score, player.getHighScore());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        if (player.getStarsEarned() > resurrection_stars){
+            System.out.println("Resurrection possible!");
+            int difference = player.getStarsEarned() - resurrection_stars;
+            // give option of ressurection
+
+            boolean success = gameController.displayResurrect();
+
+            // resurrection to be implemented
+            if(!success) {
+                thread.start();
+                return false;
+            }
+            resurrectPlayer(obstacle);
+            player.setStarsEarned(difference);
+            return true;
+        }
+        thread.start();
+        return false;
+    }
+
+    private void resurrectPlayer(Obstacle obstacle){
+        obstacle.getPane().setVisible(false);
+        gameObjects.remove(obstacle);
+    }
+
+    class Collision implements Runnable {
         @Override
         public void run() {
+            long counter = 0;
             for (int i=0; ;++i) {
                 if(i == -1) {
                     System.out.println("Invalid State! i is -1!");
+                    return;
+                }
+                if(gameOver) {
+                    System.out.println("Game is now over, exiting collision thread");
+                    return;
                 }
                 try {
-                    if(!(gameObjects.get(i) instanceof Obstacle))
-                        continue;
-                    Obstacle go = (Obstacle) gameObjects.get(i);
-                    if (go.getPosY().getValue() - ball.getPosY().getValue() < -700)
-                        throw new Exception("Reached too far!");
-                    if (go instanceof Circle) {
-                        int col = go.hasCollided(ball);
-                        if(col == 1)
-                            System.out.println("collision detected!");
+                    GameObjects object = gameObjects.get(i);
+                    if(object instanceof Collideable) {
+                        int ret = ((Collideable) object).hasCollided(ball);
+                        /*return codes:
+                        1. Obstacle = 1
+                        2. Colour Switcher = 2
+                        3. Star = -1
+                        */
+                        if(ret != 0) {
+                            System.out.println("Collision detected, ret: " + ret + "; it: " + counter);
+                            if (ret == -1){
+                                // Collision with star
+                                updateGameScore();
+                            }
+                            if (ret == 1){
+                                // Collision with obstacle
+                                ball.getBallController().pause();
+                                boolean resurrect = setGameOver((Obstacle) object);
+                                if(!resurrect) {
+                                    toggleGameOver();
+                                }
+                                else
+                                    ball.getBallController().resume();
+                            }
+                        }
                     }
+                    // To increase efficiency
+                    counter++;
+                    if(i > 3)
+                        throw new Exception("reached too far!");
                 }
                 catch(Exception e) {
-                    return;
-//                    i = -1;
+                    i = -1;
+                }
+
+                try {
+                    Thread.sleep(15);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }

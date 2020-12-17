@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="175.0" maxWidth="150.0" minHeight="175.0" minWidth="150.0" xmlns="http://javafx.com/javafx/11.0.1" opacity="0.75">
+    <ImageView fitHeight="175" fitWidth="150" layoutX="37.0">
+        <Image url="@/assets/game/tap.png" />
+    </ImageView>
+    <stylesheets>
+        <URL value="@/style/style.css" />
+    </stylesheets>
+</Pane>

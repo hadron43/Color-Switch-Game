@@ -3,6 +3,7 @@ package elements;
 import elements.controllers.BallController;
 import global.GameObjects;
 import javafx.geometry.Bounds;
+import javafx.scene.layout.Pane;
 
 import java.util.Random;
 
@@ -21,7 +22,7 @@ public class Ball extends GameObjects {
     public Bounds getBounds() {
         if(ballController == null || ballController.circle_ball == null)
             return null;
-        return ballController.circle_ball.getBoundsInParent();
+        return ballController.circle_ball.getBoundsInLocal();
     }
 
     public int getColour(){
@@ -55,6 +56,10 @@ public class Ball extends GameObjects {
         }
     }
 
+    public BallController getBallController() {
+        return ballController;
+    }
+
     public double getSpeed(){
         return speed;
     }
@@ -63,15 +68,9 @@ public class Ball extends GameObjects {
         speed *= speed_level;
     }
 
-//    public void loadBallPane(String FXMLPath) {
-//        Pane temp = null;
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPath));
-//            temp = loader.load();
-//            ballController = loader.getController();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        setPane(temp);
-//    }
+    @Override
+    public void attachToPane(Pane node, double i, double j) {
+        super.attachToPane(node, i, j);
+        ballController.welcome();
+    }
 }

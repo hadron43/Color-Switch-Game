@@ -1,12 +1,13 @@
-package global;
+package elements.controllers;
 
+import global.SuperController;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ColorSwitchLogo extends SuperController {
+public class ColorSwitchLogoController extends SuperController {
     @FXML
     ImageView ring1, ring2;
     @Override

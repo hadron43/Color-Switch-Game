@@ -4,6 +4,7 @@ import elements.controllers.ColourSwitcherController;
 import global.Collideable;
 import global.GameObjects;
 import javafx.geometry.Bounds;
+import javafx.scene.shape.Shape;
 
 public class ColourSwitcher extends GameObjects implements Collideable {
     private ColourSwitcherController colourSwitcherController;
@@ -22,9 +23,15 @@ public class ColourSwitcher extends GameObjects implements Collideable {
 
     @Override
     public int hasCollided(Ball b) {
-        if(getPane() == null || b == null || b.getBounds() == null)
-            return -1;
-        return (getBounds().intersects(b.getBounds())) ? 1 : 0;
+        int result = 0;
+
+        // return 2 if collision is detected
+        if (colourSwitcherController.colourSwitcher.isVisible() && Shape.intersect(colourSwitcherController.colour_switch_rect, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1){
+            result = 2;
+            changeBallColour(b);
+            colourSwitcherController.colourSwitcher.setVisible(false);
+        }
+        return result;
     }
 
     public void changeBallColour(Ball b){

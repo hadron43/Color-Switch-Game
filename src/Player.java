@@ -1,6 +1,10 @@
+import global.GameNotFoundException;
+
 import java.io.Serializable;
 import java.security.*;
-import java.util.Arrays;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class Player implements Serializable {
     private final String username;
@@ -8,12 +12,15 @@ public class Player implements Serializable {
     private int starsEarned;
     private int highScore;
     private static final byte[] salt = "MyPasswordSalt".getBytes();
+    private Map<Long, Game> savedGamesMap;
+    private static final long serialversionUID = 7L;
 
     public Player(String user_name, String password) {
         this.username = user_name;
         this.password = generatePasswordHash(password);
         this.starsEarned = 0;
         this.highScore = 0;
+        savedGamesMap = new HashMap<Long, Game>();
     }
 
     @Override
@@ -98,5 +105,44 @@ public class Player implements Serializable {
 
     public void setHighScore(int highScore) {
         this.highScore = highScore;
+    }
+
+
+    public Game findGame(long input_id) throws GameNotFoundException {
+        if (savedGamesMap.containsKey(input_id)){
+            return savedGamesMap.get(input_id);
+        }
+        else{
+            throw new GameNotFoundException("No saved game found for the given ID!");
+        }
+    }
+
+    public void saveGame(Game game){
+
+        DateTimeFormatter dt_format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String date_time = dt_format.format(now);
+        System.out.println(dt_format.format(now));
+
+        game.setDateTime(date_time);
+        savedGamesMap.put(game.getId(), game);
+    }
+
+    public void deleteSavedGame(Game game){
+        savedGamesMap.remove(game.getId());
+    }
+
+    /* For testing purpose only */
+    public Game getPlayerGame(){
+        Iterator iterator = savedGamesMap.entrySet().iterator();
+        if (iterator.hasNext()){
+            Map.Entry map_entry = (Map.Entry) iterator.next();
+            Game g = (Game) map_entry.getValue();
+            return g;
+        }
+        else{
+            System.out.println("No game in hashmap!");
+            return null;
+        }
     }
 }

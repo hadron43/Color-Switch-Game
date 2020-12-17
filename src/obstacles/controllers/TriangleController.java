@@ -11,6 +11,9 @@ public class TriangleController extends SuperController {
     @FXML
     public Pane triangle;
 
+    @FXML
+    public Pane star;
+
     public TriangleController() {
         super();
     }
@@ -19,6 +22,5 @@ public class TriangleController extends SuperController {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Add transitions
         addRotation(triangle);
-        loadStar();
     }
 }

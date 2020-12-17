@@ -16,6 +16,8 @@ public class CircleController extends SuperController {
     public Arc yellowRing, blueRing, purpleRing, pinkRing;
     @FXML
     public Circle safe;
+    @FXML
+    public Pane star;
 
     public CircleController() {
         super();
@@ -25,6 +27,5 @@ public class CircleController extends SuperController {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Add transitions
         addRotation(circle);
-        loadStar();
     }
 }
