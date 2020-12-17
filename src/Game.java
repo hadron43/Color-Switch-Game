@@ -4,6 +4,7 @@ import elements.ColourSwitcher;
 import elements.Hand;
 import global.Collideable;
 import global.GameObjects;
+import global.SuperController;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -265,8 +266,14 @@ public class Game implements Serializable {
         setDateTime(dt);
     }
 
+    private int level = 0;
+
     private synchronized void updateGameScore(){
         this.score ++;
+        if(score % 5 == 0) {
+            level = Math.max(level, 5);
+            SuperController.defaultRotatingDuration -= 100 * level;
+        }
         gameController.setScore(this.score);
     }
 
