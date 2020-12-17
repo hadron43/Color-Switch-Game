@@ -5,7 +5,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
-import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Paint;
@@ -14,7 +13,6 @@ import javafx.scene.transform.Scale;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.net.URISyntaxException;
 
 public class Main extends Application {
@@ -39,10 +37,11 @@ public class Main extends Application {
         colorSwitch = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/colorswitch.wav").toURI().toString()));
     }
 
-    public void playBackgroundMusic() {
+    public void playBackgroundMusic() throws URISyntaxException {
         if(musicOn) {
+            bgMusic = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/bgMusic.mp3").toURI().toString()));
             bgMusic.setCycleCount(MediaPlayer.INDEFINITE);
-            bgMusic.play();
+            bgMusic.setAutoPlay(true);
         }
         else{
             bgMusic.stop();
@@ -51,41 +50,63 @@ public class Main extends Application {
 
     public void playTapSound(){
         if (gameSounds){
-            tap.play();
-        }
-        else{
-            tap.stop();
+            try {
+                tap = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/jump.wav").toURI().toString()));
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+            tap.setAutoPlay(true);
         }
     }
 
     public void playKeyPressedSound(){
         if (gameSounds){
-            buttonPress.play();
+            try {
+                buttonPress = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/button.wav").toURI().toString()));
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+            buttonPress.setAutoPlay(true);
         }
     }
 
     public void playStarCollisionSound(){
         if (gameSounds){
-            star.play();
+            try {
+                star = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/star.wav").toURI().toString()));
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+            star.setAutoPlay(true);
         }
-        star.stop();
     }
 
     public void playObstacleCollisionSound(){
         if (gameSounds){
-            hit.play();
+            try {
+                hit = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/dead.wav").toURI().toString()));
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+            hit.setAutoPlay(true);
         }
     }
 
     public void playGameOverSound(){
         if (gameSounds){
-            over.play();
+            try {
+                over = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/start.wav").toURI().toString()));
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+            over.setAutoPlay(true);
         }
     }
 
-    public void playColourSwitchSound(){
+    public void playColourSwitchSound() throws URISyntaxException {
         if (gameSounds){
-            colorSwitch.play();
+            colorSwitch = new MediaPlayer(new Media(getClass().getResource("/assets/sounds/colorswitch.wav").toURI().toString()));
+            colorSwitch.setAutoPlay(true);
         }
     }
 
