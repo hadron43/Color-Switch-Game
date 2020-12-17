@@ -189,8 +189,8 @@ public class Game implements Serializable {
             try {
                 GameObjects go = (GameObjects) (pair.getKey().getDeclaredConstructor().newInstance());
                 if(go instanceof Ball) {
-                    ((Ball)go).getBallController().pause();
                     go.attachToPane((Pane)obstaclesBox.getParent(), (width/2-ball.getWidth()/2), pair.getValue());
+                    ((Ball)go).getBallController().pause();
                 }
                 else {
                     go.attachToPane(obstaclesBox, (width - go.getWidth())/2, pair.getValue());

@@ -1,5 +1,6 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -22,6 +23,8 @@ public class GameController implements Initializable, Serializable {
     Text score, resurrectCount;
 
     @FXML Text game_over_score, game_over_highscore;
+
+    @FXML ImageView inGameSaveBtn;
 
     private Game game;
 
@@ -104,5 +107,9 @@ public class GameController implements Initializable, Serializable {
             Main.getInstance().playKeyPressedSound();
             game.shiftObstacles();
         }
+    }
+
+    public void inGameSaveOption(MouseEvent mouseEvent) {
+
     }
 }

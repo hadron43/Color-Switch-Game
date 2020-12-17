@@ -95,7 +95,7 @@
                         </Pane>
 
                         <Pane prefHeight="133.0" prefWidth="133.0" styleClass="small-on-hover">
-                            <ImageView fitHeight="133" fitWidth="133.0" styleClass="settings-icon" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <ImageView fx:id="inGameSaveBtn" onMouseClicked="#inGameSaveOption" fitHeight="133" fitWidth="133.0" styleClass="settings-icon" GridPane.columnIndex="0" GridPane.rowIndex="1">
                                 <Image url="@../assets/settings/diskette.png" />
                             </ImageView>
                             <cursor>
