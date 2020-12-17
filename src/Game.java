@@ -64,6 +64,9 @@ public class Game implements Serializable {
         initialiseDateTime();
         objectsPosition = new ArrayList<>();
 
+        // For testing purpose
+        System.out.println("Old game score = " + player.getPlayerGame().score);
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/game.fxml"));
             root = loader.load();

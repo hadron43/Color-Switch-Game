@@ -136,7 +136,9 @@ public class Player implements Serializable {
     public Game getPlayerGame(){
         Iterator iterator = savedGamesMap.entrySet().iterator();
         if (iterator.hasNext()){
-            return (Game) iterator.next();
+            Map.Entry map_entry = (Map.Entry) iterator.next();
+            Game g = (Game) map_entry.getValue();
+            return g;
         }
         else{
             System.out.println("No game in hashmap!");
