@@ -55,7 +55,8 @@ public abstract class GameObjects {
         node.getChildren().add(pane);
         pane.setLayoutX(i);
         pane.setLayoutY(j);
-        pane.setStyle("-fx-border-color: white;");
+//        For adding border to each GameObject
+//        pane.setStyle("-fx-border-color: white;");
     }
 
     protected void loadFXMLtoPane(String FXMLPath) {

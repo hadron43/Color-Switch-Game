@@ -13,30 +13,34 @@
     <top>
         <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <left>
-                <VBox prefHeight="268.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
-                    <Pane maxWidth="101.0" minWidth="101.0" onMouseClicked="#loadSettings" prefHeight="101.0" prefWidth="101.0" styleClass="small-on-hover">
-                        <cursor>
-                            <Cursor fx:constant="HAND" />
-                        </cursor>
-                        <Circle layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey" />
-                        <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="18.0" layoutY="17.0">
-                            <Image url="@../assets/home/gear.png" />
-                        </ImageView>
-                    </Pane>
-                </VBox>
+            <AnchorPane>
+               <children>
+                       <Pane maxWidth="101.0" minWidth="101.0" onMouseClicked="#loadSettings" prefHeight="101.0" prefWidth="101.0" styleClass="small-on-hover">
+                           <cursor>
+                               <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <Circle layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey" />
+                           <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="18.0" layoutY="17.0">
+                               <Image url="@../assets/home/gear.png" />
+                           </ImageView>
+                       </Pane>
+               </children>
+            </AnchorPane>
             </left>
             <right>
-                <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
-                    <Pane onMousePressed="#loadAbout" prefHeight="101.0" prefWidth="100.0" styleClass="small-on-hover">
-                        <cursor>
-                            <Cursor fx:constant="HAND" />
-                        </cursor>
-                        <Circle layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey" />
-                        <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="17.0" layoutY="18.0">
-                            <Image url="@../assets/home/question-sign.png" />
-                        </ImageView>
-                    </Pane>
-                </VBox>
+            <AnchorPane>
+               <children>
+                       <Pane onMousePressed="#loadAbout" prefHeight="101.0" prefWidth="100.0" styleClass="small-on-hover">
+                           <cursor>
+                               <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <Circle layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" styleClass="fill-grey" />
+                           <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="17.0" layoutY="18.0">
+                               <Image url="@../assets/home/question-sign.png" />
+                           </ImageView>
+                       </Pane>
+               </children>
+            </AnchorPane>
             </right>
             <center>
                 <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
@@ -126,20 +130,19 @@
     <bottom>
         <BorderPane prefHeight="322.0" prefWidth="768.0">
             <left>
-                <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
-                    <padding>
-                        <Insets bottom="50.0" top="175.0" />
-                    </padding>
-                    <Pane fx:id="icon_1" onMouseClicked="#loadStats" prefHeight="101.0" prefWidth="90.0" styleClass="small-on-hover">
-                        <cursor>
-                            <Cursor fx:constant="HAND" />
-                        </cursor>
-                        <Circle fill="mediumvioletred" layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
-                        <ImageView fitHeight="55.0" fitWidth="58.0" layoutX="20.0" layoutY="24.0">
-                            <Image url="@../assets/home/trophy.png" />
-                        </ImageView>
-                    </Pane>
-                </VBox>
+            <AnchorPane prefHeight="323.0" prefWidth="100.0">
+               <children>
+                       <Pane fx:id="icon_1" onMouseClicked="#loadStats" prefHeight="101.0" prefWidth="100.0" styleClass="small-on-hover" AnchorPane.bottomAnchor="50.0">
+                           <cursor>
+                               <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <Circle fill="mediumvioletred" layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                           <ImageView fitHeight="55.0" fitWidth="58.0" layoutX="20.0" layoutY="24.0">
+                               <Image url="@../assets/home/trophy.png" />
+                           </ImageView>
+                       </Pane>
+               </children>
+            </AnchorPane>
             </left>
             <center>
                 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="359.0">
@@ -170,20 +173,19 @@
                 </VBox>
             </center>
             <right>
-                <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
-                    <padding>
-                        <Insets bottom="50.0" top="175.0" />
-                    </padding>
-                    <Pane fx:id="produced_btn" onMouseClicked="#loadProducedBy" prefHeight="101.0" prefWidth="100.0" styleClass="small-on-hover">
-                        <cursor>
-                            <Cursor fx:constant="HAND" />
-                        </cursor>
-                        <Circle fill="dodgerblue" layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
-                        <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="23.0" layoutY="22.0">
-                            <Image url="@../assets/home/instagram.png" />
-                        </ImageView>
-                    </Pane>
-                </VBox>
+            <AnchorPane>
+               <children>
+                       <Pane fx:id="produced_btn" onMouseClicked="#loadProducedBy" prefHeight="101.0" prefWidth="100.0" styleClass="small-on-hover" AnchorPane.bottomAnchor="50.0">
+                           <cursor>
+                               <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <Circle fill="dodgerblue" layoutX="50.0" layoutY="50.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                           <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="23.0" layoutY="22.0">
+                               <Image url="@../assets/home/instagram.png" />
+                           </ImageView>
+                       </Pane>
+               </children>
+            </AnchorPane>
             </right>
             <padding>
                 <Insets left="50.0" right="50.0" />
@@ -193,4 +195,7 @@
     <stylesheets>
         <URL value="@../style/style.css" />
     </stylesheets>
+   <padding>
+      <Insets bottom="25.0" />
+   </padding>
 </BorderPane>

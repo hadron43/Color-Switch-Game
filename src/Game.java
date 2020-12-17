@@ -38,7 +38,7 @@ public class Game implements Serializable {
 //     Includes Obstacles, ColourSwitcher's
     private final List<GameObjects> gameObjects;
 //    Constants Required
-    private static final double margin = 200, shift = 100, shiftDur = 30, width = 768, height = 1024, maxColorSwitcher = 2;
+    private static final double margin = 200, shift = 100, shiftDur = 30, width = 768, height = 1024, maxColorSwitcher = 3;
 //     For storing the score
     int score;
 //    For storing the list of all keyframes to be updated on a click
