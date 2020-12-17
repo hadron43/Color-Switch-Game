@@ -8,8 +8,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -27,6 +30,7 @@ public class Controller implements Initializable {
     @FXML private Text high_score, total_stars;
     @FXML private TableView game_table;
     @FXML private ToggleButton play_bgmusic_btn, play_sounds_btn, autosave_btn;
+    @FXML private GridPane savedGames;
 
     @FXML
     private void handleFeedback() throws Exception {
@@ -104,6 +108,11 @@ public class Controller implements Initializable {
     }
 
     @FXML
+    private void loadSavedGames(MouseEvent me) throws Exception {
+        Main.getInstance().loadSavedGames();
+    }
+
+    @FXML
     private void loadGamePage(MouseEvent me) throws Exception {
         Main.getInstance().loadGame();
     }
@@ -137,6 +146,21 @@ public class Controller implements Initializable {
     public void loadUserLogin(MouseEvent mouseEvent) throws Exception {
         Main.getInstance().setCurrentPlayer(null);
         Main.getInstance().loadUserLogin();
+    }
+
+    public void displaySavedGames() {
+        Object[][] matrix = getTableMatrix();
+        savedGames.add(new Text("Game Id  "), 0, 0,1,1);
+        savedGames.add(new Text("Last Played  "), 1, 0,1,1);
+        savedGames.add(new Text("Score"), 2, 0,1,1);
+        for(int i=0; i<Main.getInstance().getCurrentPlayer().getSavedGamesMap().size(); ++i) {
+            for(int j=0; j<3; ++j) {
+                Text text = new Text(matrix[i][j]+"  ");
+                text.setFill(Paint.valueOf("#ffffff"));
+                text.setTextAlignment(TextAlignment.CENTER);
+                savedGames.add(text, j, i+1, 1, 1);
+            }
+        }
     }
 
     public Object[][] getTableMatrix(){
