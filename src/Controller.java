@@ -4,6 +4,7 @@ import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -11,6 +12,7 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
+import javax.swing.text.TabableView;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
@@ -23,6 +25,7 @@ public class Controller implements Initializable {
     @FXML private ImageView ring_4, ring_5;
     @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn;
     @FXML private Text high_score, total_stars;
+    @FXML private TableView game_table;
 
     @FXML
     private void handleFeedback() throws Exception {

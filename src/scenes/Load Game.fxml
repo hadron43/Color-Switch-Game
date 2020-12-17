@@ -33,7 +33,7 @@
       </BorderPane>
     </top>
    <center>
-      <TableView BorderPane.alignment="CENTER">
+      <TableView fx:id="game_table" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn prefWidth="160.0" text="Game Id" />
           <TableColumn minWidth="0.0" prefWidth="263.0" text="Last Played On" />
