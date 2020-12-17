@@ -48,7 +48,7 @@
      </padding>
     </BorderPane>
 
-    <Pane fx:id="overlay" visible="true">
+    <Pane fx:id="overlay" visible="false">
         <Pane minHeight="1024" minWidth="768" opacity="0.7" style="-fx-background-color: #292929;">
 
         </Pane>
