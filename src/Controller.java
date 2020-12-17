@@ -15,6 +15,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -131,5 +133,28 @@ public class Controller implements Initializable {
     public void loadUserLogin(MouseEvent mouseEvent) throws Exception {
         Main.getInstance().setCurrentPlayer(null);
         Main.getInstance().loadUserLogin();
+    }
+
+    public Object[][] getTableMatrix(){
+        Map<Long, Game> game_map = Main.getInstance().getCurrentPlayer().getSavedGamesMap();
+        int col = 3;
+        int row = game_map.size();
+
+        Object[][] game_data = new Object[row][col];
+
+        int i = 0;
+
+        for (Map.Entry<Long, Game> map_element : game_map.entrySet()){
+            long id  = map_element.getKey();
+            String date_time = map_element.getValue().getDateTime();
+            int score = map_element.getValue().score;
+
+            game_data[i][0] = id;
+            game_data[i][1] = date_time;
+            game_data[i][2] = score;
+
+            i++;
+        }
+        return game_data;
     }
 }
