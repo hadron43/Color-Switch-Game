@@ -257,7 +257,7 @@ public class Main extends Application {
         main = this;
 
         toggleGameSounds();
-        //toggleMusic();
+        toggleMusic();
         toggleAutoSave();
         playBackgroundMusic();
 

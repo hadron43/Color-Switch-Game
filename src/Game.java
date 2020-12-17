@@ -177,6 +177,7 @@ public class Game implements Serializable {
             Main.getInstance().scale(root);
             gameController = loader.getController();
             gameController.setGame(this);
+            gameController.setScore(score);
             obstaclesBox = gameController.obstaclesBox;
         } catch (IOException e) {
             e.printStackTrace();
@@ -346,6 +347,10 @@ public class Game implements Serializable {
         gameObjects.remove(obstacle);
     }
 
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
     class Collision implements Runnable {
         @Override
         public void run() {
@@ -388,6 +393,7 @@ public class Game implements Serializable {
                                 }
                                 else
                                     ball.getBallController().resume();
+
                             }
                         }
                     }
