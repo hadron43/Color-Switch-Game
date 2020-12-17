@@ -112,12 +112,12 @@ public class Player implements Serializable {
     }
 
 
-    public Game findGame(long input_id) throws GameNotFoundException {
+    public Game findGame(long input_id) {
         if (savedGamesMap.containsKey(input_id)){
             return savedGamesMap.get(input_id);
         }
         else{
-            throw new GameNotFoundException("No saved game found for the given ID!");
+            return null;
         }
     }
 

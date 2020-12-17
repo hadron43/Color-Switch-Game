@@ -1,3 +1,4 @@
+import global.GameNotFoundException;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
@@ -9,6 +10,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
@@ -27,6 +29,8 @@ public class Controller implements Initializable {
     @FXML private Text high_score, total_stars;
     @FXML private TableView game_table;
     @FXML private ToggleButton play_bgmusic_btn, play_sounds_btn, autosave_btn;
+    @FXML private TextField game_id_input;
+    @FXML private Text game_found_status;
 
     @FXML
     private void handleFeedback() throws Exception {
@@ -173,5 +177,32 @@ public class Controller implements Initializable {
 
     public void toggleAutoSave(MouseEvent mouseEvent){
         Main.getInstance().toggleAutoSave();
+    }
+
+    public void fetch_saved_game(MouseEvent mouseEvent){
+        try {
+            if (game_id_input.getText() == null || game_id_input.getText().trim().isEmpty()) {
+                throw new NullPointerException();
+            }
+
+            String input_id = game_id_input.getText();
+
+            Game selected_game = Main.getInstance().getCurrentPlayer().findGame(Integer.parseInt(input_id));
+            if (selected_game != null){
+                selected_game.resumeGame();
+            }
+            else{
+                throw new GameNotFoundException("No game found for entered ID");
+            }
+
+        }
+        catch (NullPointerException | NumberFormatException e){
+            game_found_status.setFill(Color.RED);
+            game_found_status.setText("Invalid ID entered");
+        }
+        catch (GameNotFoundException e) {
+            game_found_status.setFill(Color.RED);
+            game_found_status.setText("No saved game found for entered ID");
+        }
     }
 }
