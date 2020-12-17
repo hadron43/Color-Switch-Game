@@ -266,7 +266,7 @@ public class Game implements Serializable {
                                 // Collision with star
                                 updateGameScore();
                             }
-                            if (ret == 1 && object.getPane().isVisible()){
+                            if (ret == 1){
                                 // Collision with obstacle
                                 setGameOver((Obstacle) object);
                                 return;

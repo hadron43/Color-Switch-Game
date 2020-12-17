@@ -4,6 +4,7 @@ import elements.controllers.StarController;
 import global.Collideable;
 import global.GameObjects;
 import javafx.geometry.Bounds;
+import javafx.scene.image.Image;
 import javafx.scene.shape.Shape;
 
 public class Star extends GameObjects implements Collideable {
@@ -30,8 +31,24 @@ public class Star extends GameObjects implements Collideable {
         if (Shape.intersect(starController.collisionRect, b.getBallController().circle_ball).getBoundsInLocal().getWidth() != -1){
             result = 1;
             active = false;
-            getPane().setOpacity(0);
+            starController.star.setOpacity(0);
+            new Thread(() -> {
+                redeem();
+            }).start();
         }
         return result;
+    }
+
+    private void redeem() {
+        starController.img.setImage(new Image("assets/animated-star.gif"));
+        starController.star.setOpacity(1);
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        starController.star.setOpacity(0);
     }
 }

@@ -6,7 +6,7 @@
 <?import java.net.URL?>
 <?import javafx.scene.shape.Rectangle?>
 <Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="star" fx:controller="elements.controllers.StarController" minHeight="75.0" maxHeight="75" minWidth="75.0" maxWidth="75" xmlns="http://javafx.com/javafx/11.0.1">
-    <ImageView fitWidth="75" fitHeight="75">
+    <ImageView fx:id="img" fitWidth="75" fitHeight="75">
         <Image url="@/assets/game/star.png" />
     </ImageView>
     <Rectangle fx:id="collisionRect" width="75" height="75" opacity="0">

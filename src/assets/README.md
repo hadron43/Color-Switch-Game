@@ -17,4 +17,5 @@ This contains the references for all the resources used.
 - `game/tap.png` <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from www.flaticon.com
 - `game/star.png` <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from www.flaticon.com
 - `rating-icon.png` <a href="https://www.flaticon.com/free-icon/rate_3163742?related_item_id=3163742&term=rating&related_item_id=3163742" title="photo3idea_studio">photo3idea_studio</a> from www.flaticon.com
+- `animated-star.gif` <a href="https://www.animatedimages.org/cat-stars-280.htm">AnimatedImages.org</a>
 
