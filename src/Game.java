@@ -36,7 +36,7 @@ public class Game implements Serializable {
 //    date and time when the game was last played
     private String date_time;
 //     Includes Obstacles, ColourSwitcher's
-    private final List<GameObjects> gameObjects;
+    private transient final List<GameObjects> gameObjects;
 //    Constants Required
     private static final double margin = 200, shift = 100, shiftDur = 30, width = 768, height = 1024, maxColorSwitcher = 3;
 //     For storing the score
@@ -245,7 +245,7 @@ public class Game implements Serializable {
         player.setStarsEarned(player.getStarsEarned() + score);
         Main.getInstance().loadGameOver(score, player.getHighScore());
 
-        player.saveGame(this);
+//        player.saveGame(this);
 
 //        if (player.getStarsEarned() > resurrection_stars){
 //            System.out.println("Resurrection possible!");
