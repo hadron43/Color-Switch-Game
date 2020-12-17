@@ -27,7 +27,7 @@ public class Controller implements Initializable {
     @FXML private Pane ring_1, ring_2, ring_3, icon_1, produced_btn;
     @FXML private Text high_score, total_stars;
     @FXML private TableView game_table;
-    @FXML private ToggleButton play_bgmusic_btn, play_sounds_btn;
+    @FXML private ToggleButton play_bgmusic_btn, play_sounds_btn, autosave_btn;
 
     @FXML
     private void handleFeedback() throws Exception {
@@ -170,5 +170,9 @@ public class Controller implements Initializable {
 
     public void playSounds(MouseEvent mouseEvent) {
         Main.getInstance().toggleGameSounds();
+    }
+
+    public void toggleAutoSave(MouseEvent mouseEvent){
+        Main.getInstance().toggleAutoSave();
     }
 }

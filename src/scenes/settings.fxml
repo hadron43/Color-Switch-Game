@@ -47,7 +47,7 @@
          <ImageView fitHeight="75.0" fitWidth="75.0" styleClass="settings-icon" GridPane.columnIndex="0" GridPane.rowIndex="0">
             <Image url="@../assets/settings/diskette.png" />
          </ImageView>
-         <ToggleButton styleClass="settings-button" text="ENABLE AUTO SAVE" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+         <ToggleButton fx:id="autosave_btn" onMouseClicked="#toggleAutoSave" styleClass="settings-button" text="ENABLE AUTO SAVE" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
          <ImageView fitHeight="75.0" fitWidth="75.0" styleClass="settings-icon" GridPane.columnIndex="0" GridPane.rowIndex="1">
             <Image url="@../assets/settings/music.png" />

@@ -224,9 +224,9 @@ public class Main extends Application {
         primaryStage.setTitle("Color Switch");
         main = this;
 
-//        toggleGameSounds();
-//        playTapSound();
+        toggleGameSounds();
         toggleMusic();
+        toggleAutoSave();
         playBackgroundMusic();
 
         loadUserLogin();
