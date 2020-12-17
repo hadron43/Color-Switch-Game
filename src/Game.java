@@ -38,7 +38,7 @@ public class Game implements Serializable {
 //     Includes Obstacles, ColourSwitcher's
     private final List<GameObjects> gameObjects;
 //    Constants Required
-    private static final double margin = 200, shift = 100, shiftDur = 30, width = 768, height = 1024, maxColorSwitcher = 3;
+    private static final double margin = 200, shift = 100, shiftDur = 300, width = 768, height = 1024, maxColorSwitcher = 3;
 //     For storing the score
     int score;
 //    For storing the list of all keyframes to be updated on a click
@@ -155,7 +155,7 @@ public class Game implements Serializable {
             newObstacle();
         }
 
-        ball.attachToPane(root, (width/2-ball.getWidth()/2), gameObjects.get(0).getPosY().getValue() - ball.getHeight() - 10);
+        ball.attachToPane((Pane)obstaclesBox.getParent(), (width/2-ball.getWidth()/2), gameObjects.get(0).getPosY().getValue() - ball.getHeight() - 10);
 
         Thread collisionThread = new Thread(new Collision(), "Collision Thread");
         collisionThread.start();
@@ -165,9 +165,8 @@ public class Game implements Serializable {
         double shiftExcess = Math.min(shift, ball.getBallController().moveUp());
         Timeline timeline = new Timeline();
         timeline.setCycleCount(1);
-        timeline.setRate(0.1);
         for(DoubleProperty property : objectsPosProperty) {
-            KeyValue keyValue = new KeyValue(property, property.getValue() + shiftExcess);
+            KeyValue keyValue = new KeyValue(property, property.getValue() + shiftExcess*1.5);
             timeline.getKeyFrames().add(new KeyFrame(Duration.millis(shiftDur), keyValue));
         }
         timeline.play();
