@@ -50,10 +50,7 @@ public class Game implements Serializable {
 //    Min number of stars for which resurrection can be offered to player
     private final int resurrection_stars = 10;
 
-//     Controller With this Class
-    private GameController gameController;
-    @FXML
-    private Pane obstaclesBox, root;
+    private volatile boolean gameOver;
 
     public Game(Player player, Scene scene) {
         this.player = player;
@@ -75,7 +72,17 @@ public class Game implements Serializable {
             e.printStackTrace();
         }
         ball = new Ball();
+        gameOver = false;
         initializeGame();
+    }
+
+//     Controller With this Class
+    private GameController gameController;
+    @FXML
+    private Pane obstaclesBox, root;
+
+    private synchronized void toggleGameOver() {
+        gameOver = !gameOver;
     }
 
     private void attachGameObject(GameObjects ob) {
@@ -139,7 +146,7 @@ public class Game implements Serializable {
 
         ball.attachToPane(root, (width/2-ball.getWidth()/2), gameObjects.get(0).getPosY().getValue() - ball.getHeight() - 10);
 
-        Thread collisionThread = new Thread(new collisionThread(), "Collision Thread");
+        Thread collisionThread = new Thread(new Collision(), "Collision Thread");
         collisionThread.start();
     }
 
@@ -220,6 +227,7 @@ public class Game implements Serializable {
 
     private void setGameOver(Obstacle obstacle) throws Exception {
         int player_highscore = player.getHighScore();
+        toggleGameOver();
         if (score > player_highscore) {
             player.setHighScore(score);
         }
@@ -243,13 +251,18 @@ public class Game implements Serializable {
         obstacle.getPane().setVisible(false);
     }
 
-    class collisionThread implements Runnable {
+    class Collision implements Runnable {
         @Override
         public void run() {
             long counter = 0;
             for (int i=0; ;++i) {
                 if(i == -1) {
                     System.out.println("Invalid State! i is -1!");
+                    return;
+                }
+                if(gameOver) {
+                    System.out.println("Game is now over, exiting collision thread");
+                    return;
                 }
                 try {
                     GameObjects object = gameObjects.get(i);
