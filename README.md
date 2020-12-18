@@ -1,6 +1,6 @@
 # Color-Switch-Game
 
-CSE231 - Advanced Programming  
+CSE201 - Advanced Programming  
 Monsoon 2020 - Group Project
 
 ## Development Dependencies
