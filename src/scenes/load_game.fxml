@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -50,13 +51,18 @@
     <bottom>
         <VBox spacing="25.0">
             <HBox>
-               <TextField fx:id="game_id_input" prefHeight="86.0" prefWidth="360.0">
+               <TextField fx:id="game_id_input" prefHeight="86.0" prefWidth="332.0" promptText="Enter game ID">
                <HBox.margin>
-                  <Insets left="25.0" right="25.0" />
+                  <Insets left="25.0" right="60.0" />
                </HBox.margin></TextField>
-                <Button onMouseClicked="#fetch_saved_game" prefHeight="86.0" prefWidth="186.0" text="Load">
-
-                </Button>
+                <Button onMouseClicked="#fetch_saved_game" prefHeight="86.0" prefWidth="186.0" style="-fx-font-size: 40;" text="Load" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <styleClass>
+                  <String fx:value="small-on-hover" />
+                  <String fx:value="login_page_button" />
+               </styleClass></Button>
             </HBox>
             <BorderPane>
                 <center>
