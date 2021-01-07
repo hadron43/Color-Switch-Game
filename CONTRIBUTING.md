@@ -53,17 +53,17 @@ Working Directory: <path_to_project>/out/production/Color-Switch-Game
 
 ### Windows
 
-- Setting up `Java` : Download the [JDK](https://www.oracle.com/java/technologies/javase-jdk15-downloads.html) (Recommended version 15.0.1) executable or zip archive and install it on your system. 
+- *Setting up `Java`* : Download the [JDK](https://www.oracle.com/java/technologies/javase-jdk15-downloads.html) (Recommended version 15.0.1) executable or zip archive and install it on your system. 
 
 
-- Installing `IntelliJ IDEA` : We recommend using IntelliJ IDEA by JetBrains for working on this project. To use the Community Edition, you can download the executable or zip archive from [here](https://www.jetbrains.com/idea/download/#section=windows).
+- *Installing `IntelliJ IDEA`* : We recommend using IntelliJ IDEA by JetBrains for working on this project. To use the Community Edition, you can download the executable or zip archive from [here](https://www.jetbrains.com/idea/download/#section=windows).
 
 
-- Installing `JavaFX` : Download [JavaFX](https://gluonhq.com/products/javafx/) (Recommended version 15.0.1). Extract the
+- *Installing `JavaFX`* : Download [JavaFX](https://gluonhq.com/products/javafx/) (Recommended version 15.0.1). Extract the
 file in a suitable place. Note the full path of `lib` folder.
 
   
-- Fetch the source code of this project : `Fork` this repository. Copy the link of the forked repository. It should look 
+- *Fetch the source code of this project* : `Fork` this repository. Copy the link of the forked repository. It should look 
 like `https://github.com/<USERNAME>/Color-Switch-Game`. You can download [Git for Windows](https://gitforwindows.org/) and use Git Bash, which provides a Bash emulation for using Git through command line interface.
 
     Open Git Bash and set the current directory to a suitable location where you would like to save this project. To clone the project repository, use the command:
@@ -72,7 +72,7 @@ git clone https://github.com/<USERNAME>/Color-Switch-Game
 ```
 
 
-- Setting Up the project : Open the project folder in `IntelliJ IDEA`. A `.idea` folder will be created. It contains the project metadata.
+- *Setting up the project* : Open the project folder in `IntelliJ IDEA`. A `.idea` folder will be created. It contains the project metadata.
   Go to `Run > Edit Configurations...`. After this, click on `+` symbol to add configuration, choose `Application`from dropdown. The `Main` class provides entry point into the JavaFX application.
 
   Click on `Modify Options` and choose `Add VM Options`. Fill the following fields:
@@ -88,7 +88,7 @@ Working Directory: <path_to_project>/out/production/Color-Switch-Game
   
 #### Optional
 
-- Installing `SceneBuilder` : It is advisable to use SceneBuilder for designing the GUI components. The layout is saved by SceneBuilder in FXML files which are interpreted to render the GUI. Download [Scene Builder](https://gluonhq.com/products/scene-builder/) (Recommended version 11.0.0). Select the Windows Installer option.  
+- *Installing `Scene Builder`* : It is advisable to use Scene Builder for designing the GUI components. The layout is saved by SceneBuilder in FXML files which are interpreted to render the GUI. Download [Scene Builder](https://gluonhq.com/products/scene-builder/) (Recommended version 11.0.0). Select the Windows Installer option.  
 
 ***Now you are ready to run this project! Click on run button on top right corner.***
 
@@ -103,7 +103,7 @@ There are three major steps to add a new obstacle to this Game.
   
 ### Step 1 : Adding FXML file
 
-This file decides the basic layout of the obstacle. Open `Scene Builder` and create a new layout and save it into 
+This file decides the basic layout of the obstacle. Open `Scene Bhilder` and create a new layout and save it into 
 `src/obstacles/fxml`.
 
 #### Important things to keep in mind
