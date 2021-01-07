@@ -46,7 +46,7 @@ Working Directory: <path_to_project>/out/production/Color-Switch-Game
 #### Optional
 
 - Installing `scenebuilder` : This is required if you want to edit `FXML` files with ease. Download 
-  [Scene Builder](https://gluonhq.com/products/scene-builder/) (Recommended version 15). Choose the `Linux Deb` 
+  [Scene Builder](https://gluonhq.com/products/scene-builder/) (Recommended version 11.0.0). Choose the `Linux Deb` 
   format for easy installation. Simply double-click on `.deb` file and install it on your system. 
 
 ***Now you are ready to run this project! Click on run button on top right corner.***
