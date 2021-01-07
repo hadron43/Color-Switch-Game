@@ -1,2 +1,3 @@
-out/
+out/production/Color-Switch-Game/*
+!out/production/Color-Switch-Game/DoNotDeleteThis
 .idea/
