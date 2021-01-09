@@ -1,5 +1,7 @@
 # Contributing Guidelines
 
+***Thanks for taking out time to contribute!***
+
 Any contributions are highly appreciated. Add customised obstacles, and make the game more interesting for everyone! 
 
 ## Setup Up Development Environment
