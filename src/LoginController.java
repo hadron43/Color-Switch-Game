@@ -142,6 +142,8 @@ public class LoginController implements Initializable {
         System.out.println(filename);
         String filepath = "./data/player_data/" + filename;
 
+        new File("data/player_data/").mkdirs();
+
         ObjectOutputStream out = null;
         try {
             out = new ObjectOutputStream(new FileOutputStream(filepath));
@@ -156,6 +158,8 @@ public class LoginController implements Initializable {
         String filename = player.getFileName();
         System.out.println(filename);
         String filepath = "./data/player_data/" + filename;
+
+        new File("data/player_data/").mkdirs();
 
         Player p = null;
         ObjectInputStream in = null;

@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Main-Class: Launcher
+Class-Path: javafx-swt.jar javafx.web.jar javafx.base.jar javafx
+ .fxml.jar javafx.media.jar javafx.swing.jar javafx.controls.jar javafx.
+ graphics.jar
+
