@@ -25,3 +25,7 @@ sudo apt-get install openjfx
 ```shell
 java -jar Color-Switch-Game.jar
 ```
+
+## In Game Screenshots
+
+![collage](https://user-images.githubusercontent.com/55682057/104103503-78e2d300-52c8-11eb-857c-03a85bc40a3e.jpg)
